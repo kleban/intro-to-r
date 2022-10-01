@@ -1,5 +1,9 @@
 ---
-title: "Про матеріали"
+title: "My document"
+format:
+  html:
+    toc: true
+    html-math-method: katex
 ---
 
 # Preface {.unnumbered}

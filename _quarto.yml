@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: _book
+  output-dir: docs
 
 book:
   title: "Вступ до програмування в R"
@@ -19,8 +19,6 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
 
 
 
