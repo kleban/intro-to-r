@@ -7,3 +7,7 @@ tlmgr install oberdiek
 quarto preview .
 quarto render .
 quarto publish gh-pages
+
+1. Render
+2. Pull to github
+3. publish
