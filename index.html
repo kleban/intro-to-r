@@ -33,6 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./intro.html" rel="next">
+<link href="./img/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -85,6 +86,30 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Вступ до програмування в R</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/kleban/r-intro/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+    </ul>
+</div>
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -101,22 +126,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Вступ</span></a>
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Вступ</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./jupyter-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">ggplot2 demo</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./jupyter-csharp.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">C# Title</span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -135,7 +150,9 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#про-курс" id="toc-про-курс" class="nav-link active" data-scroll-target="#про-курс">Про курс</a>
   <ul class="collapse">
-  <li><a href="#yeah" id="toc-yeah" class="nav-link" data-scroll-target="#yeah">Yeah</a></li>
+  <li><a href="#опис-навчальної-дисципліни" id="toc-опис-навчальної-дисципліни" class="nav-link" data-scroll-target="#опис-навчальної-дисципліни">Опис навчальної дисципліни</a></li>
+  <li><a href="#мета-дисципліни" id="toc-мета-дисципліни" class="nav-link" data-scroll-target="#мета-дисципліни">Мета дисципліни</a></li>
+  <li><a href="#дотримання-принципів-доброчесності" id="toc-дотримання-принципів-доброчесності" class="nav-link" data-scroll-target="#дотримання-принципів-доброчесності">Дотримання принципів доброчесності</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -172,13 +189,46 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+
 <section id="про-курс" class="level1 unnumbered">
-<h1 class="unnumbered">Про курс</h1>
-<p>This is a Quarto book.</p>
-<section id="yeah" class="level2">
-<h2 class="anchored" data-anchor-id="yeah">Yeah</h2>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
-<pre class="{toc}"><code></code></pre>
+<p><img src="img/cover.png" title="Вступ до програмування в R" class="quarto-cover-image img-fluid"></p><h1 class="unnumbered">Про курс</h1>
+<p>Матеріали підготовлені для читання курсу <strong><em>“Вступ до програмування в R”</em></strong> <code>[08.435]</code> для студентів 1-го року навчання, спеціальності економічна кібернетика.</p>
+<section id="опис-навчальної-дисципліни" class="level2">
+<h2 class="anchored" data-anchor-id="опис-навчальної-дисципліни">Опис навчальної дисципліни</h2>
+<p>Навчальна дисципліна спрямована на вивчення основ прикладного математичного моделювання з використаням різних видів моделей та підходів до їх побудови, а також удосокналенню процесів роботи з даними та моделями на основі мови R.</p>
+<p><em>Місце навчальної дисципліни у підготовці здобувачів</em>: програмні результати дисципліни використовуються під час вивчення таких навчальних дисциплін: “Математичні методи та моделі в аналізі великих даних”, “Економічна кібернетика”, “Дослідження операцій”, “Інтелектуальні технології моделювання у прийнятті рішень”. Закріплення на практиці здобутих програмних результатів відбувається під час проходження Навчальної практики з курсу «Економіко-математичне моделювання».</p>
+</section>
+<section id="мета-дисципліни" class="level2">
+<h2 class="anchored" data-anchor-id="мета-дисципліни">Мета дисципліни</h2>
+<p>Мета навчальної дисципліни – формування у студентів теоретичних знань та практичних навичок використання мови програмування R для побудови, навчання та оцінки якості математичних моделей на основі регресії, класифікації, кластеризації та асоціативних правил.</p>
+</section>
+<section id="дотримання-принципів-доброчесності" class="level2">
+<h2 class="anchored" data-anchor-id="дотримання-принципів-доброчесності">Дотримання принципів доброчесності</h2>
+<p>Викладач та слухач цього курсу, як очікується, повинні дотримуватися Кодексу академічної доброчесності університету:</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" checked="">будь-яка робота, подана здобувачем протягом курсу, має бути його власною роботою здобувача; не вдаватися до кроків, що можуть нечесно покращити Ваші результати чи погіршити/покращити результати інших здобувачів;</p></li>
+<li><p><input type="checkbox" disabled="" checked="">якщо буде виявлено ознаки плагіату або іншої недобросовісної академічної поведінки, то студент буде позбавлений можливості отримати передбачені бали за завдання;</p></li>
+<li><p><input type="checkbox" disabled="" checked="">не публікувати у відкритому доступі відповіді на запитання, що використовуються в рамках курсу для оцінювання знань здобувачів;</p></li>
+<li><p><input type="checkbox" disabled="" checked="">під час фінальних видів контролю необхідно працювати самостійно; не дозволяється говорити або обговорювати, а також не можна копіювати документи, використовувати електронні засоби отримання інформації.</p></li>
+</ul>
+<p>Порушення академічної доброчесності під час виконання контрольних завдань призведе до втрати балів або вживання заходів, які передбачені Кодексу академічної доброчесності НаУОА.</p>
+<hr>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Матеріали курсу створені з використанням ряду технологій:</p>
+<ul class="task-list">
+<li><p><input type="checkbox" disabled="" checked=""><a href="@r-cran"><code>R</code> Language</a> - безкоштована мова програмування для виконання досліджень у сфері статистики, машинного навчання та візуалізацї результатів.</p></li>
+<li><p><input type="checkbox" disabled="" checked=""><a href="https://quarto.org"><code>Quarto</code> Book</a> - система для публікації наукових та технічних текстів з відкритим кодом (<code>R</code>/<code>Python</code>/<code>Julia</code>/<code>Observable</code>).</p></li>
+<li><p><input type="checkbox" disabled="" checked=""><a href="https://github.com/jupyterlab/jupyterlab"><code>JupyterLab</code></a> - середовище розробки на основі <a href="https://jupyter.org/"><code>Jupyter Notebook</code></a>. <code>JupyterLab</code> є розширеним веб-інтерфейсом для роботи з ноутбуками.</p></li>
+<li><p><input type="checkbox" disabled="" checked=""><code>Git</code>/<code>Github</code> - система контролю версій та, відповідно, сервіс для організації зберігання коду, а також публікації статичних сторінок.</p></li>
+</ul>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -288,7 +338,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./intro.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Вступ</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Вступ</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
