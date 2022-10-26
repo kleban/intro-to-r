@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.1.251">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Юрій Клебан">
-<meta name="dcterms.date" content="2024-06-11">
-
+<meta name="dcterms.date" content="2022-10-26">
 <title>Вступ до програмування в R - 3&nbsp; Вcтановлення та налаштування R</title>
 <style>
 code{white-space: pre-wrap;}
@@ -22,8 +19,89 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -43,8 +121,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -62,50 +139,42 @@ ul.task-list li input[type="checkbox"] {
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-
-
-<link rel="stylesheet" href="css/style.css">
+}</script><link rel="stylesheet" href="css/style.css">
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Вcтановлення та налаштування R</span></h1>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Вcтановлення та налаштування R</span>
+</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Вступ до програмування в R</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/kleban/r-intro/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+<li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
             <i class="bi bi-bi-twitter pe-1"></i>
           Twitter
           </a>
         </li>
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
             <i class="bi bi-bi-facebook pe-1"></i>
           Facebook
           </a>
         </li>
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
             <i class="bi bi-bi-linkedin pe-1"></i>
           LinkedIn
           </a>
@@ -121,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">Про курс</a>
   </div>
@@ -138,15 +207,15 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-what-is-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Що таке R?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-r-history.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Коротка історія миови R</span></a>
+  <a href="./02-r-history.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Коротка історія мови R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -165,7 +234,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Базовий синтаксис R</a>
@@ -173,34 +242,34 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-r-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Змінні</span></a>
+  <a href="./06-r-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">[-] Змінні</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-r-basic-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Базові типи даних</span></a>
+  <a href="./07-r-basic-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">[-] Базові типи даних</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-r-operators.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Оператори</span></a>
+  <a href="./08-r-operators.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">[-] Оператори</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Корисні математичні функції</span></a>
+  <a href="./09-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">[-] Корисні математичні функції</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Створення функції</span></a>
+  <a href="./10-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">[-] Створення функції</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Робота з даними у R</a>
@@ -208,42 +277,55 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Вектори</span></a>
+  <a href="./11-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">[-] Вектори</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Дата-фрейми</span></a>
+  <a href="./12-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">[-] Дата-фрейми</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Списки</span></a>
+  <a href="./13-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">[-] Списки</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">Список використаних джерел</a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Зміст</h2>
+   
+  <ul>
+<li><a href="#%D0%B7%D0%B0%D0%B2%D0%B0%D0%BD%D1%82%D0%B0%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F-%D1%82%D0%B0-%D1%96%D0%BD%D1%81%D1%82%D0%B0%D0%BB%D1%8F%D1%86%D1%96%D1%8F-r" id="toc-завантаження-та-інсталяція-r" class="nav-link active" data-scroll-target="#%D0%B7%D0%B0%D0%B2%D0%B0%D0%BD%D1%82%D0%B0%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F-%D1%82%D0%B0-%D1%96%D0%BD%D1%81%D1%82%D0%B0%D0%BB%D1%8F%D1%86%D1%96%D1%8F-r"><span class="toc-section-number">3.1</span>  Завантаження та інсталяція R</a></li>
+  <li><a href="#%D0%BF%D0%B5%D1%80%D1%88%D0%B8%D0%B9-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-r-gui" id="toc-перший-запуск-r-gui" class="nav-link" data-scroll-target="#%D0%BF%D0%B5%D1%80%D1%88%D0%B8%D0%B9-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-r-gui"><span class="toc-section-number">3.2</span>  Перший запуск <code>R GUI</code></a></li>
+  <li><a href="#%D0%BF%D0%BE%D0%BD%D1%8F%D1%82%D1%82%D1%8F-%D1%80%D0%BE%D0%B1%D0%BE%D1%87%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D1%80%D1%83" id="toc-поняття-робочого-простору" class="nav-link" data-scroll-target="#%D0%BF%D0%BE%D0%BD%D1%8F%D1%82%D1%82%D1%8F-%D1%80%D0%BE%D0%B1%D0%BE%D1%87%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D1%80%D1%83"><span class="toc-section-number">3.3</span>  Поняття робочого простору</a></li>
+  <li><a href="#%D0%BF%D0%BE%D0%BD%D1%8F%D1%82%D1%82%D1%8F-%D1%80%D0%BE%D0%B1%D0%BE%D1%87%D0%BE%D0%B3%D0%BE-%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3%D1%83" id="toc-поняття-робочого-каталогу" class="nav-link" data-scroll-target="#%D0%BF%D0%BE%D0%BD%D1%8F%D1%82%D1%82%D1%8F-%D1%80%D0%BE%D0%B1%D0%BE%D1%87%D0%BE%D0%B3%D0%BE-%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3%D1%83"><span class="toc-section-number">3.4</span>  Поняття робочого каталогу</a></li>
+  <li>
+<a href="#%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B0-%D0%B7-rstudio" id="toc-робота-з-rstudio" class="nav-link" data-scroll-target="#%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B0-%D0%B7-rstudio"><span class="toc-section-number">3.5</span>  Робота з <code>RStudio</code></a>
+  <ul class="collapse">
+<li><a href="#%D0%B7%D0%B0%D0%B2%D0%B0%D0%BD%D1%82%D0%B0%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F-%D1%82%D0%B0-%D1%96%D0%BD%D1%81%D1%82%D0%B0%D0%BB%D1%8F%D1%86%D1%96%D1%8F-rstudio-desktop" id="toc-завантаження-та-інсталяція-rstudio-desktop" class="nav-link" data-scroll-target="#%D0%B7%D0%B0%D0%B2%D0%B0%D0%BD%D1%82%D0%B0%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F-%D1%82%D0%B0-%D1%96%D0%BD%D1%81%D1%82%D0%B0%D0%BB%D1%8F%D1%86%D1%96%D1%8F-rstudio-desktop"><span class="toc-section-number">3.5.1</span>  Завантаження та інсталяція <code>RStudio Desktop</code></a></li>
+  <li><a href="#%D1%81%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%D0%BD%D1%8F-%D0%BF%D0%B5%D1%80%D1%88%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D1%83-%D0%B2-rstudio" id="toc-створення-першого-проекту-в-rstudio" class="nav-link" data-scroll-target="#%D1%81%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%D0%BD%D1%8F-%D0%BF%D0%B5%D1%80%D1%88%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D1%83-%D0%B2-rstudio"><span class="toc-section-number">3.5.2</span>  Створення першого проекту в RStudio</a></li>
+  </ul>
+</li>
+  <li><a href="#%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B0-%D0%B7-jupyter-notebook" id="toc-робота-з-jupyter-notebook" class="nav-link" data-scroll-target="#%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B0-%D0%B7-jupyter-notebook"><span class="toc-section-number">3.6</span>  Робота з <code>Jupyter Notebook</code></a></li>
+  <li><a href="#%D0%BE%D0%B3%D0%BB%D1%8F%D0%B4-%D0%B4%D0%BE%D0%B4%D0%B0%D1%82%D0%BA%D0%BE%D0%B2%D0%B8%D1%85-ide-%D1%82%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D1%96%D1%81%D1%96%D0%B2-%D0%B4%D0%BB%D1%8F-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8-%D0%B7-r" id="toc-огляд-додаткових-ide-та-сервісів-для-роботи-з-r" class="nav-link" data-scroll-target="#%D0%BE%D0%B3%D0%BB%D1%8F%D0%B4-%D0%B4%D0%BE%D0%B4%D0%B0%D1%82%D0%BA%D0%BE%D0%B2%D0%B8%D1%85-ide-%D1%82%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D1%96%D1%81%D1%96%D0%B2-%D0%B4%D0%BB%D1%8F-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8-%D0%B7-r"><span class="toc-section-number">3.7</span>  Огляд додаткових IDE та сервісів для роботи з R</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Вcтановлення та налаштування R</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title d-none d-lg-block">
+<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Вcтановлення та налаштування R</span>
+</h1>
 </div>
 
 
@@ -260,20 +342,454 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Опубліковано</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 11, 2024</p>
+      <p class="date">October 26, 2022</p>
     </div>
   </div>
     
   </div>
   
 
-</header>
+</header><p><code>R</code> є безкоштовним програмним забезпеченням, що розповсюджується за умовами <a href="https://www.r-project.org/COPYING">GNU General Public License</a>. Код, написаний на <code>R</code> компілюється та запускається на різних платформах: UNIX, Windows, MacOS <span class="citation" data-cites="r-base">(<a href="references.html#ref-r-base" role="doc-biblioref">R Core Team 2020</a>)</span>.</p>
+<section id="завантаження-та-інсталяція-r" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="завантаження-та-інсталяція-r">
+<span class="header-section-number">3.1</span> Завантаження та інсталяція R</h2>
+<p>Для завантаження актуальної версії <code>R</code> варто перейти на сайт проекту <a href="https://cran.r-project.org/">https://cran.r-project.org/</a>.</p>
+<p>На сайті обираємо завантаження <code>R</code> для потрібної операційної системи. У межах курсу ми вокристовуємо <code>ОС Windows</code>, проте на синтаксис мови програмування та процес написання коду це не впливає:</p>
+<div id="fig-rgui-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/r_gui_1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.1: Завантаження R. Вибір ОС</figcaption><p></p>
+</figure>
+</div>
+<p>У наступному вікні клікаємо на <strong>install R for the first time</strong>:</p>
+<div id="fig-rgui-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/r_gui_2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.2: Завантаження R. Перша інсталяція</figcaption><p></p>
+</figure>
+</div>
+<p>Далі обираємо <strong>Download R 4.X.X for Windows</strong>, де <code>4.X.X</code> версія <code>R</code>, яка може бути відмінною на момент вивчення курсу:</p>
+<div id="fig-rgui-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/r_gui_3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.3: Завантаження R. Завантаження версії для ОС</figcaption><p></p>
+</figure>
+</div>
+<p>Після завантаження файлу інсталяції потрібно його запустити. Зазвичай завантажений файл можна побачити у лівому нижному кутку браузера або у розділі “Завантаження” Вашого браузера. Наприклад, у браузері <code>Google Chrome</code> знайти цей пункт меню так:</p>
+<div id="fig-rgui-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/chrome_download_button.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.4: Завантаження R. Розділ "Завантаження" у <code>Google Chrome</code></figcaption><p></p>
+</figure>
+</div>
+</section><section id="перший-запуск-r-gui" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="перший-запуск-r-gui">
+<span class="header-section-number">3.2</span> Перший запуск <code>R GUI</code>
+</h2>
+<p>За замовчуванням під час інсталяції <code>R</code> у ОС <code>Windows</code> пропонується шлях <code>C:\Program Files\R\R-4.X.X</code>.</p>
+<p>Для запуску <code>R GUI</code> (стандартного графічного інтерфейсу для роботи з <code>R</code>) потрібно зайти у папку <code>bin\x64</code> (або <code>i386</code>, якщо у Вас 32-х розрядна ОС) та запустити файл <code>Rgui.exe</code>.</p>
+<p>Вигляд вікна <code>R GUI</code> зображено нижче:</p>
+<div id="fig-rgui-5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/r_gui_4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.5: Вигляд головного вікна <code>RGui</code></figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>GUI</strong> (<strong>G</strong>raphical <strong>U</strong>ser <strong>I</strong>nterface) - набір візуальних компонентів для інтерактивної взаємодії користувача з програмним забезпеченням.</p>
+</div>
+</div>
+<p>У вікні <code>R Console</code> можна вводити команди/інструкції <code>R</code>, що будуть виконуватися:</p>
+<p>Результати виконання команд зберігаються у памяті програми і можуть бути використані у наступних блоках коду:</p>
+<div id="fig-rgui-6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/r_gui_5.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.6: Вигляд консолі для команд <code>RGui</code></figcaption><p></p>
+</figure>
+</div>
+<p>Середовище <code>R GUI</code> має широкий спектр функцій і дозволяє написати будь-якого рівня складності проекти на R, проте він є лише базовою графічною обгорткою для <code>R</code>. Розглянемо інші зручніші середовища для написання <code>R</code>-коду.</p>
+</section><section id="поняття-робочого-простору" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="поняття-робочого-простору">
+<span class="header-section-number">3.3</span> Поняття робочого простору</h2>
+<p>У процесі виконання коду створені об’єкти/змінні та функції зберігаються у поточній сесії. У <code>R</code> є можливість переглянути список збережних елментів, видалити усі або окремі, зберегти стан поточної сесії диск та завантажити його пізніше, щоб не проходти усі етапи виконання коду повторно <em>(інколи дуже складний код може виконувати досить довго і збереження проміжних результатів може бути хорошим рішенням)</em>.</p>
+<p>Для прикладу створимо дві змінні <code>var1</code>, <code>var2</code> та виведемо на консоль їх значення:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">var1</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
+<span><span class="va">var2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">15</span><span class="op">)</span></span>
+<span><span class="va">var1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">var2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.872983</code></pre>
+</div>
+</div>
+<p>Для того аби переглянути список змінних у поточній сесії варто скористатися <strong><code><a href="https://rdrr.io/r/base/ls.html">ls()</a></code></strong>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "var1" "var2"</code></pre>
+</div>
+</div>
+<p>Якщо виникає потреба очистити робочий простір і звільними пам’ять використовується команда <code><a href="https://rdrr.io/r/base/rm.html">rm()</a></code>. Так, щоб очистити усі змінні можна скористатися <code>rm(list = ls())</code>, якщо ж Ви хочете видалити якусь одну/дві змінних, то просто вкажіть імена:</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span>list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"var1"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "var2"</code></pre>
+</div>
+</div>
+<p>Таким чином, після виконання коду вище, залишиться лише змінна <code>var2</code>.</p>
+<p>Зберігання образу (<code>image</code>) робочого простору на диск здійснюється за допомогою команди <code>save.image("шлях до файлу.RData")</code>, а його зчитування за допомогою <code>load("шлях до файлу.RData")</code>.</p>
+<p>Код збереження даних:</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Clear workspace</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span>list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Declare variables</span></span>
+<span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">+</span> <span class="fl">15</span></span>
+<span></span>
+<span><span class="co"># Save image to file</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/save.html">save.image</a></span><span class="op">(</span><span class="st">"tmp.RData"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Код читання та виведення даних:</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Clear workspace</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span>list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># load image to file</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"tmp.RData"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 25</code></pre>
+</div>
+</div>
+<p>У прикладі 2 не створюєть жодного параметра, проте вони збережні у файлі сесії.</p>
+<p>Для того аби зберегти та зчитати окремий об’єкт, а не всі елементи сесії у <code>R</code> є спеціальний формат <code>.RDS</code>, який реалізовується методами <code>saveRDS(об'єкт, file="шлях_файлу.rds")</code> та <code>readRDS(file="шлях_файлу.rds")</code>.</p>
+</section><section id="поняття-робочого-каталогу" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="поняття-робочого-каталогу">
+<span class="header-section-number">3.4</span> Поняття робочого каталогу</h2>
+<p>Робота в будь-якому середовищі передбачає зв’язок із поточним каталогом, відносно якого будуються шляхи до файлів. Звичайно можна писати завжди повний шлях до файла, проте такий підхід є досить негнучким і під час перенесення коду між ПК створює чимало проблем розробникам.</p>
+<p>Для визначення базового каталогу <code>R</code> в поточній сесії використовують команду <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code>. Якщо Ви користуєтеся <code>RStudio</code> та створили проєкт, то цей каталог буде відповідати повному шляху до папки проєкту:</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "E:/Repos/OA_2023/intro-to-r-source"</code></pre>
+</div>
+</div>
+<p>Для того аби змінити поточний робочий каталог використовують команду <code>setwd(шлях)</code>. Після запуску цієї команди функцій <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code> буде вказутивати уже на нову адресу/шлях.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Варто знати та вміти будувати <strong>абсолютні</strong> та <strong>відносні</strong> шляхи до каталогів та файлів, ці знання корисні для роботи з усіма мовами програмування та більшістю ПЗ для роботи з даними.</p>
+</div>
+</div>
+<p>Для запису шляху у ОС Windows можна скористатися 2-ма способами:</p>
+<ul>
+<li>
+<code>/</code> - <strong><em>слеш</em></strong>, записується як один знак;</li>
+<li>
+<code>\\</code> - <strong><em>бекслеш</em></strong>, записується як два знаки.</li>
+</ul>
+<p>У прикладі нижче обидва шляхи ведуть до тієї ж папки (<code>drive</code> - буква диска):</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"drive:/folder1/folder2/"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"drive:\\folder1\\folder2\\"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Для перегляду інформації про наявні каталоги та файли у поточній робочій папці можна скористатися командою <code><a href="https://rdrr.io/r/base/list.files.html">dir()</a></code> або <code><a href="https://rdrr.io/r/base/list.files.html">list.files()</a></code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">dir</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "_language-ua.yml"           "_quarto.yml"               
+ [3] "00-intro.html"              "00-intro.qmd"              
+ [5] "01-what-is-r.html"          "01-what-is-r.qmd"          
+ [7] "02-r-history.html"          "02-r-history.qmd"          
+ [9] "03-r-environment.qmd"       "03-r-environment.rmarkdown"
+[11] "04-r-help.qmd"              "05-r-packages.qmd"         
+[13] "06-r-variables.qmd"         "07-r-basic-types.qmd"      
+[15] "08-r-operators.qmd"         "09-userful-math copy 2.qmd"
+[17] "09-userful-math copy 6.qmd" "09-userful-math.qmd"       
+[19] "10-r-functions.qmd"         "11-r-vectors.qmd"          
+[21] "12-r-data.frames.qmd"       "13-r-lists.qmd"            
+[23] "commands"                   "css"                       
+[25] "demo.qmd"                   "docs"                      
+[27] "identity"                   "img"                       
+[29] "index.html"                 "index.log"                 
+[31] "index.qmd"                  "index.tex"                 
+[33] "index_files"                "intro-to-r-source.Rproj"   
+[35] "references.bib"             "references.qmd"            
+[37] "site_libs"                  "summary.qmd"               
+[39] "tmp.RData"                 </code></pre>
+</div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "_language-ua.yml"           "_quarto.yml"               
+ [3] "00-intro.html"              "00-intro.qmd"              
+ [5] "01-what-is-r.html"          "01-what-is-r.qmd"          
+ [7] "02-r-history.html"          "02-r-history.qmd"          
+ [9] "03-r-environment.qmd"       "03-r-environment.rmarkdown"
+[11] "04-r-help.qmd"              "05-r-packages.qmd"         
+[13] "06-r-variables.qmd"         "07-r-basic-types.qmd"      
+[15] "08-r-operators.qmd"         "09-userful-math copy 2.qmd"
+[17] "09-userful-math copy 6.qmd" "09-userful-math.qmd"       
+[19] "10-r-functions.qmd"         "11-r-vectors.qmd"          
+[21] "12-r-data.frames.qmd"       "13-r-lists.qmd"            
+[23] "commands"                   "css"                       
+[25] "demo.qmd"                   "docs"                      
+[27] "identity"                   "img"                       
+[29] "index.html"                 "index.log"                 
+[31] "index.qmd"                  "index.tex"                 
+[33] "index_files"                "intro-to-r-source.Rproj"   
+[35] "references.bib"             "references.qmd"            
+[37] "site_libs"                  "summary.qmd"               
+[39] "tmp.RData"                 </code></pre>
+</div>
+</div>
+</section><section id="робота-з-rstudio" class="level2" data-number="3.5"><h2 data-number="3.5" class="anchored" data-anchor-id="робота-з-rstudio">
+<span class="header-section-number">3.5</span> Робота з <code>RStudio</code>
+</h2>
+<section id="завантаження-та-інсталяція-rstudio-desktop" class="level3" data-number="3.5.1"><h3 data-number="3.5.1" class="anchored" data-anchor-id="завантаження-та-інсталяція-rstudio-desktop">
+<span class="header-section-number">3.5.1</span> Завантаження та інсталяція <code>RStudio Desktop</code>
+</h3>
+<p><strong>RStudio</strong> - це інтегроване середовище розробки для <code>R</code>. Воно включає у себе консоль, підсвічування синтаксису (підказки), прямий запуск коду, інструменти для візуалізації графіків, html-коду, історію виконаних команд, відлагоджування коду, управління робочими просторами, підтримка різних видів розмітки та багато іншого. RStudio має версію з відкритим кодом та комерційну версію для <code>Windows</code>, <code>Linux</code> та <code>Mac</code>, а також веб-версію для серверів на Linux <code>RStudio Server</code> та <code>RStudio Server Pro</code> <span class="citation" data-cites="r-studio-site">(<a href="references.html#ref-r-studio-site" role="doc-biblioref"><em>RStudio Official Website</em> 2021</a>)</span>.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>IDE (<code>integrated development environment</code>) - комплексне програмне рішення для розробки програмного забезпечення. Зазвичай, складається з редактора початкового коду, інструментів для автоматизації складання та відлагодження програм. Більшість сучасних середовищ розробки мають можливість автодоповнення коду. <a href="https://uk.wikipedia.org/wiki/%D0%86%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B5_%D1%81%D0%B5%D1%80%D0%B5%D0%B4%D0%BE%D0%B2%D0%B8%D1%89%D0%B5_%D1%80%D0%BE%D0%B7%D1%80%D0%BE%D0%B1%D0%BA%D0%B8" target="_blank">Wikipedia</a></p>
+</div>
+</div>
+<p>Завантажити продукти можна з сайту <code>https://rstudio.com</code>. Щоб знайти середовище, яке ми будемо використовувати під час вивчення курсу варто виконати наступні кроки:</p>
+<ol type="1">
+<li>У головному меню сайту обрати <code>Products &gt; RStudio</code>.</li>
+<li>Знаходимо на сторінці кнопку для завантаження програми <code>RStudio Desktop</code> версії <code>Open Source</code> та натискаємо <strong>DOWNLOAD RSTUDIO DESKTOP</strong>:</li>
+</ol>
+<div id="fig-rgui-7" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/rstudio_1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.7: Вибір версії <code>RStudio Desktop</code></figcaption><p></p>
+</figure>
+</div>
+<ol start="3" type="1">
+<li>Далі обираємо завантаження безкоштовної версії <code>RStudio Desktop</code> з наданого переліку:</li>
+</ol>
+<div id="fig-rgui-8" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/rstudio_2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.8: Завантаження <code>RStudio Desktop</code></figcaption><p></p>
+</figure>
+</div>
+<p>Після завантаження запускаємо інсталятор <code>RStudio</code>. Особливих кроків у цьому процесі немає.</p>
+<p>Після запуску IDE RStudio зазвичай складається з 3-х або 4-х блоків: * Файл, з яким працювали останнім (зліва зверху). * Консоль для введення коду та виведення результатів (зліва знизу). * Змінні середовища (<code>Environment</code>) (справа зверху) + Історія команд (<code>History</code>), Зєднання з зовнішніми ресурсами даних, наприклад, бази даних (<code>Connections</code>), навчальна інструкція (<code>Tutorial</code>). * Файли каталогу або проекту (<code>Files</code>), Інстальовані пакети (<code>Packages</code>), Допомога (<code>Help</code>), Візуалізація результатів (<code>Plots</code>, <code>Viewer</code>).</p>
+<div id="fig-rgui-8" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/rstudio_3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.9: Головне вікно <code>RStudio Desktop</code></figcaption><p></p>
+</figure>
+</div>
+<p>Для першої демонстрації роботи виконаємо у консолі 2 рядки коду:</p>
+<div id="fig-rgui-9" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/rstudio_4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.10: Приклад написання коду в <code>RStudio Desktop</code></figcaption><p></p>
+</figure>
+</div>
+<p>Перший рядок з кодом <code>data &lt;- c(3,7,1,6,3,4,5,4,2)</code> створює у пам’яті колекцію чисел. Зверніть увагу, що у блоці <strong>Environments</strong> відобраюаться усі змінні, що уснують у поточному робочому просторі (про це буде далі).</p>
+<p>Другий рядок <code>plot(data, type="l")</code> дозволяє побудувати простий лінійний графік (<code>type="l" - linear, "p" - point</code>, <code><a href="https://rdrr.io/r/graphics/plot.default.html">help(plot)</a></code> для деталей). Графіки, що “промальовуються” як картинки выдображаються у блоці <strong>Plots</strong>. Якщо ж графік має більш складну візуалізацію з інтерактивними елементами, що використовують уже засоби html/css/js, то він буде відображений у блоці <strong>View</strong>.</p>
+<p>Якщо перемкнутися на вкладку <strong>History</strong>, то ми побачимо перелік раніше виконаних команд.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для швидкого “гортання” уже виконаних раніше команд на консолі (<em>Console</em>) можна скористатися клавішами Up/Down на клавіатурі: <br><img src="img/01/arrow_keys.png" class="img-fluid" alt="Arrow Keys"></p>
+</div>
+</div>
+</section><section id="створення-першого-проекту-в-rstudio" class="level3" data-number="3.5.2"><h3 data-number="3.5.2" class="anchored" data-anchor-id="створення-першого-проекту-в-rstudio">
+<span class="header-section-number">3.5.2</span> Створення першого проекту в RStudio</h3>
+<p>На відміну від <code>R Gui</code> в <code>RStudio</code> реалізовано концепцію проектів, що дозволяє організувати код та поєднати різні його частини у межах певного рішення.</p>
+<p>Створимо наш перший проект.</p>
+<p>Для початку оберемо з верхнього меню пункт <code>File &gt; New Project</code>. У вікні вибору способу створення проекту клікаємо <code>New Directory</code>. Такий спосіб передбачає, що жодного файлу проекту поки не існує або ми пізніше туди скопіюємо уже готовий код.</p>
+<div id="fig-rgui-10" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/rstudio_6.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.11: <code>RStudio Desktop</code>. Новий проєкт</figcaption><p></p>
+</figure>
+</div>
+<p>На наступному кроці обираємо <code>New Project</code>:</p>
+<div id="fig-rgui-11" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/rstudio_7.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.12: <code>RStudio Desktop</code>. Новий проєкт. Тип проекту</figcaption><p></p>
+</figure>
+</div>
+<p>Після кліку на <code>Create Project</code> буде створено папку за попередньо обраним шляхом. Для запуску проєкту або швидкого перемикання між проектами можна скористатися як пунктами головного меню, так і підменю проектів справа. Також відкрити проект можна запуском файлу <code>*.Rproj</code> у провіднику <code>Windows</code>.</p>
+<div id="fig-rgui-12" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/rstudio_8.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.13: <code>RStudio Desktop</code>. Новий проєкт</figcaption><p></p>
+</figure>
+</div>
+<p>Щоб додати новий файл з кодом <code>R</code> потрібно обрати з головного меню <code>File &gt; New file &gt; R Script</code> або скористатися командою <code>Ctrl+Shift+N</code>. Новий файл буде створено з назвою <code>Untitled[X]</code>, тому рекомендую одразу його зберегти, наприклад, як <code>TestCode.R</code></p>
+<p>Для першого проекту розвяжемо наступну задачу:</p>
+<blockquote class="blockquote">
+<p>Написати програму, що генерує вектор з 20-ти випадкових чисел у межах [1;5], обчислює середнє та суму чисел, а також виводить гістограму частоти кожного значення (скільки разів дане число повторюється у векторі).</p>
+</blockquote>
+<p>Код для генерації 20-ти випадкових чесел у діапазоні [1;5] матиме наступний вигляд:</p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vtr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">20</span>, replace<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">vtr</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 3 2 3 2 1 4 4 5 2 4 4 3 3 5 5 1 3 5 5 3</code></pre>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Результати виконання на Вашому ПК будуть іншими, адже <strong>псевдо</strong>генератор випадкових чисел буде брати іншу “точку відліку” для генерування чисел. Рекомендую перегляду функцію <code>set.seed(точка відліку - число)</code>.</p>
+</div>
+</div>
+<p>Обчислення та виведення на консоль інформації про суму та середнє значення:</p>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vtr_sum</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">vtr</span><span class="op">)</span></span>
+<span><span class="va">vtr_mean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">vtr</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Sum: "</span>, <span class="va">vtr_sum</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Sum: 67"</code></pre>
+</div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Mean: "</span>, <span class="va">vtr_mean</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Mean: 3.35"</code></pre>
+</div>
+</div>
+<p>Виведемо гістограму:</p>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">vtr</span>, breaks <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-r-environment_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Приклад візуалізації гістрограми в R</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>Примітка. Детальніше про параметри функції <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> можна почитати тут: <a href="https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/hist">https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/hist</a></em>.</p>
+<p>Орієнтовний вигляд вікна <code>RStudio</code> після викоання усіх описаних вище операцій матиме настпуний вигляд:</p>
+<div id="fig-rgui-13" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/rstudio_10.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.14: <code>RStudio Desktop</code>. Перегляд змінних</figcaption><p></p>
+</figure>
+</div>
+<p>Варто звернути увагу на виділений блок <code>Environment</code>, де можна переглянути усі доступні змінні, що є на даний момент у <code>пам'яті</code>. До цих параметрів можна звертатися у коді чи з консолі у будь, який момент. <em>Детальну інформацію про робоче середовище розглянуто нижче.</em></p>
+</section></section><section id="робота-з-jupyter-notebook" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="робота-з-jupyter-notebook">
+<span class="header-section-number">3.6</span> Робота з <code>Jupyter Notebook</code>
+</h2>
+<p>Ноутбуки стали зручним та поширеним інструментом для аналізу даних, а також послідовного викладення матеріалів чи результатів дослідження. Перевагою такого інструменту є перемішування коду, результатів його виконання та іншого текстового наповнення, що дозволяє сформувати “на льоту” готові до читання документи.</p>
+<p>Використання ноутбуків у навчальному процесі дозволяє описати не лише теоретичний матеріал, але приклади коду, що будуть виконувати безпосередньо під час ознайомлення з лекцією. Також слухач курсу може відредагувати наявний код та перевірити результати його виконання.</p>
+<p>Розгялнемо процес інсталяції та запуску <code>Anaconda</code> (середовище з відкритим кодом для вирішення задач <code>Data Science</code>) та <code>Jupyter Notebook</code> на ПК.</p>
+<p>Для встановлення середовища <code>Anaconda</code> потрібно перейти на сайт проекту та завантажити індивідуальну версію продукту: https://www.anaconda.com/products/individual <span class="citation" data-cites="anaconda-site">(<a href="references.html#ref-anaconda-site" role="doc-biblioref"><em>Anaconda. The World’s Most Popular Data Science Platform</em> 2021</a>)</span>.</p>
+<p>_*Примітка. Усі операції у даному курсі виконуються під операційну систему <code>Windows 11 Education Edition</code>_.</p>
+<p>Процес інсталяції середовища Anaconda не відрізняється від стандарного покрокового вставнолення програм у <code>Windows</code>.</p>
+<p>Після запуску <code>Anaconda Navigator</code> для початку потрібно створити нове середовище та налаштувати роботу <code>R</code>:</p>
+<div id="fig-conda-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/anaconda_1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.15: <code>Anaconda Navigator</code></figcaption><p></p>
+</figure>
+</div>
+<p>Для початку потрібно перейти на вкладку <code>Environments</code> та натиснути <code>Create</code>:</p>
+<div id="fig-conda-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/anaconda_2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.16: Головне вікно <code>Anaconda Navigator</code></figcaption><p></p>
+</figure>
+</div>
+<p>У вікні, що відкрилося потрібно відмітити <code>[x]</code> вставновлення інструментів для роботи з <code>R</code>:</p>
+<div id="fig-conda-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/anaconda_3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.17: Створення нового середовища на основі <code>R</code> у <code>Anaconda Navigator</code></figcaption><p></p>
+</figure>
+</div>
+<p>Після встановлення R-інструментів оптрібно переключитися на вкладку <code>Home</code> та робочий простір:</p>
+<div id="fig-conda-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/anaconda_4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.18: Зміна середовища у <code>Anaconda Navigator</code></figcaption><p></p>
+</figure>
+</div>
+<p>Після завантаження робочого простору оберіть <code>Launch</code> для запуску <code>Jupyter Notebook</code> з переліку встановлених засобів. <code>Jupyter Notebook</code> буде запущено у браузері за замовчеванням Вашого ПК. Відкрити ноутбук можна обравши потрібний файл, а створити новий у меню справа <code>New</code> &gt; <code>Notebook</code> &gt; <code>R</code>:</p>
+<div id="fig-conda-6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/anaconda_6.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.19: Створення нового <code>Jupyter Notebook</code></figcaption><p></p>
+</figure>
+</div>
+</section><section id="огляд-додаткових-ide-та-сервісів-для-роботи-з-r" class="level2" data-number="3.7"><h2 data-number="3.7" class="anchored" data-anchor-id="огляд-додаткових-ide-та-сервісів-для-роботи-з-r">
+<span class="header-section-number">3.7</span> Огляд додаткових IDE та сервісів для роботи з R</h2>
+<p>Окрім середовищ описаних вище існує ряд досить цікавих інструментів, що роблять досить зручною роботу з <code>R</code>-кодом. Розглянемо ці інструменти.</p>
+<p><strong>Visual Studio Code</strong> - безкоштовний редактор коду від <code>Microsoft</code>, орієнтовний на велику кількість мов програмування та фреймворків <span class="citation" data-cites="vs-code">(<a href="references.html#ref-vs-code" role="doc-biblioref"><em>Visual Studio Code</em> 2021</a>)</span>. Серед інших іструментів у VS Code доступні також розширення для роботи з <code>R</code>:</p>
+<div id="fig-conda-6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/vs_code.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.20: Вікно середовища Visual Studio Code</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Visual Studio Community Edition</strong> - безкоштовне середовище розробки від компаній Microsoft. VS створено з самого початку для розробки під платформу .NET та мови програмування C#, VB.NET, F# тощо, але з часом отримало багато розширень, що дозволяють у тому числі, працювати і з проектами в <code>R</code> <span class="citation" data-cites="visual-studio">(<a href="references.html#ref-visual-studio" role="doc-biblioref"><em>Visual Studio Community Edition</em> 2021</a>)</span>.</p>
+<p><strong>Google Collab</strong> - онлайн сервіс для роботи з ноутбуками для <code>Data Science</code> від компанії <code>Google</code> <span class="citation" data-cites="google-collab">(<a href="references.html#ref-google-collab" role="doc-biblioref"><em>Google Colaboratory</em> 2021</a>)</span>:</p>
+<div id="fig-collab" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/google_collab.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.21: Вікно середовища Google Collab</figcaption><p></p>
+</figure>
+</div>
+<p><em>Примітка. Код у прикладі вище написаний на <code>Python</code>.</em></p>
+<p><a href="https://kaggle.com"><strong>kaggle.com</strong></a> - сервіс для змагань з <code>Data Science</code> та <code>Machine Learning</code>. Окрім переліку змагань, наборів даних сервіс має досить зручні ноутбуки.</p>
+<div id="fig-kaggle" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="img/01/kaggle.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.22: kaggle.com</figcaption><p></p>
+</figure>
+</div>
+<p>Загалом сервісів та середовищ для розробки в <code>R</code> існує досить багато і їх кількість зростає, але це не впливає на принципи написання коду та роботу з даними.</p>
 
 
-
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-anaconda-site" class="csl-entry" role="doc-biblioentry">
+<em>Anaconda. The World’s Most Popular Data Science Platform</em>. 2021. 206 379 Broadway Ave., Suite 310 New York, NY 10013, USA: Anaconda Inc. <a href="https://www.anaconda.com/">https://www.anaconda.com/</a>.
+</div>
+<div id="ref-google-collab" class="csl-entry" role="doc-biblioentry">
+<em>Google Colaboratory</em>. 2021. Google LLC. <a href="https://colab.research.google.com/">https://colab.research.google.com/</a>.
+</div>
+<div id="ref-r-base" class="csl-entry" role="doc-biblioentry">
+R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-r-studio-site" class="csl-entry" role="doc-biblioentry">
+<em>RStudio Official Website</em>. 2021. 250 Northern Ave, Boston, MA 02210: RStudio, PBC. <a href="https://rstudio.com/">https://rstudio.com/</a>.
+</div>
+<div id="ref-vs-code" class="csl-entry" role="doc-biblioentry">
+<em>Visual Studio Code</em>. 2021. Microsoft. <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>.
+</div>
+<div id="ref-visual-studio" class="csl-entry" role="doc-biblioentry">
+<em>Visual Studio Community Edition</em>. 2021. Microsoft. <a href="https://visualstudio.microsoft.com/">https://visualstudio.microsoft.com/</a>.
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -370,11 +886,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./02-r-history.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Коротка історія миови R</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Коротка історія мови R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -384,12 +898,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
       <div class="nav-footer-center">Copyright 2022, Юрій Клебан</div>
   </div>
 </footer>
-
 
 
 </body></html>

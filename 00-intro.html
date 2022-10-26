@@ -19,25 +19,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -150,7 +131,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-r-history.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Коротка історія миови R</span></a>
+  <a href="./02-r-history.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Коротка історія мови R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -180,27 +161,27 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-r-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Змінні</span></a>
+  <a href="./06-r-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">[-] Змінні</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-r-basic-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Базові типи даних</span></a>
+  <a href="./07-r-basic-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">[-] Базові типи даних</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-r-operators.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Оператори</span></a>
+  <a href="./08-r-operators.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">[-] Оператори</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Корисні математичні функції</span></a>
+  <a href="./09-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">[-] Корисні математичні функції</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Створення функції</span></a>
+  <a href="./10-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">[-] Створення функції</span></a>
   </div>
 </li>
       </ul>
@@ -215,17 +196,17 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Вектори</span></a>
+  <a href="./11-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">[-] Вектори</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Дата-фрейми</span></a>
+  <a href="./12-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">[-] Дата-фрейми</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Списки</span></a>
+  <a href="./13-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">[-] Списки</span></a>
   </div>
 </li>
       </ul>
@@ -268,16 +249,11 @@ div.csl-indent {
 
 </header><p>Фахівці спеціальності економічна кібернетика у майбутньому працюватимуть з великими масивами даних, що накопичуються велизними темпами у даний момент і збиралися у попередні дисятиліття. Підготовка, обробка і трансформація даних у зручний формат прийняття рішень забирає все більше часу, а звичні рашіне інструменти аналізу даних, як наприклад, <code>Microsoft Excel</code> не мають достатньо вбудованих можливостей для виконнання задач бізнесу.</p>
 <p>На даний час існує велика кількість мов програмування, що інтегруються у суспільні сфери діяльності людини та роботи технічних систем: біоінформатика, а також економіка та бізнес.</p>
-<p>Однією з мов програмування, що отримали широке поишення серед економістів-науковців, аналітиків та практиків математичного моделювання (<code>machine learning</code>) є мова програмування <code>(R)</code><span class="citation" data-cites="r-cran">(<a href="references.html#ref-r-cran" role="doc-biblioref">n.d.</a>)</span>. Свою популярність ця мова програмування здобула завдяки простоті у використанні, доступності (безкоштовні як базові компоненти для написання коду, так і середовища розробки), розширюваності (кожен розробник має можливість створювати власні пакети та публікувати їх у відкритому доступі).</p>
+<p>Однією з мов програмування, що отримали широке поишення серед економістів-науковців, аналітиків та практиків математичного моделювання (<code>machine learning</code>) є мова програмування <code>(R)</code><span class="citation" data-cites="r-cran">(<a href="references.html#ref-r-cran" role="doc-biblioref"><strong>r-cran?</strong></a>)</span>. Свою популярність ця мова програмування здобула завдяки простоті у використанні, доступності (безкоштовні як базові компоненти для написання коду, так і середовища розробки), розширюваності (кожен розробник має можливість створювати власні пакети та публікувати їх у відкритому доступі).</p>
 <p>Основними задачами курсу “Вступ до прграмування в R” є ознайомлення студентів з базовми конструкціями мови програмування R, вивчення способів роботи з найпоширенішими типами даних,</p>
 <hr>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-r-cran" class="csl-entry" role="doc-biblioentry">
-n.d. <em>The Comprehensive R Archive Network</em>. <a href="https://cran.r-project.org/">https://cran.r-project.org/</a>.
-</div>
-</div>
 
 </main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
