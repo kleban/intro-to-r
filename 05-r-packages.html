@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.1.251">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Юрій Клебан">
-<meta name="dcterms.date" content="2022-10-26">
+<meta name="dcterms.date" content="2022-11-01">
 <title>Вступ до програмування в R - 5&nbsp; Робота з пакетами</title>
 <style>
 code{white-space: pre-wrap;}
@@ -110,7 +110,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./06-r-variables.html" rel="next">
+<link href="./06-r-input-output.html" rel="next">
 <link href="./04-r-help.html" rel="prev">
 <link href="./img/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -233,6 +233,11 @@ div.csl-indent {
   <a href="./05-r-packages.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Робота з пакетами</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-r-input-output.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Введення-виведення даних</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -245,27 +250,27 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-r-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">[-] Змінні</span></a>
+  <a href="./07-r-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Оголошення та ініціалізація змінних</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-r-basic-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">[-] Базові типи даних</span></a>
+  <a href="./08-r-basic-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Базові типи даних <code>R</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-r-operators.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">[-] Оператори</span></a>
+  <a href="./09-r-operators.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Оператори</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">[-] Корисні математичні функції</span></a>
+  <a href="./10-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Корисні математичні функції</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">[-] Створення функції</span></a>
+  <a href="./11-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">[-] Створення функції</span></a>
   </div>
 </li>
       </ul>
@@ -280,20 +285,30 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">[-] Вектори</span></a>
+  <a href="./11-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">[-] Вектори</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">[-] Дата-фрейми</span></a>
+  <a href="./12-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">[-] Дата-фрейми</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">[-] Списки</span></a>
+  <a href="./13-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">[-] Списки</span></a>
   </div>
 </li>
       </ul>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tasks.html" class="sidebar-item-text sidebar-link">[-] Задачі для самостійної підготовки</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solved-tasks.html" class="sidebar-item-text sidebar-link">[-] Приклади розв’язання задач</a>
+  </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -308,6 +323,7 @@ div.csl-indent {
   <ul>
 <li><a href="#%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B8-%D0%B4%D0%BB%D1%8F-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8-%D0%B7-%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0%D0%BC%D0%B8" id="toc-команди-для-роботи-з-пакетами" class="nav-link active" data-scroll-target="#%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B8-%D0%B4%D0%BB%D1%8F-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8-%D0%B7-%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0%D0%BC%D0%B8"><span class="toc-section-number">5.1</span>  Команди для роботи з пакетами</a></li>
   <li><a href="#%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B0-%D0%B7-%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0%D0%BC%D0%B8-%D0%B2-rstudio" id="toc-робота-з-пакетами-в-rstudio" class="nav-link" data-scroll-target="#%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B0-%D0%B7-%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0%D0%BC%D0%B8-%D0%B2-rstudio"><span class="toc-section-number">5.2</span>  Робота з пакетами в <code>RStudio</code></a></li>
+  <li><a href="#%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B4%D0%BB%D1%8F-%D1%81%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D1%96%D0%B2" id="toc-завдання-для-студентів" class="nav-link" data-scroll-target="#%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B4%D0%BB%D1%8F-%D1%81%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D1%96%D0%B2"><span class="toc-section-number">5.3</span>  Завдання для студентів</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -331,7 +347,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Опубліковано</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 26, 2022</p>
+      <p class="date">November 1, 2022</p>
     </div>
   </div>
     
@@ -345,10 +361,10 @@ div.csl-indent {
 <p>Пакети можуть бути завантажені з офіційного сайту проекту <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">cran.r-project.org</a> / <span class="citation" data-cites="r-base">(<a href="references.html#ref-r-base" role="doc-biblioref">R Core Team 2020</a>)</span> або інших джерел (dev-версії є доступні на <code>github</code>).</p>
 <p>Завантаження пакетів у <code>R</code> можна здійснювати як з локального диска, так і з серверів у мережі Інтернет.</p>
 <p>Для встановлення пакету використовується команда <strong><code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code></strong>:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"fun"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"fun"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Для підключення пакету та його використання варто скористатися функцією <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageDescription</a></span><span class="op">(</span><span class="st">"fun"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"fun"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">packageDescription</span>(<span class="st">"fun"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">"fun"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -391,6 +407,19 @@ Note
 </figure>
 </div>
 <p>Користувачі можуть не тільки завантажувати існуючі пакети, але і створювати власні та роботи їх доступними для дослідників зі всього світу.</p>
+<hr></section><section id="завдання-для-студентів" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="завдання-для-студентів">
+<span class="header-section-number">5.3</span> Завдання для студентів</h2>
+<p>Встановіть пакет <code>fun</code>, використовуючи функцію <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> та перегляньте його документацію за допомогою <code><a href="https://rdrr.io/r/utils/help.html">help()</a></code>.</p>
+<p>Для прикладу, спробуйте пройти якийсь з тестів.</p>
+<p>Нижче наведено приклад роботи з функцією <code>alzheimer_test</code> з пакету <code>fun</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(fun)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">alzheimer_test</span>(</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="at">char1 =</span> <span class="fu">c</span>(<span class="st">"9"</span>, <span class="st">"O"</span>, <span class="st">"M"</span>, <span class="st">"I"</span>, <span class="st">"F"</span>, <span class="st">"D"</span>),</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="at">char2 =</span> <span class="fu">c</span>(<span class="st">"6"</span>, <span class="st">"C"</span>, <span class="st">"N"</span>, <span class="st">"T"</span>, <span class="st">"E"</span>, <span class="st">"O"</span>),</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="at">nr =</span> <span class="dv">10</span>,</span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="at">nc =</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
@@ -501,8 +530,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./06-r-variables.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">[-] Змінні</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06-r-input-output.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Введення-виведення даних</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

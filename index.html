@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.1.251">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="Юрій Клебан">
-<meta name="dcterms.date" content="2022-10-26">
+
 <title>Вступ до програмування в R</title>
 <style>
 code{white-space: pre-wrap;}
@@ -19,70 +21,8 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -101,7 +41,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -119,40 +60,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><link rel="stylesheet" href="css/style.css">
+}</script>
+
+
+<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">Вступ до програмування в R</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Вступ до програмування в R</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/kleban/r-intro/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-<li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
             <i class="bi bi-bi-twitter pe-1"></i>
           Twitter
           </a>
         </li>
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
             <i class="bi bi-bi-facebook pe-1"></i>
           Facebook
           </a>
         </li>
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
             <i class="bi bi-bi-linkedin pe-1"></i>
           LinkedIn
           </a>
@@ -168,7 +119,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">Про курс</a>
   </div>
@@ -185,8 +136,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-what-is-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Що таке R?</span></a>
   </div>
@@ -211,8 +162,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./05-r-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Робота з пакетами</span></a>
   </div>
 </li>
-      </ul>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-r-input-output.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Введення-виведення даних</span></a>
+  </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Базовий синтаксис R</a>
@@ -220,34 +176,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-r-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">[-] Змінні</span></a>
+  <a href="./07-r-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Оголошення та ініціалізація змінних</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-r-basic-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">[-] Базові типи даних</span></a>
+  <a href="./08-r-basic-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Базові типи даних <code>R</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-r-operators.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">[-] Оператори</span></a>
+  <a href="./09-r-operators.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Оператори</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">[-] Корисні математичні функції</span></a>
+  <a href="./10-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Корисні математичні функції</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">[-] Створення функції</span></a>
+  <a href="./11-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">[-] Створення функції</span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Робота з даними у R</a>
@@ -255,23 +211,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">[-] Вектори</span></a>
+  <a href="./11-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">[-] Вектори</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">[-] Дата-фрейми</span></a>
+  <a href="./12-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">[-] Дата-фрейми</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">[-] Списки</span></a>
+  <a href="./13-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">[-] Списки</span></a>
   </div>
 </li>
       </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tasks.html" class="sidebar-item-text sidebar-link">[-] Задачі для самостійної підготовки</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solved-tasks.html" class="sidebar-item-text sidebar-link">[-] Приклади розв’язання задач</a>
+  </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
@@ -279,26 +245,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
     </ul>
-</div>
-</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Зміст</h2>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Зміст</h2>
    
   <ul>
-<li>
-<a href="#%D0%BF%D1%80%D0%BE-%D0%BA%D1%83%D1%80%D1%81" id="toc-про-курс" class="nav-link active" data-scroll-target="#%D0%BF%D1%80%D0%BE-%D0%BA%D1%83%D1%80%D1%81">Про курс</a>
+  <li><a href="#про-курс" id="toc-про-курс" class="nav-link active" data-scroll-target="#про-курс">Про курс</a>
   <ul class="collapse">
-<li><a href="#%D0%BE%D0%BF%D0%B8%D1%81-%D0%BD%D0%B0%D0%B2%D1%87%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%97-%D0%B4%D0%B8%D1%81%D1%86%D0%B8%D0%BF%D0%BB%D1%96%D0%BD%D0%B8" id="toc-опис-навчальної-дисципліни" class="nav-link" data-scroll-target="#%D0%BE%D0%BF%D0%B8%D1%81-%D0%BD%D0%B0%D0%B2%D1%87%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%97-%D0%B4%D0%B8%D1%81%D1%86%D0%B8%D0%BF%D0%BB%D1%96%D0%BD%D0%B8">Опис навчальної дисципліни</a></li>
-  <li><a href="#%D0%BC%D0%B5%D1%82%D0%B0-%D0%B4%D0%B8%D1%81%D1%86%D0%B8%D0%BF%D0%BB%D1%96%D0%BD%D0%B8" id="toc-мета-дисципліни" class="nav-link" data-scroll-target="#%D0%BC%D0%B5%D1%82%D0%B0-%D0%B4%D0%B8%D1%81%D1%86%D0%B8%D0%BF%D0%BB%D1%96%D0%BD%D0%B8">Мета дисципліни</a></li>
-  <li><a href="#%D0%B4%D0%BE%D1%82%D1%80%D0%B8%D0%BC%D0%B0%D0%BD%D0%BD%D1%8F-%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF%D1%96%D0%B2-%D0%B4%D0%BE%D0%B1%D1%80%D0%BE%D1%87%D0%B5%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%96" id="toc-дотримання-принципів-доброчесності" class="nav-link" data-scroll-target="#%D0%B4%D0%BE%D1%82%D1%80%D0%B8%D0%BC%D0%B0%D0%BD%D0%BD%D1%8F-%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF%D1%96%D0%B2-%D0%B4%D0%BE%D0%B1%D1%80%D0%BE%D1%87%D0%B5%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%96">Дотримання принципів доброчесності</a></li>
-  <li><a href="#%D1%80%D0%B5%D1%86%D0%B5%D0%BD%D0%B7%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F" id="toc-рецензування" class="nav-link" data-scroll-target="#%D1%80%D0%B5%D1%86%D0%B5%D0%BD%D0%B7%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F">Рецензування</a></li>
-  <li><a href="#%D0%BF%D1%96%D0%B4%D1%82%D1%80%D0%B8%D0%BC%D0%BA%D0%B0-%D0%B2%D0%B8%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F" id="toc-підтримка-видання" class="nav-link" data-scroll-target="#%D0%BF%D1%96%D0%B4%D1%82%D1%80%D0%B8%D0%BC%D0%BA%D0%B0-%D0%B2%D0%B8%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F">Підтримка видання</a></li>
-  <li><a href="#%D1%86%D0%B8%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F" id="toc-цитування" class="nav-link" data-scroll-target="#%D1%86%D0%B8%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F">Цитування</a></li>
+  <li><a href="#опис-навчальної-дисципліни" id="toc-опис-навчальної-дисципліни" class="nav-link" data-scroll-target="#опис-навчальної-дисципліни">Опис навчальної дисципліни</a></li>
+  <li><a href="#мета-дисципліни" id="toc-мета-дисципліни" class="nav-link" data-scroll-target="#мета-дисципліни">Мета дисципліни</a></li>
+  <li><a href="#дотримання-принципів-доброчесності" id="toc-дотримання-принципів-доброчесності" class="nav-link" data-scroll-target="#дотримання-принципів-доброчесності">Дотримання принципів доброчесності</a></li>
+  </ul></li>
   </ul>
-</li>
-  </ul></nav>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title d-none d-lg-block">Вступ до програмування в R</h1>
 <p class="subtitle lead">Матеріали для студентів спеціальності економічна кібернетика, 1 курс</p>
 </div>
@@ -317,30 +285,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Опубліковано</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2022-10-26</p>
+      <p class="date">Invalid Date</p>
     </div>
   </div>
     
   </div>
   
 
-</header><p><img src="img/cover.png" title="Вступ до програмування в R" class="quarto-cover-image img-fluid"></p>
-<div style="float:left">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="https://doi.org/10.5281/zenodo.7251420"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7251420.svg" class="img-fluid figure-img"></a></p>
-</figure>
-</div>
-</div>
-<p><br></p>
-<section id="про-курс" class="level1 unnumbered"><h1 class="unnumbered">Про курс</h1>
-<p>Матеріали підготовлені для читання курсу <strong>“Вступ до прикладного програмування в R”</strong> <code>[05.250]</code> для студентів 1-го року навчання, спеціальності економічна кібернетика.</p>
-<section id="опис-навчальної-дисципліни" class="level2"><h2 class="anchored" data-anchor-id="опис-навчальної-дисципліни">Опис навчальної дисципліни</h2>
-<p>Навчальна дисципліна спрямована на вивчення основ практичного застосування популярної мови <a href="@r-cran"><code>R</code></a> для проведення статистичних досліджень в економіці.</p>
+</header>
+
+
+<section id="про-курс" class="level1 unnumbered">
+<p><img src="img/cover.png" title="Вступ до програмування в R" class="quarto-cover-image img-fluid"></p><h1 class="unnumbered">Про курс</h1>
+<p>Матеріали підготовлені для читання курсу <strong><em>“Вступ до прикладного програмування в R”</em></strong> <code>[05.250]</code> для студентів 1-го року навчання, спеціальності економічна кібернетика.</p>
+<section id="опис-навчальної-дисципліни" class="level2">
+<h2 class="anchored" data-anchor-id="опис-навчальної-дисципліни">Опис навчальної дисципліни</h2>
+<p>Навчальна дисципліна спрямована на вивчення основ практичного застосування популярної мови R для проведення статистичних досліджень в економіці.</p>
 <p>У процесі вивчення курсу розглядаються теми, що стосуються теоретичних основ та практичної реалізації алгоритмів завантаження, підготовки та обробки економічних даних.</p>
 <p>Місце навчальної дисципліни у підготовці здобувачів: програмні результати дисципліни використовуються під час вивчення таких навчальних дисциплін: “Алгоритми та структури даних”, “Аналіз даних в R”, “Прикладне математичне моделювання в R”. Закріплення на практиці здобутих програмних результатів відбувається під час проходження Навчальної практики з курсу «Економіко-математичне моделювання».</p>
-</section><section id="мета-дисципліни" class="level2"><h2 class="anchored" data-anchor-id="мета-дисципліни">Мета дисципліни</h2>
-<p>Мета навчальної дисципліни – формування у студентів теоретичних знань та практичних навичок використання мови програмування <code>R</code> для роботи з даними та базовими структурами мови (типи даних, розгалуження, цикли, функції).</p>
-</section><section id="дотримання-принципів-доброчесності" class="level2"><h2 class="anchored" data-anchor-id="дотримання-принципів-доброчесності">Дотримання принципів доброчесності</h2>
+</section>
+<section id="мета-дисципліни" class="level2">
+<h2 class="anchored" data-anchor-id="мета-дисципліни">Мета дисципліни</h2>
+<p>Мета навчальної дисципліни – формування у студентів теоретичних знань та практичних навичок використання мови програмування R для роботи з даними та базовими структурами мови (типи даних, розгалуження, цикли, функції).</p>
+</section>
+<section id="дотримання-принципів-доброчесності" class="level2">
+<h2 class="anchored" data-anchor-id="дотримання-принципів-доброчесності">Дотримання принципів доброчесності</h2>
 <p>Викладач та слухач цього курсу, як очікується, повинні дотримуватися Кодексу академічної доброчесності університету:</p>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" checked="">будь-яка робота, подана здобувачем протягом курсу, має бути його власною роботою здобувача; не вдаватися до кроків, що можуть нечесно покращити Ваші результати чи погіршити/покращити результати інших здобувачів;</p></li>
@@ -349,42 +318,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><input type="checkbox" disabled="" checked="">під час фінальних видів контролю необхідно працювати самостійно; не дозволяється говорити або обговорювати, а також не можна копіювати документи, використовувати електронні засоби отримання інформації.</p></li>
 </ul>
 <p>Порушення академічної доброчесності під час виконання контрольних завдань призведе до втрати балів або вживання заходів, які передбачені Кодексу академічної доброчесності НаУОА.</p>
-</section><section id="рецензування" class="level2"><h2 class="anchored" data-anchor-id="рецензування">Рецензування</h2>
-<p>Внутрішній рецензент: <strong>Іваненко Іван Іванович</strong>, д.т.н, доцент кафедри економіко-математичного моделювання та інформаціних технологій Національного університету “Острозька акакдемія”</p>
-<p>Зовнішній рецензент: <strong>Іваненко Іван Іванович</strong>, д.т.н, проф. кафедри економіко-математичного моделювання та інформаціних технологій Національного університету “Острозька акакдемія”</p>
-</section><section id="підтримка-видання" class="level2"><h2 class="anchored" data-anchor-id="підтримка-видання">Підтримка видання</h2>
-<p>Частина матеріалів посібника створено у межах проекту <strong>“Підготовка, обробка та ефективне використання даних для наукових досліджень (на основі R)”</strong>, що підтримує Європейський союз за програмою <a href="https://houseofeurope.org.ua/">House of Europe</a>.</p>
+<hr>
 <div class="callout-note callout callout-style-simple">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Матеріали курсу створені з використанням ряду технологій:</p>
+<p>Матеріали курсу створені з використанням ряду технологій та середовищ розробки:</p>
 <ul class="task-list">
-<li><p><input type="checkbox" disabled="" checked=""><code>R</code> Language <span class="citation" data-cites="r-cra">(<a href="references.html#ref-r-cra" role="doc-biblioref"><strong>r-cra?</strong></a>)</span> - безкоштована мова програмування для виконання досліджень у сфері статистики, машинного навчання та візуалізацї результатів.</p></li>
-<li><p><input type="checkbox" disabled="" checked=""><a href="@quarto"><code>Quarto</code> Book</a> - система для публікації наукових та технічних текстів з відкритим кодом (<code>R</code>/<code>Python</code>/<code>Julia</code>/<code>Observable</code>).</p></li>
-<li><p><input type="checkbox" disabled="" checked=""><a href="@jupyter-lab"><code>JupyterLab</code></a> - середовище розробки на основі <a href="https://jupyter.org/"><code>Jupyter Notebook</code></a>. <code>JupyterLab</code> є розширеним веб-інтерфейсом для роботи з ноутбуками.</p></li>
-<li><p><input type="checkbox" disabled="" checked=""><a href="@git"><code>Git</code></a>/<a href="@github"><code>Github</code></a> - система контролю версій та, відповідно, сервіс для організації зберігання коду, а також публікації статичних сторінок.</p></li>
+<li><p><input type="checkbox" disabled="" checked=""><a href="https://www.r-project.org">Мова <code>R</code></a> - безкоштована мова програмування для виконання досліджень у сфері статистики, машинного навчання та візуалізацї результатів.</p></li>
+<li><p><input type="checkbox" disabled="" checked=""><a href="https://quarto.org"><code>Quarto</code> Book</a> - система для публікації наукових та технічних текстів з відкритим кодом (<code>R</code>/<code>Python</code>/<code>Julia</code>/<code>Observable</code>).</p></li>
+<li><p><input type="checkbox" disabled="" checked=""><a href="https://github.com/jupyterlab/jupyterlab"><code>JupyterLab</code></a> - середовище розробки на основі <a href="https://jupyter.org/"><code>Jupyter Notebook</code></a>. <code>JupyterLab</code> є розширеним веб-інтерфейсом для роботи з ноутбуками.</p></li>
+<li><p><input type="checkbox" disabled="" checked=""><a href="https://git-scm.com/"><code>Git</code></a>/<a href="https://github.com/"><code>Github</code></a> - система контролю версій та, відповідно, сервіс для організації зберігання коду, а також публікації статичних сторінок.</p></li>
+<li><p><input type="checkbox" disabled="" checked=""><a href="https://www.rstudio.com/"><code>RStudio Desktop</code></a> - інтегроване середовище розробки (<code>IDE</code>) для мови <code>R</code> з відкритим кодом, що містить в собі редактор коду, консоль, планер, засоби візуалізації та можливості.</p></li>
+<li><p><input type="checkbox" disabled="" checked=""><a href="https://code.visualstudio.com/"><code>Visual Studio Code</code></a> - інтегроване середовище розробки (<code>IDE</code>) з відкритим кодом практично для усіх відомих технологій та мов програмування.</p></li>
 </ul>
 </div>
 </div>
 </div>
-</section><section id="цитування" class="level2"><h2 class="anchored" data-anchor-id="цитування">Цитування</h2>
-<p>Для цитування матералів посібника ви можете скористатися <code>bibtex</code>-описом:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@book</span>{<span class="ot">intro</span>-<span class="ot">to</span>-<span class="ot">r</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>       = {Юрій Клебан},</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>        = {Вступ до програмування в R},</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>    = {Zenodo},</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>         = 2022,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>          = {10.5281/zenodo.7251420},</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span>          = {https://doi.org/10.5281/zenodo.7251420}</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-<p><em>Приміка. Усі логотипи, назви продуктів належать їх власникам.</em></p>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -481,7 +440,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
       <a href="./00-intro.html" class="pagination-link">
@@ -490,10 +451,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
       <div class="nav-footer-center">Copyright 2022, Юрій Клебан</div>
   </div>
 </footer>
+
 
 
 </body></html>
