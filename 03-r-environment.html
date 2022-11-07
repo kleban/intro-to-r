@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.1.251">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Юрій Клебан">
-<meta name="dcterms.date" content="2022-11-01">
+<meta name="dcterms.date" content="2022-11-03">
 <title>Вступ до програмування в R - 3&nbsp; Вcтановлення та налаштування R</title>
 <style>
 code{white-space: pre-wrap;}
@@ -192,7 +192,7 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Про курс</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Про посібник</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -260,17 +260,27 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-r-operators.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Оператори</span></a>
+  <a href="./09-r-operators.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Корисні математичні функції</span></a>
+  <a href="./10-r-conditions-if-else.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Розгалуження</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">[-] Створення функції</span></a>
+  <a href="./11-r-loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Корисні математичні функції</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">[-] Створення функції</span></a>
   </div>
 </li>
       </ul>
@@ -285,17 +295,17 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">[-] Вектори</span></a>
+  <a href="./11-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">[-] Вектори</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">[-] Дата-фрейми</span></a>
+  <a href="./12-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">[-] Дата-фрейми</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">[-] Списки</span></a>
+  <a href="./13-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">[-] Списки</span></a>
   </div>
 </li>
       </ul>
@@ -357,7 +367,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Опубліковано</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 1, 2022</p>
+      <p class="date">November 3, 2022</p>
     </div>
   </div>
     
@@ -526,49 +536,53 @@ Important
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">dir</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "_language-ua.yml"           "_quarto.yml"               
- [3] "00-intro.html"              "00-intro.qmd"              
- [5] "01-what-is-r.html"          "01-what-is-r.qmd"          
- [7] "02-r-history.html"          "02-r-history.qmd"          
- [9] "03-r-environment.qmd"       "03-r-environment.rmarkdown"
-[11] "04-r-help.qmd"              "05-r-packages.qmd"         
-[13] "06-r-input-output.qmd"      "07-r-variables.qmd"        
-[15] "08-r-basic-types.qmd"       "09-r-operators.qmd"        
-[17] "10-userful-math.qmd"        "11-r-functions.qmd"        
-[19] "11-r-vectors.qmd"           "12-r-data.frames.qmd"      
-[21] "13-r-lists.qmd"             "commands"                  
-[23] "css"                        "demo.qmd"                  
-[25] "docs"                       "identity"                  
-[27] "img"                        "index.html"                
-[29] "index.log"                  "index.qmd"                 
-[31] "index.tex"                  "index_files"               
-[33] "intro-to-r-source.Rproj"    "references.bib"            
-[35] "references.qmd"             "site_libs"                 
-[37] "solved-tasks.qmd"           "summary.qmd"               
-[39] "tasks.qmd"                  "tmp.RData"                 </code></pre>
+<pre><code> [1] "_language-ua.yml"            "_quarto.yml"                
+ [3] "00-intro.html"               "00-intro.qmd"               
+ [5] "01-what-is-r.html"           "01-what-is-r.qmd"           
+ [7] "02-r-history.html"           "02-r-history.qmd"           
+ [9] "03-r-environment.qmd"        "03-r-environment.rmarkdown" 
+[11] "03-r-environment_files"      "04-r-help.qmd"              
+[13] "05-r-packages.qmd"           "06-r-input-output.qmd"      
+[15] "07-r-variables.qmd"          "08-r-basic-types.qmd"       
+[17] "09-r-operators.qmd"          "10-r-conditions-if-else.qmd"
+[19] "10-userful-math.qmd"         "11-r-functions.qmd"         
+[21] "11-r-loops.qmd"              "11-r-vectors.qmd"           
+[23] "12-r-data.frames.qmd"        "13-r-lists.qmd"             
+[25] "commands"                    "css"                        
+[27] "demo.qmd"                    "docs"                       
+[29] "identity"                    "img"                        
+[31] "index.html"                  "index.log"                  
+[33] "index.qmd"                   "index.tex"                  
+[35] "index_files"                 "intro-to-r-source.Rproj"    
+[37] "references.bib"              "references.qmd"             
+[39] "site_libs"                   "solved-tasks.qmd"           
+[41] "summary.qmd"                 "tasks.qmd"                  
+[43] "tmp.RData"                  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">list.files</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "_language-ua.yml"           "_quarto.yml"               
- [3] "00-intro.html"              "00-intro.qmd"              
- [5] "01-what-is-r.html"          "01-what-is-r.qmd"          
- [7] "02-r-history.html"          "02-r-history.qmd"          
- [9] "03-r-environment.qmd"       "03-r-environment.rmarkdown"
-[11] "04-r-help.qmd"              "05-r-packages.qmd"         
-[13] "06-r-input-output.qmd"      "07-r-variables.qmd"        
-[15] "08-r-basic-types.qmd"       "09-r-operators.qmd"        
-[17] "10-userful-math.qmd"        "11-r-functions.qmd"        
-[19] "11-r-vectors.qmd"           "12-r-data.frames.qmd"      
-[21] "13-r-lists.qmd"             "commands"                  
-[23] "css"                        "demo.qmd"                  
-[25] "docs"                       "identity"                  
-[27] "img"                        "index.html"                
-[29] "index.log"                  "index.qmd"                 
-[31] "index.tex"                  "index_files"               
-[33] "intro-to-r-source.Rproj"    "references.bib"            
-[35] "references.qmd"             "site_libs"                 
-[37] "solved-tasks.qmd"           "summary.qmd"               
-[39] "tasks.qmd"                  "tmp.RData"                 </code></pre>
+<pre><code> [1] "_language-ua.yml"            "_quarto.yml"                
+ [3] "00-intro.html"               "00-intro.qmd"               
+ [5] "01-what-is-r.html"           "01-what-is-r.qmd"           
+ [7] "02-r-history.html"           "02-r-history.qmd"           
+ [9] "03-r-environment.qmd"        "03-r-environment.rmarkdown" 
+[11] "03-r-environment_files"      "04-r-help.qmd"              
+[13] "05-r-packages.qmd"           "06-r-input-output.qmd"      
+[15] "07-r-variables.qmd"          "08-r-basic-types.qmd"       
+[17] "09-r-operators.qmd"          "10-r-conditions-if-else.qmd"
+[19] "10-userful-math.qmd"         "11-r-functions.qmd"         
+[21] "11-r-loops.qmd"              "11-r-vectors.qmd"           
+[23] "12-r-data.frames.qmd"        "13-r-lists.qmd"             
+[25] "commands"                    "css"                        
+[27] "demo.qmd"                    "docs"                       
+[29] "identity"                    "img"                        
+[31] "index.html"                  "index.log"                  
+[33] "index.qmd"                   "index.tex"                  
+[35] "index_files"                 "intro-to-r-source.Rproj"    
+[37] "references.bib"              "references.qmd"             
+[39] "site_libs"                   "solved-tasks.qmd"           
+[41] "summary.qmd"                 "tasks.qmd"                  
+[43] "tmp.RData"                  </code></pre>
 </div>
 </div>
 </section><section id="робота-з-rstudio" class="level2" data-number="3.5"><h2 data-number="3.5" class="anchored" data-anchor-id="робота-з-rstudio">
@@ -670,7 +684,7 @@ Note
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>vtr <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">20</span>, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
 <span id="cb21-2"><a href="#cb21-2"></a>vtr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1 5 5 3 5 3 1 3 2 5 1 2 2 3 4 5 4 3 1 3</code></pre>
+<pre><code> [1] 2 5 1 5 4 4 2 2 3 2 4 1 3 5 2 1 2 2 5 2</code></pre>
 </div>
 </div>
 <div class="callout-important callout callout-style-default callout-captioned">
@@ -693,11 +707,11 @@ Important
 <span id="cb23-3"><a href="#cb23-3"></a></span>
 <span id="cb23-4"><a href="#cb23-4"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"Sum: "</span>, vtr_sum))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Sum: 61"</code></pre>
+<pre><code>[1] "Sum: 57"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"Mean: "</span>, vtr_mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Mean: 3.05"</code></pre>
+<pre><code>[1] "Mean: 2.85"</code></pre>
 </div>
 </div>
 <p>Виведемо гістограму:</p>

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Юрій Клебан">
 <meta name="dcterms.date" content="2022-11-03">
-<title>Вступ до програмування в R - 9&nbsp; Арифметичні та логічні оператори</title>
+<title>Вступ до програмування в R - 11&nbsp; Арифметичні та логічні оператори</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,8 +91,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./10-r-conditions-if-else.html" rel="next">
-<link href="./08-r-basic-types.html" rel="prev">
+<link href="./10-userful-math.html" rel="next">
+<link href="./10-r-conditions-if-else.html" rel="prev">
 <link href="./img/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -127,7 +127,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span>
+<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -241,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-r-operators.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span></a>
+  <a href="./09-r-operators.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -251,7 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-r-loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span></a>
+  <a href="./11-r-loops.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -312,9 +312,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Зміст</h2>
    
   <ul>
-<li><a href="#%D0%B0%D1%80%D0%B8%D1%84%D0%BC%D0%B5%D1%82%D0%B8%D1%87%D0%BD%D1%96-%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B8" id="toc-арифметичні-оператори" class="nav-link active" data-scroll-target="#%D0%B0%D1%80%D0%B8%D1%84%D0%BC%D0%B5%D1%82%D0%B8%D1%87%D0%BD%D1%96-%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B8"><span class="toc-section-number">9.1</span>  Арифметичні оператори</a></li>
-  <li><a href="#%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B8-%D0%B2%D1%96%D0%B4%D0%BD%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D1%8F" id="toc-оператори-відношення" class="nav-link" data-scroll-target="#%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B8-%D0%B2%D1%96%D0%B4%D0%BD%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D1%8F"><span class="toc-section-number">9.2</span>  Оператори відношення</a></li>
-  <li><a href="#chapter233" id="toc-chapter233" class="nav-link" data-scroll-target="#chapter233"><span class="toc-section-number">9.3</span>  Логічні оператори</a></li>
+<li><a href="#%D0%B0%D1%80%D0%B8%D1%84%D0%BC%D0%B5%D1%82%D0%B8%D1%87%D0%BD%D1%96-%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B8" id="toc-арифметичні-оператори" class="nav-link active" data-scroll-target="#%D0%B0%D1%80%D0%B8%D1%84%D0%BC%D0%B5%D1%82%D0%B8%D1%87%D0%BD%D1%96-%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B8"><span class="toc-section-number">11.1</span>  Арифметичні оператори</a></li>
+  <li><a href="#%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B8-%D0%B2%D1%96%D0%B4%D0%BD%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D1%8F" id="toc-оператори-відношення" class="nav-link" data-scroll-target="#%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B8-%D0%B2%D1%96%D0%B4%D0%BD%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D1%8F"><span class="toc-section-number">11.2</span>  Оператори відношення</a></li>
+  <li><a href="#chapter233" id="toc-chapter233" class="nav-link" data-scroll-target="#chapter233"><span class="toc-section-number">11.3</span>  Логічні оператори</a></li>
   <li>
 <a href="#%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F" id="toc-завдання" class="nav-link" data-scroll-target="#%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F">Завдання</a>
   <ul class="collapse">
@@ -322,12 +322,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-2" id="toc-завдання-2" class="nav-link" data-scroll-target="#%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-2">Завдання 2</a></li>
   </ul>
 </li>
+  <li>
+<a href="#%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%B8-%D1%80%D0%BE%D0%B7%D0%B2%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D1%8C" id="toc-приклади-розвязання-завдань" class="nav-link" data-scroll-target="#%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%B8-%D1%80%D0%BE%D0%B7%D0%B2%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D1%8C"><span class="toc-section-number">11.4</span>  Приклади розв’язання завдань</a>
+  <ul class="collapse">
+<li><a href="#%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-1.-%D0%BF%D0%B0%D1%80%D0%BD%D1%96%D0%BD%D0%BF%D0%B0%D0%BD%D1%96-%D1%87%D0%B8%D1%81%D0%BB%D0%B0" id="toc-завдання-1.-парнінпані-числа" class="nav-link" data-scroll-target="#%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-1.-%D0%BF%D0%B0%D1%80%D0%BD%D1%96%D0%BD%D0%BF%D0%B0%D0%BD%D1%96-%D1%87%D0%B8%D1%81%D0%BB%D0%B0"><span class="toc-section-number">11.4.1</span>  Завдання 1. Парні/нпані числа</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span>
+<span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span>
 </h1>
 </div>
 
@@ -352,8 +358,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><section id="арифметичні-оператори" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="арифметичні-оператори">
-<span class="header-section-number">9.1</span> Арифметичні оператори</h2>
+</header><section id="арифметичні-оператори" class="level2" data-number="11.1"><h2 data-number="11.1" class="anchored" data-anchor-id="арифметичні-оператори">
+<span class="header-section-number">11.1</span> Арифметичні оператори</h2>
 <p><code>R</code> можна використовувати як звичайни калькулятор.</p>
 <p>Розглянемо набір звичних арифметичних операторів, що відомі з початкової школи:</p>
 <ul>
@@ -491,8 +497,8 @@ Note
 <pre><code>[1] 4</code></pre>
 </div>
 </div>
-<hr></section><section id="оператори-відношення" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="оператори-відношення">
-<span class="header-section-number">9.2</span> Оператори відношення</h2>
+<hr></section><section id="оператори-відношення" class="level2" data-number="11.2"><h2 data-number="11.2" class="anchored" data-anchor-id="оператори-відношення">
+<span class="header-section-number">11.2</span> Оператори відношення</h2>
 <p><strong>Оператори відношення</strong> відповідають за порівнняння двох об’єктів між собою та повертають значення логічного типу <code>TRUE</code>, якщо результат істинний та <code>FALSE</code>, якщо результат хибний.</p>
 <p>Перелік операторів відношення:</p>
 <ul>
@@ -540,53 +546,19 @@ Note
 <pre><code>[1] FALSE</code></pre>
 </div>
 </div>
-</section><section id="chapter233" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="chapter233">
-<span class="header-section-number">9.3</span> Логічні оператори</h2>
+</section><section id="chapter233" class="level2" data-number="11.3"><h2 data-number="11.3" class="anchored" data-anchor-id="chapter233">
+<span class="header-section-number">11.3</span> Логічні оператори</h2>
 <p>До логічних операторів у <code>R</code> відносяться:</p>
 <ul>
 <li>
-<strong><code>&amp;</code></strong> - <strong>І</strong> (амперсант, <code>Shift-7</code>) - виконання усіх умов одночасно.</li>
+<strong><code>&amp;</code></strong> - <strong>І</strong> (амперсант, <code>Shift-7</code>) - виконання усіх умов одночасно. <em>Зверніть увагу, що для колекцій буде використано подвоєний оператор (<code>&amp;&amp;</code>).</em>
+</li>
 <li>
-<strong><code>|</code></strong> - <strong>АБО</strong> (вертикальна риска, <code>Shift+\</code>) - виконання однієї із умов.</li>
+<strong><code>|</code></strong> - <strong>АБО</strong> (вертикальна риска, <code>Shift+\</code>) - виконання однієї із умов. <em>Зверніть увагу, що для колекцій буде використано подвоєний оператор (<code>||</code>).</em>
+</li>
 <li>
 <strong><code>!</code></strong> - <strong>НЕ</strong> (знак оклику, <code>Shift+1</code>) - заперечення.</li>
 </ul>
-<div class="callout-important callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Зверніть увагу, що у R існують також і оператори <code>&amp;&amp;</code> та <code>||</code>. Це також логічні оператори <strong>І</strong> та <strong>АБО</strong>. Проте їх відмінність полягає у тому, що “розширені” оператори порівнюють лише перші елементи векторів, у той час як “скорочені” усі елементи:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">10</span>)</span>
-<span id="cb44-2"><a href="#cb44-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">5</span>)</span>
-<span id="cb44-3"><a href="#cb44-3"></a></span>
-<span id="cb44-4"><a href="#cb44-4"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  5  8 10</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">print</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3 2 5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>x <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">&amp;</span> y <span class="sc">&lt;</span> <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE  TRUE  TRUE</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>x <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">&amp;&amp;</span> y <span class="sc">&lt;</span> <span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-</div>
-</div>
-</div>
 <p>Важливо розуміти відмінності між цими операторами вміти використовувати результи їх роботи. Для початку варто розглянути таблицю істинності:</p>
 <table class="table">
 <caption>Таблиця істинності логічних операторів</caption>
@@ -636,37 +608,37 @@ Important
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>a <span class="ot">&lt;-</span> <span class="dv">12</span></span>
-<span id="cb52-2"><a href="#cb52-2"></a>b <span class="ot">&lt;-</span> <span class="dv">7</span></span>
-<span id="cb52-3"><a href="#cb52-3"></a></span>
-<span id="cb52-4"><a href="#cb52-4"></a>a <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> b <span class="sc">&lt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>a <span class="ot">&lt;-</span> <span class="dv">12</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>b <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a></span>
+<span id="cb44-4"><a href="#cb44-4"></a>a <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> b <span class="sc">&lt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>a <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> b <span class="sc">&gt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>a <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> b <span class="sc">&gt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>a <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> b <span class="sc">&lt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>a <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> b <span class="sc">&lt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>a <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> b <span class="sc">&gt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>a <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> b <span class="sc">&gt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
 </div>
 <p>Оператор <strong>АБО</strong> (<code>or</code>):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>a <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> b <span class="sc">&lt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>a <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> b <span class="sc">&lt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>a <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">|</span> b <span class="sc">&gt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>a <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">|</span> b <span class="sc">&gt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>a <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">|</span> b <span class="sc">&lt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>a <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">|</span> b <span class="sc">&lt;</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -675,41 +647,62 @@ Important
 <section id="завдання-1" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="завдання-1">Завдання 1</h3>
 <p>Яким буде результат виконання наступних команд?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a>a <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb66-2"><a href="#cb66-2"></a>b <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb66-3"><a href="#cb66-3"></a></span>
-<span id="cb66-4"><a href="#cb66-4"></a>a <span class="sc">%%</span> b <span class="sc">&gt;</span> <span class="dv">0</span> <span class="co"># what is result </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>a <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a>b <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb58-3"><a href="#cb58-3"></a></span>
+<span id="cb58-4"><a href="#cb58-4"></a>a <span class="sc">%%</span> b <span class="sc">&gt;</span> <span class="dv">0</span> <span class="co"># what is result </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
 <p>Результат:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode numberSource output number-lines code-with-copy"><code class="sourceCode"><span id="cb68-1"><a href="#cb68-1"></a>TRUE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode numberSource output number-lines code-with-copy"><code class="sourceCode"><span id="cb60-1"><a href="#cb60-1"></a>TRUE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Пояснення: <span class="math inline">\(a\)</span> %% <span class="math inline">\(b = 2\)</span>, бо остача від ділення <span class="math inline">\(10\)</span> на <span class="math inline">\(4\)</span> рівна <span class="math inline">\(2\)</span>, а <span class="math inline">\(2 &gt; 0 = true\)</span>.</p>
 </section><section id="завдання-2" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="завдання-2">Завдання 2</h3>
 <p>Яким буде результат виконання наступних команд?</p>
 <p>Підзавдання 1:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a>a <span class="ot">&lt;-</span> <span class="dv">7</span></span>
-<span id="cb69-2"><a href="#cb69-2"></a>b <span class="ot">&lt;-</span> <span class="dv">12</span></span>
-<span id="cb69-3"><a href="#cb69-3"></a>c <span class="ot">&lt;-</span> a <span class="sc">-</span> b <span class="sc">%%</span> <span class="dv">2</span></span>
-<span id="cb69-4"><a href="#cb69-4"></a></span>
-<span id="cb69-5"><a href="#cb69-5"></a>c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>a <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb61-2"><a href="#cb61-2"></a>b <span class="ot">&lt;-</span> <span class="dv">12</span></span>
+<span id="cb61-3"><a href="#cb61-3"></a>c <span class="ot">&lt;-</span> a <span class="sc">-</span> b <span class="sc">%%</span> <span class="dv">2</span></span>
+<span id="cb61-4"><a href="#cb61-4"></a></span>
+<span id="cb61-5"><a href="#cb61-5"></a>c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Результат:</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode numberSource output number-lines code-with-copy"><code class="sourceCode"><span id="cb70-1"><a href="#cb70-1"></a>7</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource output number-lines code-with-copy"><code class="sourceCode"><span id="cb62-1"><a href="#cb62-1"></a>7</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Підзавдання 2:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a>c <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> b <span class="sc">&gt;</span> a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>c <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> b <span class="sc">&gt;</span> a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Результат:</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode numberSource output number-lines code-with-copy"><code class="sourceCode"><span id="cb72-1"><a href="#cb72-1"></a>TRUE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode numberSource output number-lines code-with-copy"><code class="sourceCode"><span id="cb64-1"><a href="#cb64-1"></a>TRUE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Підзавдання 3:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a>c <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">|</span> b <span class="sc">&gt;</span> a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>c <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">|</span> b <span class="sc">&gt;</span> a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Результат:</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode numberSource output number-lines code-with-copy"><code class="sourceCode"><span id="cb74-1"><a href="#cb74-1"></a>TRUE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode numberSource output number-lines code-with-copy"><code class="sourceCode"><span id="cb66-1"><a href="#cb66-1"></a>TRUE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section><section id="приклади-розвязання-завдань" class="level2 unnnumbered" data-number="11.4"><h2 class="unnnumbered anchored" data-number="11.4" data-anchor-id="приклади-розвязання-завдань">
+<span class="header-section-number">11.4</span> Приклади розв’язання завдань</h2>
+<section id="завдання-1.-парнінпані-числа" class="level3 unnnumbered" data-number="11.4.1"><h3 class="unnnumbered anchored" data-number="11.4.1" data-anchor-id="завдання-1.-парнінпані-числа">
+<span class="header-section-number">11.4.1</span> Завдання 1. Парні/нпані числа</h3>
+<p>Напишіть програму, що виводить консоль інформацію про те число парне чи ні. Значення <span class="math inline">\(0\)</span> потрібно потрібно також перевірити і вивести у разі його введення <code>"ZERO"</code>.</p>
+<p>Розв’язання</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a>a <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="at">prompt =</span> <span class="st">"Enter A:"</span>) <span class="co"># read a</span></span>
+<span id="cb67-2"><a href="#cb67-2"></a>a <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(a) </span>
+<span id="cb67-3"><a href="#cb67-3"></a>remainder <span class="ot">&lt;-</span> a <span class="sc">%%</span> <span class="dv">2</span></span>
+<span id="cb67-4"><a href="#cb67-4"></a><span class="cf">if</span>(a <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb67-5"><a href="#cb67-5"></a>  <span class="fu">print</span>(<span class="st">"ZERO"</span>)  </span>
+<span id="cb67-6"><a href="#cb67-6"></a>} <span class="cf">else</span> <span class="cf">if</span>(remainder <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb67-7"><a href="#cb67-7"></a>  <span class="fu">print</span>(<span class="st">"EVEN"</span>)</span>
+<span id="cb67-8"><a href="#cb67-8"></a>} <span class="cf">else</span> <span class="cf">if</span> (remainder <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb67-9"><a href="#cb67-9"></a>  <span class="fu">print</span>(<span class="st">"ODD"</span>)</span>
+<span id="cb67-10"><a href="#cb67-10"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Результат виконання коду:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode numberSource output number-lines code-with-copy"><code class="sourceCode"><span id="cb68-1"><a href="#cb68-1"></a>Enter A: 2</span>
+<span id="cb68-2"><a href="#cb68-2"></a>[1] "EVEN"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -810,13 +803,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./08-r-basic-types.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Базові типи даних <code>R</code></span></span>
+      <a href="./10-r-conditions-if-else.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Розгалуження</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./10-r-conditions-if-else.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Розгалуження</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./10-userful-math.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Корисні математичні функції</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

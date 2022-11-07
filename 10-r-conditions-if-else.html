@@ -5,8 +5,7 @@
 <meta name="generator" content="quarto-1.1.251">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Юрій Клебан">
-<meta name="dcterms.date" content="2022-11-03">
-<title>Вступ до програмування в R - 4&nbsp; Документація та допомога</title>
+<title>Вступ до програмування в R - 10&nbsp; Розгалуження</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,25 +81,6 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -110,8 +90,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./05-r-packages.html" rel="next">
-<link href="./03-r-environment.html" rel="prev">
+<link href="./11-r-loops.html" rel="next">
+<link href="./09-r-operators.html" rel="prev">
 <link href="./img/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -139,14 +119,14 @@ div.csl-indent {
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><link rel="stylesheet" href="css/style.css">
+}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><link rel="stylesheet" href="css/style.css">
 </head>
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Документація та допомога</span>
+<span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Розгалуження</span>
 </h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
@@ -225,7 +205,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-r-help.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Документація та допомога</span></a>
+  <a href="./04-r-help.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Документація та допомога</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -265,7 +245,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-r-conditions-if-else.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Розгалуження</span></a>
+  <a href="./10-r-conditions-if-else.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Розгалуження</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -328,12 +308,23 @@ div.csl-indent {
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Зміст</h2>
+   
+  <ul>
+<li><a href="#%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80-if-else" id="toc-оператор-if-else" class="nav-link active" data-scroll-target="#%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80-if-else"><span class="toc-section-number">10.1</span>  Оператор <code>if-else</code></a></li>
+  <li><a href="#%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%80%D0%BD%D0%B8%D0%B9-%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80" id="toc-тернарний-оператор" class="nav-link" data-scroll-target="#%D1%82%D0%B5%D1%80%D0%BD%D0%B0%D1%80%D0%BD%D0%B8%D0%B9-%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80"><span class="toc-section-number">10.2</span>  Тернарний оператор</a></li>
+  <li>
+<a href="#%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%B8-%D1%80%D0%BE%D0%B7%D0%B2%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D1%8C" id="toc-приклади-розвязання-завдань" class="nav-link" data-scroll-target="#%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%B8-%D1%80%D0%BE%D0%B7%D0%B2%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D1%8C"><span class="toc-section-number">10.3</span>  Приклади розв’язання завдань</a>
+  <ul class="collapse">
+<li><a href="#%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-1.-%D0%BF%D0%B0%D1%80%D0%BD%D1%96%D0%BD%D0%B5%D0%BF%D0%B0%D1%80%D0%BD%D1%96-%D1%87%D0%B8%D1%81%D0%BB%D0%B0" id="toc-завдання-1.-парнінепарні-числа" class="nav-link" data-scroll-target="#%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-1.-%D0%BF%D0%B0%D1%80%D0%BD%D1%96%D0%BD%D0%B5%D0%BF%D0%B0%D1%80%D0%BD%D1%96-%D1%87%D0%B8%D1%81%D0%BB%D0%B0"><span class="toc-section-number">10.3.1</span>  Завдання 1. Парні/непарні числа</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">
-<span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Документація та допомога</span>
+<span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Розгалуження</span>
 </h1>
 </div>
 
@@ -351,18 +342,25 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Опубліковано</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 3, 2022</p>
+      <p class="date">11/3/22</p>
     </div>
   </div>
     
   </div>
   
 
-</header><p>Для отримання швидкої довідки в <code>R</code> варто скористатися функціє <code>help(назва_об'єкта_або_функції)</code> або <code>?назва_об'єкта_або_функції</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Get help for intersect() function</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">help</span>(intersect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Якщо є потреба отримати інформацію про пакет скористайтеся:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">"stats"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</header><section id="оператор-if-else" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="оператор-if-else">
+<span class="header-section-number">10.1</span> Оператор <code>if-else</code>
+</h2>
+<p>Якщо є потреба перевірити у коді програми виконання якоїсь умови та за її результатами перейти до одного із блоків виконання зазвичай використовують оператор <code>if-else</code>. Загальний вигляд формату використання оператора <code>if-else</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a> <span class="cf">if</span> (умова) {</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="co">#інструкція</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  }</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="cf">else</span> {</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="co">#інструкція</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Вираз <code>умова</code> повинен повертати результат у вигляді елемента логічного типу. Тобто, <code>умова</code> може бути або <code>true</code>, або <code>false</code>.</p>
+<p>Якщо <code>умова</code> рівна <code>true</code>, то виконається інструкція (або код) записана у дужках після <code>if</code>. Якщо ж <code>умова</code> рівна <code>false</code>, то виконається інструкція записана у дужках після <code>else</code>.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -373,31 +371,93 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Детальну документацію по роботі з пакетами Ви можете знайти тут:</p>
-<ul>
-<li><a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" class="uri">https://cran.r-project.org/web/packages/available_packages_by_name.html</a></li>
-<li><a href="https://www.rdocumentation.org/" class="uri">https://www.rdocumentation.org/</a></li>
-<li><a href="https://rdrr.io/r/" class="uri">https://rdrr.io/r/</a></li>
-</ul>
+<p>Символ <strong><code>#</code></strong> перед кодом означає <code>коментар</code>, тобто код, який не бачитиме інтепретатор мови програмування.</p>
 </div>
 </div>
-<p>Розглянемо для прикладу візуалізацію інформації про функцію <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, що використовується для знаходження середнього значення:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">help</span>(mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-help-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="img/01/help-mean.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;4.1: Скріншот інформації про функцію <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> з пакету <code>base</code>(<span class="citation" data-cites="r-base">R Core Team (<a href="references.html#ref-r-base" role="doc-biblioref">2020</a>)</span>)</figcaption><p></p>
-</figure>
+<p>Якщо після <code>if</code> або <code>else</code> тільки одна інструкція (можна ототожнити з один рядком коду), то «фігурні» дужки <code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code> не є обов’язковими.</p>
+<p>Конструкції <code>if-else</code> можуть вкладеними одна в одну без обмежень по глибині. Проте дуже глибокої вкладеності варто уникати, адже це ускладнює читання та розуміння коду програми.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">if</span> (умова1)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>{</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="cf">if</span> (умова2)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>  {</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="co">#інструкція</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>  }</span>
+<span id="cb2-7"><a href="#cb2-7"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Отримана інформація дозволить визначити як правильно викликати функцію, які параметри вона приймає та що вони означають. Наявність прикладів виклику функції такод полегшить роботу з написання коду.</p>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>if</code> є обов’язковим і повинно існувати у всіх подібних конструкціях, у той же час <code>else</code> – необов’язковий.</p>
+</div>
+</div>
+<p>Також конструкція <code>if-else</code> може мати структуру дерева із багатьма розгалуженнями. Така структура зазвичай записується як <code>if-else-if</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="cf">if</span> (умова1)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  { <span class="co">#код }</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="cf">else</span> <span class="cf">if</span> (умова2)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>      { <span class="co">#код }</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>      <span class="cf">else</span> <span class="cf">if</span> (умова3)</span>
+<span id="cb3-6"><a href="#cb3-6"></a>          { <span class="co">#код }</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>          <span class="cf">else</span> { <span class="co">#код }</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Вирази обчислюються зверху-вниз. Якщо один із виразів (<code>умова</code>) отримає істинний результат (<code>true</code>), то програмний код, пов’язаний із цією гілкою розгалуження виконається, а всі інші гілки будуть пропущені. Якщо ж не виконається жодна з умов, то буде запущено код всередині останньої інструкції <code>else</code> (у цьому випадку <code>else</code> теж не обов’язковий).</p>
+<p>Розгялнемо приклади використання конструкції <code>if-else</code>. Код нижче дозволяє перевірити, яке з двох цілих чисел є більшим:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>a <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>b <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="cf">if</span>(a <span class="sc">&gt;</span> b) {</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="fu">print</span>(<span class="st">"A &gt; B"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>} <span class="cf">else</span> <span class="cf">if</span> (b <span class="sc">&gt;</span> a){</span>
+<span id="cb4-7"><a href="#cb4-7"></a>    <span class="fu">print</span>(<span class="st">"B &gt; A"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8"></a>} <span class="cf">else</span> {</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    <span class="fu">print</span>(<span class="st">"A equals B"</span>)</span>
+<span id="cb4-10"><a href="#cb4-10"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "A &gt; B"</code></pre>
+</div>
+</div>
+</section><section id="тернарний-оператор" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="тернарний-оператор">
+<span class="header-section-number">10.2</span> Тернарний оператор</h2>
+<p>Тернарний оператор – це спосіб запису умовного виразу в один рядок. Він використовується, коли потрібно присвоїти значення змінній в залежності від умови. Синтаксис тернарного оператора у <code>R</code> відрізняється від інших мов програмування (класично це <code>умова ? вираз_якщо_true : вираз_якщо_false</code>).</p>
+<p>Оператор розгалуження <code>if-else</code> у <code>R</code> може повертати та записувати значення у змінну:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>value <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>x <span class="ot">&lt;-</span> <span class="cf">if</span>(value <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>) <span class="st">"even"</span> <span class="cf">else</span> <span class="st">"odd"</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "even"</code></pre>
+</div>
+</div>
+<p>Проте сильною стороною <code>R</code> є саме робота з</p>
+</section><section id="приклади-розвязання-завдань" class="level2 unnnumbered" data-number="10.3"><h2 class="unnnumbered anchored" data-number="10.3" data-anchor-id="приклади-розвязання-завдань">
+<span class="header-section-number">10.3</span> Приклади розв’язання завдань</h2>
+<section id="завдання-1.-парнінепарні-числа" class="level3 unnnumbered" data-number="10.3.1"><h3 class="unnnumbered anchored" data-number="10.3.1" data-anchor-id="завдання-1.-парнінепарні-числа">
+<span class="header-section-number">10.3.1</span> Завдання 1. Парні/непарні числа</h3>
+<p>Напишіть програму, що виводить консоль інформацію про те число парне чи ні. Значення <span class="math inline">\(0\)</span> потрібно потрібно також перевірити і вивести у разі його введення <code>"ZERO"</code>.</p>
+<p>Розв’язання</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>a <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="at">prompt =</span> <span class="st">"Enter A:"</span>) <span class="co"># read a</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>a <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(a) </span>
+<span id="cb8-3"><a href="#cb8-3"></a>remainder <span class="ot">&lt;-</span> a <span class="sc">%%</span> <span class="dv">2</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="cf">if</span>(a <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">print</span>(<span class="st">"ZERO"</span>)  </span>
+<span id="cb8-6"><a href="#cb8-6"></a>} <span class="cf">else</span> <span class="cf">if</span>(remainder <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb8-7"><a href="#cb8-7"></a>  <span class="fu">print</span>(<span class="st">"EVEN"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8"></a>} <span class="cf">else</span> <span class="cf">if</span> (remainder <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb8-9"><a href="#cb8-9"></a>  <span class="fu">print</span>(<span class="st">"ODD"</span>)</span>
+<span id="cb8-10"><a href="#cb8-10"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Результат виконання коду:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource output number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href="#cb9-1"></a>Enter A: 2</span>
+<span id="cb9-2"><a href="#cb9-2"></a>[1] "EVEN"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-r-base" class="csl-entry" role="doc-biblioentry">
-R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
-</div>
-</div>
-
-</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -495,13 +555,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./03-r-environment.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Вcтановлення та налаштування R</span></span>
+      <a href="./09-r-operators.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05-r-packages.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Робота з пакетами</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./11-r-loops.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
