@@ -19,6 +19,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -269,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Опубліковано</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 12, 2022</p>
+      <p class="date">11/12/22</p>
     </div>
   </div>
     
@@ -277,18 +296,41 @@ ul.task-list li input[type="checkbox"] {
   
 
 </header><p>R є поширеною мовою програмування для роботи з даними (<code>DataScience</code>) та машинного навчання (<code>Machine Learning</code>). Але Ви можете скористатися засобами <code>R</code> і для простіших задач: обчислення, візуалізація даних.</p>
-<p>Синтаксис мови програмування R є досить простим для вивчення та використання, а широкий набір готових пакетів дозволяє використати готові розробки для виіршення широкого спектру задач від статистичних обчислень до навчання нейронних мереж для розпізнавання/класифікації зображень.</p>
-<p>Важливо відмітити, що мова програмування R є безкоштовною (<code>free</code>) і має відкритий код (<code>open source</code>).</p>
+<p>Синтаксис мови програмування <code>R</code> є досить простим для вивчення та використання, а широкий набір готових пакетів дозволяє використати готові розробки для виіршення широкого спектру задач від статистичних обчислень до навчання нейронних мереж для розпізнавання/класифікації зображень.</p>
+<p>Важливо відмітити, що мова програмування <code>R</code> є безкоштовною (<code>free</code>) і має відкритий код (<code>open source</code>).</p>
 <p><code>R</code> має ряд корисних властивостей, серед яких варто виділити:</p>
 <ul>
 <li><p><strong>Візуалізація даних</strong>. Побудова різноманітих видів графіків, робота з мапами, широкий спектр бібліотек та налаштувань до них.</p></li>
 <li><p><strong>Повторне використання коду</strong>. На відміну від електронних таблиць, що мають обмеження на кількість спостережень (наприклад, MS Excel), R дозволяє працювати з великими масивами даних та перезапускати обчислення у потрібний момент не створюючи додаткових копій даних.</p></li>
-<li><p><strong>Машинне навчання</strong>. R дозволяє використати для побудови, навчання та тестування моделей, а також оптимізації гіперпараметрів та відбору факторів дуже велику кількість алгоритмів. Існують також спеціальні пакети, що об’єднують у собі усі описані функції та алгоритми, наприклад, <code>caret</code> та <code>mlr</code>.</p></li>
+<li><p><strong>Машинне навчання</strong>. R дозволяє використати для побудови, навчання та тестування моделей, а також оптимізації гіперпараметрів та відбору факторів дуже велику кількість алгоритмів. Існують також спеціальні пакети, що об’єднують у собі усі описані функції та алгоритми, наприклад, <code>caret</code><span class="citation" data-cites="caret">(<a href="references.html#ref-caret" role="doc-biblioref">Kuhn 2022</a>)</span> та <code>mlr</code><span class="citation" data-cites="mlr3">(<a href="references.html#ref-mlr3" role="doc-biblioref">Lang et al. 2019</a>)</span>.</p></li>
 <li><p><strong>Автоматизація</strong>. Написаний код та проєкти можна перетворити у готові до публікації та впровадження продукти (deployment) або використовувати напрацьовані алгоритми для швидкого вирішення схожих задач (pipeline).</p></li>
 </ul>
-<p>Також можна виділити досить корисні фічі <strong>Розробка веб-застосунків</strong> та <strong>Звітність</strong>, адже, використовуючи спеціальні бібліотеки (<code>shiny</code>, <code>shinydashboard</code>, <code>flexdashboard</code>, <code>rmarkdown</code>, <code>knitr</code> тощо), результати виконаної роботи можна “оживити” або сформувати “на льоту” готові до презентації документи.</p>
+<p>Також можна виділити досить корисні фічі <strong>Розробка веб-застосунків</strong> та <strong>Звітність</strong>, адже, використовуючи спеціальні бібліотеки (<code>shiny</code><span class="citation" data-cites="shiny">(<a href="references.html#ref-shiny" role="doc-biblioref">Chang et al. 2022</a>)</span>, <code>shinydashboard</code><span class="citation" data-cites="shinydashboard">(<a href="references.html#ref-shinydashboard" role="doc-biblioref">Chang and Borges Ribeiro 2021</a>)</span>, <code>flexdashboard</code><span class="citation" data-cites="flexdashboard">(<a href="references.html#ref-flexdashboard" role="doc-biblioref">Sievert et al. 2022</a>)</span>, <code>rmarkdown</code><span class="citation" data-cites="rmarkdown">(<a href="references.html#ref-rmarkdown" role="doc-biblioref">Xie, Dervieux, and Riederer 2020</a>)</span>, <code>knitr</code><span class="citation" data-cites="knitr">(<a href="references.html#ref-knitr" role="doc-biblioref">Xie 2015</a>)</span> тощо) результати виконаної роботи можна “оживити” або сформувати “на льоту” готові до презентації документи.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-shinydashboard" class="csl-entry" role="doc-biblioentry">
+Chang, Winston, and Barbara Borges Ribeiro. 2021. <em>Shinydashboard: Create Dashboards with ’Shiny’</em>. <a href="https://CRAN.R-project.org/package=shinydashboard">https://CRAN.R-project.org/package=shinydashboard</a>.
+</div>
+<div id="ref-shiny" class="csl-entry" role="doc-biblioentry">
+Chang, Winston, Joe Cheng, JJ Allaire, Carson Sievert, Barret Schloerke, Yihui Xie, Jeff Allen, Jonathan McPherson, Alan Dipert, and Barbara Borges. 2022. <em>Shiny: Web Application Framework for r</em>. <a href="https://CRAN.R-project.org/package=shiny">https://CRAN.R-project.org/package=shiny</a>.
+</div>
+<div id="ref-caret" class="csl-entry" role="doc-biblioentry">
+Kuhn, Max. 2022. <em>Caret: Classification and Regression Training</em>. <a href="https://CRAN.R-project.org/package=caret">https://CRAN.R-project.org/package=caret</a>.
+</div>
+<div id="ref-mlr3" class="csl-entry" role="doc-biblioentry">
+Lang, Michel, Martin Binder, Jakob Richter, Patrick Schratz, Florian Pfisterer, Stefan Coors, Quay Au, Giuseppe Casalicchio, Lars Kotthoff, and Bernd Bischl. 2019. <span>“<span class="nocase">mlr3</span>: A Modern Object-Oriented Machine Learning Framework in <span>R</span>.”</span> <em>Journal of Open Source Software</em>, December. <a href="https://doi.org/10.21105/joss.01903">https://doi.org/10.21105/joss.01903</a>.
+</div>
+<div id="ref-flexdashboard" class="csl-entry" role="doc-biblioentry">
+Sievert, Carson, Richard Iannone, JJ Allaire, and Barbara Borges. 2022. <em>Flexdashboard: R Markdown Format for Flexible Dashboards</em>. <a href="https://CRAN.R-project.org/package=flexdashboard">https://CRAN.R-project.org/package=flexdashboard</a>.
+</div>
+<div id="ref-knitr" class="csl-entry" role="doc-biblioentry">
+Xie, Yihui. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+</div>
+<div id="ref-rmarkdown" class="csl-entry" role="doc-biblioentry">
+Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R Markdown Cookbook</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown-cookbook">https://bookdown.org/yihui/rmarkdown-cookbook</a>.
+</div>
+</div>
 
 </main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
