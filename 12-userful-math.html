@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.1.251">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Юрій Клебан">
-<meta name="dcterms.date" content="2022-11-03">
+<meta name="dcterms.date" content="2022-11-12">
 <title>Вступ до програмування в R - 12&nbsp; Корисні математичні функції</title>
 <style>
 code{white-space: pre-wrap;}
@@ -91,7 +91,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./11-r-functions.html" rel="next">
+<link href="./13-r-functions.html" rel="next">
 <link href="./11-r-loops.html" rel="prev">
 <link href="./img/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -256,12 +256,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-userful-math.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Корисні математичні функції</span></a>
+  <a href="./12-userful-math.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Корисні математичні функції</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">[-] Створення функції</span></a>
+  <a href="./13-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Створення функцій</span></a>
   </div>
 </li>
       </ul>
@@ -322,9 +322,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%8F-signif" id="toc-функція-signif" class="nav-link" data-scroll-target="#%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%8F-signif"><span class="toc-section-number">12.1.5</span>  Функція <code>signif()</code></a></li>
   </ul>
 </li>
-  <li><a href="#%D0%BF%D0%BE%D1%81%D0%BB%D1%96%D0%B4%D0%BE%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%96-%D1%87%D0%B8%D1%81%D0%B5%D0%BB" id="toc-послідовності-чисел" class="nav-link" data-scroll-target="#%D0%BF%D0%BE%D1%81%D0%BB%D1%96%D0%B4%D0%BE%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%96-%D1%87%D0%B8%D1%81%D0%B5%D0%BB"><span class="toc-section-number">12.2</span>  Послідовності чисел</a></li>
-  <li><a href="#%D0%B3%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D1%96%D1%8F-%D0%BF%D1%81%D0%B5%D0%B2%D0%B4%D0%BE%D0%B2%D0%B8%D0%BF%D0%B0%D0%B4%D0%BA%D0%BE%D0%B2%D0%B8%D1%85-%D1%87%D0%B8%D1%81%D0%B5%D0%BB" id="toc-генерація-псевдовипадкових-чисел" class="nav-link" data-scroll-target="#%D0%B3%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D1%96%D1%8F-%D0%BF%D1%81%D0%B5%D0%B2%D0%B4%D0%BE%D0%B2%D0%B8%D0%BF%D0%B0%D0%B4%D0%BA%D0%BE%D0%B2%D0%B8%D1%85-%D1%87%D0%B8%D1%81%D0%B5%D0%BB"><span class="toc-section-number">12.3</span>  Генерація псевдовипадкових чисел</a></li>
+  <li>
+<a href="#%D0%BF%D0%BE%D1%81%D0%BB%D1%96%D0%B4%D0%BE%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%96-%D1%87%D0%B8%D1%81%D0%B5%D0%BB" id="toc-послідовності-чисел" class="nav-link" data-scroll-target="#%D0%BF%D0%BE%D1%81%D0%BB%D1%96%D0%B4%D0%BE%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D1%96-%D1%87%D0%B8%D1%81%D0%B5%D0%BB"><span class="toc-section-number">12.2</span>  Послідовності чисел</a>
+  <ul class="collapse">
+<li><a href="#%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%8F-seq" id="toc-функція-seq" class="nav-link" data-scroll-target="#%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%8F-seq"><span class="toc-section-number">12.2.1</span>  Функція <code>seq()</code></a></li>
+  <li><a href="#%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%8F-rep" id="toc-функція-rep" class="nav-link" data-scroll-target="#%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%8F-rep"><span class="toc-section-number">12.2.2</span>  Функція <code>rep()</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#%D0%B3%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D1%96%D1%8F-%D0%BF%D1%81%D0%B5%D0%B2%D0%B4%D0%BE%D0%B2%D0%B8%D0%BF%D0%B0%D0%B4%D0%BA%D0%BE%D0%B2%D0%B8%D1%85-%D1%87%D0%B8%D1%81%D0%B5%D0%BB" id="toc-генерація-псевдовипадкових-чисел" class="nav-link" data-scroll-target="#%D0%B3%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D1%96%D1%8F-%D0%BF%D1%81%D0%B5%D0%B2%D0%B4%D0%BE%D0%B2%D0%B8%D0%BF%D0%B0%D0%B4%D0%BA%D0%BE%D0%B2%D0%B8%D1%85-%D1%87%D0%B8%D1%81%D0%B5%D0%BB"><span class="toc-section-number">12.3</span>  Генерація псевдовипадкових чисел</a>
+  <ul class="collapse">
+<li><a href="#%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%8F-runif" id="toc-функція-runif" class="nav-link" data-scroll-target="#%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%8F-runif"><span class="toc-section-number">12.3.1</span>  Функція <code>runif()</code></a></li>
+  <li><a href="#%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%8F-sample" id="toc-функція-sample" class="nav-link" data-scroll-target="#%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%8F-sample"><span class="toc-section-number">12.3.2</span>  Функція <code>sample()</code></a></li>
+  </ul>
+</li>
   <li><a href="#%D1%96%D0%BD%D1%88%D1%96-%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%BD%D1%96-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%97-%D1%82%D0%B0-%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D0%B0%D0%BD%D1%82%D0%B8-r" id="toc-інші-математичні-функції-та-константи-r" class="nav-link" data-scroll-target="#%D1%96%D0%BD%D1%88%D1%96-%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%BD%D1%96-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%97-%D1%82%D0%B0-%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D0%B0%D0%BD%D1%82%D0%B8-r"><span class="toc-section-number">12.4</span>  Інші математичні функції та константи R</a></li>
+  <li>
+<a href="#%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%B8-%D1%80%D0%BE%D0%B7%D0%B2%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D1%8C" id="toc-приклади-розвязання-завдань" class="nav-link" data-scroll-target="#%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%B8-%D1%80%D0%BE%D0%B7%D0%B2%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D1%8C"><span class="toc-section-number">12.5</span>  Приклади розв’язання завдань</a>
+  <ul class="collapse">
+<li><a href="#%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-1.-%D0%B3%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D1%96%D1%8F-%D0%B2%D0%B8%D0%BF%D0%B0%D0%B4%D0%BA%D0%BE%D0%B2%D0%B8%D1%85-%D1%87%D0%B8%D1%81%D0%B5%D0%BB" id="toc-завдання-1.-генерація-випадкових-чисел" class="nav-link" data-scroll-target="#%D0%B7%D0%B0%D0%B2%D0%B4%D0%B0%D0%BD%D0%BD%D1%8F-1.-%D0%B3%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D1%96%D1%8F-%D0%B2%D0%B8%D0%BF%D0%B0%D0%B4%D0%BA%D0%BE%D0%B2%D0%B8%D1%85-%D1%87%D0%B8%D1%81%D0%B5%D0%BB"><span class="toc-section-number">12.5.1</span>  Завдання 1. Генерація випадкових чисел</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -348,14 +366,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Опубліковано</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 3, 2022</p>
+      <p class="date">November 12, 2022</p>
     </div>
   </div>
     
   </div>
   
 
-</header><section id="заокруглення-чисел" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="заокруглення-чисел">
+</header><p>Функції у програмуванні мають <code>ім'я/назву</code> та <code>()</code> (круглі дужки). Виклик функції зазвичай має вигляд <code>function_name(params)</code>.</p>
+<section id="заокруглення-чисел" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="заокруглення-чисел">
 <span class="header-section-number">12.1</span> Заокруглення чисел</h2>
 <p>У цьому розділі описано роботу функцій: <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code>, <code><a href="https://rdrr.io/r/base/Round.html">ceiling()</a></code>, <code><a href="https://rdrr.io/r/base/Round.html">floor()</a></code>, <code><a href="https://rdrr.io/r/base/Round.html">trunc()</a></code>, <code><a href="https://rdrr.io/r/base/Round.html">signif()</a></code>.</p>
 <p>Як ми знаємо з математики, що заокруглення чисел буває “вверх”, “вниз” або відносно деякого значення, зазвичай пов’язаного із цифрою <code>5</code> (<code>3.6</code> заокруглюємо до цілого як <span class="math inline">\(4\)</span>, а <span class="math inline">\(3.2\)</span> як <span class="math inline">\(3\)</span>, ввжаючи <span class="math inline">\(3.5\)</span> межею.</p>
@@ -482,25 +501,209 @@ Warning
 </div>
 </section></section><section id="послідовності-чисел" class="level2" data-number="12.2"><h2 data-number="12.2" class="anchored" data-anchor-id="послідовності-чисел">
 <span class="header-section-number">12.2</span> Послідовності чисел</h2>
-</section><section id="генерація-псевдовипадкових-чисел" class="level2" data-number="12.3"><h2 data-number="12.3" class="anchored" data-anchor-id="генерація-псевдовипадкових-чисел">
-<span class="header-section-number">12.3</span> Генерація псевдовипадкових чисел</h2>
+<p>Послідовності у програмуванні на <code>R</code> це вектори, які містять набір чисел. Найпростіший спосіб створити послідовність у <code>R</code> це використання оператора “двокрапка” <code>:</code>, наприклад:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">runif</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>seq <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>seq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.08226814 0.35077452 0.83379137 0.86344990 0.06048863 0.19775097
- [7] 0.32884350 0.88921739 0.03937618 0.49583711</code></pre>
+<pre><code>[1] 1 2 3 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">sample</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">class</span>(seq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1]  89  60  15  77  12   4  76  95  68  30   6  97  13  86  39  63  45  48
- [19]  69  42  53   2  85  55  99  90  65  72   7  96  66  64  75  92  24  83
- [37]  80  11  71  31  84  40  98  44  62 100  33  10  51  16  29   5  57   8
- [55]  47  22  94  23  88   3  49  78  25  56  91   9  19  93  67  82  87  18
- [73]  37  28  43  74  38  32  21  70  79  61  41  26  36  20  50  46  35  52
- [91]  59  14  17   1  34  58  73  81  54  27</code></pre>
+<pre><code>[1] "integer"</code></pre>
 </div>
 </div>
-</section><section id="інші-математичні-функції-та-константи-r" class="level2" data-number="12.4"><h2 data-number="12.4" class="anchored" data-anchor-id="інші-математичні-функції-та-константи-r">
+<section id="функція-seq" class="level3" data-number="12.2.1"><h3 data-number="12.2.1" class="anchored" data-anchor-id="функція-seq">
+<span class="header-section-number">12.2.1</span> Функція <code>seq()</code>
+</h3>
+<p>Функція <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> використовується для створення послідовностей чисел. Ця функція приймає наступні аргументи:</p>
+<ul>
+<li>
+<code>from</code> - початок послідовності</li>
+<li>
+<code>to</code> - кінець послідовності</li>
+<li>
+<code>by</code> - крок послідовності</li>
+<li>
+<code>length.out</code> - довжина послідовності</li>
+</ul>
+<p>Розглянемо кілька прикладів використання функції <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>.</p>
+<p>Виведемо числа від <span class="math inline">\(1\)</span> до <span class="math inline">\(10\)</span>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+</div>
+<p>Виведемо числа від <span class="math inline">\(0\)</span> до <span class="math inline">\(10\)</span> з кроком <span class="math inline">\(2.5\)</span>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="fl">2.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  0.0  2.5  5.0  7.5 10.0</code></pre>
+</div>
+</div>
+<p>Виведемо та покажемо на графіку <code>50</code> чисел від <span class="math inline">\(0\)</span> до <span class="math inline">\(10\)</span> (крок у такому випадку обчислюється функцією самостійно):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>s <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">length=</span><span class="dv">50</span>)</span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="fu">print</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  0.0000000  0.2040816  0.4081633  0.6122449  0.8163265  1.0204082
+ [7]  1.2244898  1.4285714  1.6326531  1.8367347  2.0408163  2.2448980
+[13]  2.4489796  2.6530612  2.8571429  3.0612245  3.2653061  3.4693878
+[19]  3.6734694  3.8775510  4.0816327  4.2857143  4.4897959  4.6938776
+[25]  4.8979592  5.1020408  5.3061224  5.5102041  5.7142857  5.9183673
+[31]  6.1224490  6.3265306  6.5306122  6.7346939  6.9387755  7.1428571
+[37]  7.3469388  7.5510204  7.7551020  7.9591837  8.1632653  8.3673469
+[43]  8.5714286  8.7755102  8.9795918  9.1836735  9.3877551  9.5918367
+[49]  9.7959184 10.0000000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">plot</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">50</span>, <span class="at">length=</span><span class="dv">11</span>), <span class="at">type=</span><span class="st">"l"</span>, <span class="at">col=</span><span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="12-userful-math_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section><section id="функція-rep" class="level3" data-number="12.2.2"><h3 data-number="12.2.2" class="anchored" data-anchor-id="функція-rep">
+<span class="header-section-number">12.2.2</span> Функція <code>rep()</code>
+</h3>
+<p>Функція <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> також використовується для створення послідовностей чисел, що повторюються. Ця функція приймає наступні аргументи:</p>
+<ul>
+<li>
+<code>x</code> - послідовність, що повторюється</li>
+<li>
+<code>times</code> - кількість повторень</li>
+<li>
+<code>each</code> - кількість повторень кожного елемента</li>
+</ul>
+<p>Синтаксис виклику:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">rep</span>(<span class="at">x =</span> <span class="sc">&lt;</span>вектор<span class="sc">&gt;</span>, </span>
+<span id="cb46-2"><a href="#cb46-2"></a>    <span class="at">times =</span> <span class="sc">&lt;</span>кількість повторень ветора<span class="sc">&gt;</span>, </span>
+<span id="cb46-3"><a href="#cb46-3"></a>    <span class="at">each =</span> <span class="sc">&lt;</span>кількість повторень кожного елемента<span class="sc">&gt;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Приклади використання та результаи виконна коду подано нижче.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># 123 повторюється 2 рази</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">times =</span> <span class="dv">2</span>)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 1 2 3</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># вектор x повторюється 2 рази</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">7</span>)</span>
+<span id="cb49-3"><a href="#cb49-3"></a><span class="fu">rep</span>(x, <span class="at">times =</span> <span class="dv">2</span>)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5 2 7 5 2 7</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># 1 повторюється 2 рази</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a><span class="co"># 2 повторюється 1 раз</span></span>
+<span id="cb51-3"><a href="#cb51-3"></a><span class="co"># 3 повторюється 4 рази</span></span>
+<span id="cb51-4"><a href="#cb51-4"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">times=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">4</span>))  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 1 2 3 3 3 3</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># кожен елемент повторюється 2 рази</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">each=</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 1 2 2 3 3</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>)</span>
+<span id="cb55-2"><a href="#cb55-2"></a><span class="fu">rep</span>(x, <span class="at">each =</span> <span class="dv">3</span>, <span class="at">times =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1 1 1 3 3 3 5 5 5 1 1 1 3 3 3 5 5 5</code></pre>
+</div>
+</div>
+</section></section><section id="генерація-псевдовипадкових-чисел" class="level2" data-number="12.3"><h2 data-number="12.3" class="anchored" data-anchor-id="генерація-псевдовипадкових-чисел">
+<span class="header-section-number">12.3</span> Генерація псевдовипадкових чисел</h2>
+<p><code>R</code> має вбудовані функції для генерації псевдовипадкових чисел: <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code>, <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code>.</p>
+<section id="функція-runif" class="level3" data-number="12.3.1"><h3 data-number="12.3.1" class="anchored" data-anchor-id="функція-runif">
+<span class="header-section-number">12.3.1</span> Функція <code>runif()</code>
+</h3>
+<p><code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code> генерує послідовність випадкових чисел з рівномірним розподілом на відрізку <span class="math inline">\([min, max]\)</span>. Ця функція приймає наступні аргументи:</p>
+<ul>
+<li>
+<code>n</code> - кількість чисел;</li>
+<li>
+<code>min</code> - мінімальне значення (за замовчуванням <span class="math inline">\(0\)</span>);</li>
+<li>
+<code>max</code> - максимальне значення (за замовчуванням <span class="math inline">\(1\)</span>).</li>
+</ul>
+<p>Наприклад, згенеруємо <span class="math inline">\(5\)</span> випадкових значень на відрізку <span class="math inline">\([min, max]\)</span>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">runif</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3087026 0.9772404 0.4509902 0.7585470 0.6409885</code></pre>
+</div>
+</div>
+<p>Виведемо графік з <span class="math inline">\(1000\)</span> випадкових знань на відрізку <span class="math inline">\([0, 1]\)</span>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>)</span>
+<span id="cb59-2"><a href="#cb59-2"></a><span class="fu">plot</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="12-userful-math_files/figure-html/fig12-runif-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">1000 випадкових знань на відрізку [0, 1] з використанням функції runif()</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="функція-sample" class="level3" data-number="12.3.2"><h3 data-number="12.3.2" class="anchored" data-anchor-id="функція-sample">
+<span class="header-section-number">12.3.2</span> Функція <code>sample()</code>
+</h3>
+<p>Функція <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> дозволяє вибрати числа випадковим чином із деякого набору (вектора).</p>
+<p>Синтаксис виклику:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="sc">&lt;</span>вектор<span class="sc">&gt;</span>, </span>
+<span id="cb60-2"><a href="#cb60-2"></a>       <span class="at">size =</span> <span class="sc">&lt;</span>кількість випадкових значень<span class="sc">&gt;</span>, </span>
+<span id="cb60-3"><a href="#cb60-3"></a>       <span class="at">replace =</span> <span class="sc">&lt;</span><span class="cn">TRUE</span><span class="sc">/</span><span class="cn">FALSE</span>, <span class="sc">&gt;</span>, </span>
+<span id="cb60-4"><a href="#cb60-4"></a>       <span class="at">prob =</span> <span class="sc">&lt;</span>вектор з ймовірностями<span class="sc">&gt;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Припустимо у нас є деякий вектор <code>x</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">20</span></span>
+<span id="cb61-2"><a href="#cb61-2"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 10 11 12 13 14 15 16 17 18 19 20</code></pre>
+</div>
+</div>
+<p>Для того аби виьрати одне із значень вектора <code>x</code> випадковим чином, використаємо функцію <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="fu">sample</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 13 18 11 10 20 15 19 14 12 17 16</code></pre>
+</div>
+</div>
+<p>Якщо ми хочемо вибрати декілька значень вектора <code>x</code> випадковим чином, то використаємо аргумент <code>size</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12 17 18 16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16 19 12 11</code></pre>
+</div>
+</div>
+<p><em>Зверніть увагу, що у такому випадку усі значення завжди будуть різними у межах одного вибору.</em></p>
+<p>У випадку, якщо потрібно вибрати значення з повтореннями, то використаємо аргумент <code>replace</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 18 18 18 17 12 10 10 17 11 13 12 12 13 18 12</code></pre>
+</div>
+</div>
+<p>Якщо потрібно вибрати значення з деякими ймовірностями, то використаємо аргумент <code>prob</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a>t <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">size =</span> <span class="dv">1000</span>, <span class="at">replace =</span> T, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">20</span>))</span>
+<span id="cb71-2"><a href="#cb71-2"></a><span class="fu">hist</span>(t, <span class="at">breaks =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">'blue'</span>, <span class="st">'green'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="12-userful-math_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Таким чином ми отримаємо <span class="math inline">\(800\)</span> значень <span class="math inline">\(1\)</span> та <span class="math inline">\(200\)</span> значень <span class="math inline">\(2\)</span>.</p>
+</section></section><section id="інші-математичні-функції-та-константи-r" class="level2" data-number="12.4"><h2 data-number="12.4" class="anchored" data-anchor-id="інші-математичні-функції-та-константи-r">
 <span class="header-section-number">12.4</span> Інші математичні функції та константи R</h2>
 <p>Окрім описаного вище набору функцій <code>R</code> містить дуже велику кількість реалізованих функцій з різних сфер науки, бізнесу, техніки тощо. Прочитати про них можна з офіційної документації пакетів, у яких вони реалізовані та знайти за допомогою функції <code><a href="https://rdrr.io/r/utils/help.html">help()</a></code> або <code><a href="https://rdrr.io/r/base/name.html">?name</a></code>.</p>
 <p>Далі розглянемо перелік найпоширеніших функцій, що використовуються для розв’язання навчальних задач під час вивчення основ програмування.</p>
@@ -547,9 +750,23 @@ Warning
 </table>
 <p>Також у <code>R</code> доступні ряд тригонометричних функцій, які вивчалися у школі і не тільки, серед них <code>cos(x)</code>, <code>sin(x)</code>, <code>tan(x)</code>, а також <code>acos(x)</code>, <code>asin(x)</code>, <code>atan(x)</code>, <code>acosh(x)</code>, <code>asinh(x)</code>, <code>atanh(x)</code>.</p>
 <p>Детальніше про кожну з них можна почитати у документації за допомогою кодманди <code>help(function)</code>.</p>
+</section><section id="приклади-розвязання-завдань" class="level2 unnnumbered" data-number="12.5"><h2 class="unnnumbered anchored" data-number="12.5" data-anchor-id="приклади-розвязання-завдань">
+<span class="header-section-number">12.5</span> Приклади розв’язання завдань</h2>
+<section id="завдання-1.-генерація-випадкових-чисел" class="level3 unnnumbered" data-number="12.5.1"><h3 class="unnnumbered anchored" data-number="12.5.1" data-anchor-id="завдання-1.-генерація-випадкових-чисел">
+<span class="header-section-number">12.5.1</span> Завдання 1. Генерація випадкових чисел</h3>
+<p>Згенеруйте <span class="math inline">\(1000\)</span> випадкових чисел у діапазоні <span class="math inline">\([0,1]\)</span>. Заокругліть їх до десятих (“2 знаки після коми/крапки”). Побудуйте графік за допомогою функції <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code>.</p>
+<p>Розв’язання</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>)</span>
+<span id="cb72-2"><a href="#cb72-2"></a>x <span class="ot">&lt;-</span> <span class="fu">round</span>(x, <span class="dv">1</span>)</span>
+<span id="cb72-3"><a href="#cb72-3"></a><span class="fu">plot</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="12-userful-math_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -652,8 +869,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./11-r-functions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">[-] Створення функції</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./13-r-functions.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Створення функцій</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

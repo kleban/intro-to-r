@@ -5,6 +5,7 @@
 <meta name="generator" content="quarto-1.1.251">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Юрій Клебан">
+<meta name="dcterms.date" content="2022-11-11">
 <title>Вступ до програмування в R - 10&nbsp; Розгалуження</title>
 <style>
 code{white-space: pre-wrap;}
@@ -250,17 +251,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-r-loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span></a>
+  <a href="./11-r-loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Цикли у R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Корисні математичні функції</span></a>
+  <a href="./12-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Корисні математичні функції</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">[-] Створення функції</span></a>
+  <a href="./13-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Створення функцій</span></a>
   </div>
 </li>
       </ul>
@@ -342,7 +343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Опубліковано</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">11/3/22</p>
+      <p class="date">11/11/22</p>
     </div>
   </div>
     
@@ -433,7 +434,31 @@ Note
 <pre><code>[1] "even"</code></pre>
 </div>
 </div>
-<p>Проте сильною стороною <code>R</code> є саме робота з</p>
+<p>Проте сильною стороною <code>R</code> є саме робота з векторами. Тому, якщо потрібно виконати умовну перевірку для кожного елемента вектора, то краще використати функцію <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code>. Синтаксис виклику:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ifelse</span>(condition, a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>де <code>condition</code> – вектор умов, <code>a</code> – вектор значень, які будуть повернуті, якщо умова <code>condition</code> істинна, <code>b</code> – вектор значень, які будуть повернуті, якщо умова <code>condition</code> не істинна.</p>
+<p>Розглянемо приклад. Потрібно створити вектор, який містить значення <code>1</code> для значень <code>&gt;= 0</code> та <code>0</code> для значень <code>&lt; 0</code> на основі наявного вектора <code>x</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a> x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">6</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a> binary_vector <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a> <span class="fu">print</span>(binary_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0 1 0 1 1</code></pre>
+</div>
+</div>
+<p>Також оператор <code>ifelse</code> можна використовувати і для заміни значень вектора. Наприклад, потрібно замінити всі значення <code>Yes/No</code> на <code>1/0</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>, <span class="st">"Yes"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Yes" "No"  "Yes" "Yes" "No" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>x <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x <span class="sc">==</span> <span class="st">"Yes"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 0 1 1 0</code></pre>
+</div>
+</div>
 </section><section id="приклади-розвязання-завдань" class="level2 unnnumbered" data-number="10.3"><h2 class="unnnumbered anchored" data-number="10.3" data-anchor-id="приклади-розвязання-завдань">
 <span class="header-section-number">10.3</span> Приклади розв’язання завдань</h2>
 <section id="завдання-1.-парнінепарні-числа" class="level3 unnnumbered" data-number="10.3.1"><h3 class="unnnumbered anchored" data-number="10.3.1" data-anchor-id="завдання-1.-парнінепарні-числа">
@@ -441,20 +466,20 @@ Note
 <p>Напишіть програму, що виводить консоль інформацію про те число парне чи ні. Значення <span class="math inline">\(0\)</span> потрібно потрібно також перевірити і вивести у разі його введення <code>"ZERO"</code>.</p>
 <p>Розв’язання</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>a <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="at">prompt =</span> <span class="st">"Enter A:"</span>) <span class="co"># read a</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>a <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(a) </span>
-<span id="cb8-3"><a href="#cb8-3"></a>remainder <span class="ot">&lt;-</span> a <span class="sc">%%</span> <span class="dv">2</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="cf">if</span>(a <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">print</span>(<span class="st">"ZERO"</span>)  </span>
-<span id="cb8-6"><a href="#cb8-6"></a>} <span class="cf">else</span> <span class="cf">if</span>(remainder <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb8-7"><a href="#cb8-7"></a>  <span class="fu">print</span>(<span class="st">"EVEN"</span>)</span>
-<span id="cb8-8"><a href="#cb8-8"></a>} <span class="cf">else</span> <span class="cf">if</span> (remainder <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb8-9"><a href="#cb8-9"></a>  <span class="fu">print</span>(<span class="st">"ODD"</span>)</span>
-<span id="cb8-10"><a href="#cb8-10"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>a <span class="ot">&lt;-</span> <span class="fu">readline</span>(<span class="at">prompt =</span> <span class="st">"Enter A:"</span>) <span class="co"># read a</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>a <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(a) </span>
+<span id="cb15-3"><a href="#cb15-3"></a>remainder <span class="ot">&lt;-</span> a <span class="sc">%%</span> <span class="dv">2</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="cf">if</span>(a <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="fu">print</span>(<span class="st">"ZERO"</span>)  </span>
+<span id="cb15-6"><a href="#cb15-6"></a>} <span class="cf">else</span> <span class="cf">if</span>(remainder <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb15-7"><a href="#cb15-7"></a>  <span class="fu">print</span>(<span class="st">"EVEN"</span>)</span>
+<span id="cb15-8"><a href="#cb15-8"></a>} <span class="cf">else</span> <span class="cf">if</span> (remainder <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb15-9"><a href="#cb15-9"></a>  <span class="fu">print</span>(<span class="st">"ODD"</span>)</span>
+<span id="cb15-10"><a href="#cb15-10"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Результат виконання коду:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource output number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href="#cb9-1"></a>Enter A: 2</span>
-<span id="cb9-2"><a href="#cb9-2"></a>[1] "EVEN"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource output number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href="#cb16-1"></a>Enter A: 2</span>
+<span id="cb16-2"><a href="#cb16-2"></a>[1] "EVEN"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -561,7 +586,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./11-r-loops.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Цикли у R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

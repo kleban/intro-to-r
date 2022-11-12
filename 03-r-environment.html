@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.1.251">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Юрій Клебан">
-<meta name="dcterms.date" content="2022-11-03">
+<meta name="dcterms.date" content="2022-11-11">
 <title>Вступ до програмування в R - 3&nbsp; Вcтановлення та налаштування R</title>
 <style>
 code{white-space: pre-wrap;}
@@ -270,17 +270,17 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-r-loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span></a>
+  <a href="./11-r-loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Цикли у R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Корисні математичні функції</span></a>
+  <a href="./12-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Корисні математичні функції</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">[-] Створення функції</span></a>
+  <a href="./13-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Створення функцій</span></a>
   </div>
 </li>
       </ul>
@@ -367,7 +367,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Опубліковано</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 3, 2022</p>
+      <p class="date">November 11, 2022</p>
     </div>
   </div>
     
@@ -381,25 +381,25 @@ div.csl-indent {
 <p>На сайті обираємо завантаження <code>R</code> для потрібної операційної системи. У межах курсу ми вокристовуємо <code>ОС Windows</code>, проте на синтаксис мови програмування та процес написання коду це не впливає:</p>
 <div id="fig-rgui-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/r_gui_1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.1: Завантаження R. Вибір ОС</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.1. Завантаження R. Вибір ОС</figcaption><p></p>
 </figure>
 </div>
 <p>У наступному вікні клікаємо на <strong>install R for the first time</strong>:</p>
 <div id="fig-rgui-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/r_gui_2.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.2: Завантаження R. Перша інсталяція</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.2. Завантаження R. Перша інсталяція</figcaption><p></p>
 </figure>
 </div>
 <p>Далі обираємо <strong>Download R 4.X.X for Windows</strong>, де <code>4.X.X</code> версія <code>R</code>, яка може бути відмінною на момент вивчення курсу:</p>
 <div id="fig-rgui-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/r_gui_3.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.3: Завантаження R. Завантаження версії для ОС</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.3. Завантаження R. Завантаження версії для ОС</figcaption><p></p>
 </figure>
 </div>
 <p>Після завантаження файлу інсталяції потрібно його запустити. Зазвичай завантажений файл можна побачити у лівому нижному кутку браузера або у розділі “Завантаження” Вашого браузера. Наприклад, у браузері <code>Google Chrome</code> знайти цей пункт меню так:</p>
 <div id="fig-rgui-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/chrome_download_button.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.4: Завантаження R. Розділ "Завантаження" у <code>Google Chrome</code></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.4. Завантаження R. Розділ "Завантаження" у <code>Google Chrome</code></figcaption><p></p>
 </figure>
 </div>
 </section><section id="перший-запуск-r-gui" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="перший-запуск-r-gui">
@@ -410,7 +410,7 @@ div.csl-indent {
 <p>Вигляд вікна <code>R GUI</code> зображено нижче:</p>
 <div id="fig-rgui-5" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/r_gui_4.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.5: Вигляд головного вікна <code>RGui</code></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.5. Вигляд головного вікна <code>RGui</code></figcaption><p></p>
 </figure>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -430,7 +430,7 @@ Note
 <p>Результати виконання команд зберігаються у памяті програми і можуть бути використані у наступних блоках коду:</p>
 <div id="fig-rgui-6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/r_gui_5.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.6: Вигляд консолі для команд <code>RGui</code></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.6. Вигляд консолі для команд <code>RGui</code></figcaption><p></p>
 </figure>
 </div>
 <p>Середовище <code>R GUI</code> має широкий спектр функцій і дозволяє написати будь-якого рівня складності проекти на R, проте він є лише базовою графічною обгорткою для <code>R</code>. Розглянемо інші зручніші середовища для написання <code>R</code>-коду.</p>
@@ -545,9 +545,9 @@ Important
 [13] "05-r-packages.qmd"           "06-r-input-output.qmd"      
 [15] "07-r-variables.qmd"          "08-r-basic-types.qmd"       
 [17] "09-r-operators.qmd"          "10-r-conditions-if-else.qmd"
-[19] "10-userful-math.qmd"         "11-r-functions.qmd"         
-[21] "11-r-loops.qmd"              "11-r-vectors.qmd"           
-[23] "12-r-data.frames.qmd"        "13-r-lists.qmd"             
+[19] "11-r-loops.qmd"              "11-r-vectors.qmd"           
+[21] "12-r-data.frames.qmd"        "12-userful-math.qmd"        
+[23] "13-r-functions.qmd"          "13-r-lists.qmd"             
 [25] "commands"                    "css"                        
 [27] "demo.qmd"                    "docs"                       
 [29] "identity"                    "img"                        
@@ -570,9 +570,9 @@ Important
 [13] "05-r-packages.qmd"           "06-r-input-output.qmd"      
 [15] "07-r-variables.qmd"          "08-r-basic-types.qmd"       
 [17] "09-r-operators.qmd"          "10-r-conditions-if-else.qmd"
-[19] "10-userful-math.qmd"         "11-r-functions.qmd"         
-[21] "11-r-loops.qmd"              "11-r-vectors.qmd"           
-[23] "12-r-data.frames.qmd"        "13-r-lists.qmd"             
+[19] "11-r-loops.qmd"              "11-r-vectors.qmd"           
+[21] "12-r-data.frames.qmd"        "12-userful-math.qmd"        
+[23] "13-r-functions.qmd"          "13-r-lists.qmd"             
 [25] "commands"                    "css"                        
 [27] "demo.qmd"                    "docs"                       
 [29] "identity"                    "img"                        
@@ -612,7 +612,7 @@ Note
 </ol>
 <div id="fig-rgui-7" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/rstudio_1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.7: Вибір версії <code>RStudio Desktop</code></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.7. Вибір версії <code>RStudio Desktop</code></figcaption><p></p>
 </figure>
 </div>
 <ol start="3" type="1">
@@ -620,20 +620,20 @@ Note
 </ol>
 <div id="fig-rgui-8" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/rstudio_2.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.8: Завантаження <code>RStudio Desktop</code></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.8. Завантаження <code>RStudio Desktop</code></figcaption><p></p>
 </figure>
 </div>
 <p>Після завантаження запускаємо інсталятор <code>RStudio</code>. Особливих кроків у цьому процесі немає.</p>
 <p>Після запуску IDE RStudio зазвичай складається з 3-х або 4-х блоків: * Файл, з яким працювали останнім (зліва зверху). * Консоль для введення коду та виведення результатів (зліва знизу). * Змінні середовища (<code>Environment</code>) (справа зверху) + Історія команд (<code>History</code>), Зєднання з зовнішніми ресурсами даних, наприклад, бази даних (<code>Connections</code>), навчальна інструкція (<code>Tutorial</code>). * Файли каталогу або проекту (<code>Files</code>), Інстальовані пакети (<code>Packages</code>), Допомога (<code>Help</code>), Візуалізація результатів (<code>Plots</code>, <code>Viewer</code>).</p>
 <div id="fig-rgui-8" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/rstudio_3.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.9: Головне вікно <code>RStudio Desktop</code></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.9. Головне вікно <code>RStudio Desktop</code></figcaption><p></p>
 </figure>
 </div>
 <p>Для першої демонстрації роботи виконаємо у консолі 2 рядки коду:</p>
 <div id="fig-rgui-9" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/rstudio_4.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.10: Приклад написання коду в <code>RStudio Desktop</code></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.10. Приклад написання коду в <code>RStudio Desktop</code></figcaption><p></p>
 </figure>
 </div>
 <p>Перший рядок з кодом <code>data &lt;- c(3,7,1,6,3,4,5,4,2)</code> створює у пам’яті колекцію чисел. Зверніть увагу, що у блоці <strong>Environments</strong> відобраюаться усі змінні, що уснують у поточному робочому просторі (про це буде далі).</p>
@@ -659,19 +659,19 @@ Note
 <p>Для початку оберемо з верхнього меню пункт <code>File &gt; New Project</code>. У вікні вибору способу створення проекту клікаємо <code>New Directory</code>. Такий спосіб передбачає, що жодного файлу проекту поки не існує або ми пізніше туди скопіюємо уже готовий код.</p>
 <div id="fig-rgui-10" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/rstudio_6.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.11: <code>RStudio Desktop</code>. Новий проєкт</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.11. <code>RStudio Desktop</code>. Новий проєкт</figcaption><p></p>
 </figure>
 </div>
 <p>На наступному кроці обираємо <code>New Project</code>:</p>
 <div id="fig-rgui-11" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/rstudio_7.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.12: <code>RStudio Desktop</code>. Новий проєкт. Тип проекту</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.12. <code>RStudio Desktop</code>. Новий проєкт. Тип проекту</figcaption><p></p>
 </figure>
 </div>
 <p>Після кліку на <code>Create Project</code> буде створено папку за попередньо обраним шляхом. Для запуску проєкту або швидкого перемикання між проектами можна скористатися як пунктами головного меню, так і підменю проектів справа. Також відкрити проект можна запуском файлу <code>*.Rproj</code> у провіднику <code>Windows</code>.</p>
 <div id="fig-rgui-12" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/rstudio_8.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.13: <code>RStudio Desktop</code>. Новий проєкт</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.13. <code>RStudio Desktop</code>. Новий проєкт</figcaption><p></p>
 </figure>
 </div>
 <p>Щоб додати новий файл з кодом <code>R</code> потрібно обрати з головного меню <code>File &gt; New file &gt; R Script</code> або скористатися командою <code>Ctrl+Shift+N</code>. Новий файл буде створено з назвою <code>Untitled[X]</code>, тому рекомендую одразу його зберегти, наприклад, як <code>TestCode.R</code></p>
@@ -684,7 +684,7 @@ Note
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>vtr <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">20</span>, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
 <span id="cb21-2"><a href="#cb21-2"></a>vtr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 2 5 1 5 4 4 2 2 3 2 4 1 3 5 2 1 2 2 5 2</code></pre>
+<pre><code> [1] 4 5 1 1 2 1 4 1 5 2 1 2 4 4 4 5 4 1 2 4</code></pre>
 </div>
 </div>
 <div class="callout-important callout callout-style-default callout-captioned">
@@ -729,7 +729,7 @@ Important
 <p>Орієнтовний вигляд вікна <code>RStudio</code> після викоання усіх описаних вище операцій матиме настпуний вигляд:</p>
 <div id="fig-rgui-13" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/rstudio_10.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.14: <code>RStudio Desktop</code>. Перегляд змінних</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.14. <code>RStudio Desktop</code>. Перегляд змінних</figcaption><p></p>
 </figure>
 </div>
 <p>Варто звернути увагу на виділений блок <code>Environment</code>, де можна переглянути усі доступні змінні, що є на даний момент у <code>пам'яті</code>. До цих параметрів можна звертатися у коді чи з консолі у будь, який момент. <em>Детальну інформацію про робоче середовище розглянуто нижче.</em></p>
@@ -745,31 +745,31 @@ Important
 <p>Після запуску <code>Anaconda Navigator</code> для початку потрібно створити нове середовище та налаштувати роботу <code>R</code>:</p>
 <div id="fig-conda-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/anaconda_1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.15: <code>Anaconda Navigator</code></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.15. <code>Anaconda Navigator</code></figcaption><p></p>
 </figure>
 </div>
 <p>Для початку потрібно перейти на вкладку <code>Environments</code> та натиснути <code>Create</code>:</p>
 <div id="fig-conda-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/anaconda_2.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.16: Головне вікно <code>Anaconda Navigator</code></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.16. Головне вікно <code>Anaconda Navigator</code></figcaption><p></p>
 </figure>
 </div>
 <p>У вікні, що відкрилося потрібно відмітити <code>[x]</code> вставновлення інструментів для роботи з <code>R</code>:</p>
 <div id="fig-conda-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/anaconda_3.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.17: Створення нового середовища на основі <code>R</code> у <code>Anaconda Navigator</code></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.17. Створення нового середовища на основі <code>R</code> у <code>Anaconda Navigator</code></figcaption><p></p>
 </figure>
 </div>
 <p>Після встановлення R-інструментів оптрібно переключитися на вкладку <code>Home</code> та робочий простір:</p>
 <div id="fig-conda-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/anaconda_4.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.18: Зміна середовища у <code>Anaconda Navigator</code></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.18. Зміна середовища у <code>Anaconda Navigator</code></figcaption><p></p>
 </figure>
 </div>
 <p>Після завантаження робочого простору оберіть <code>Launch</code> для запуску <code>Jupyter Notebook</code> з переліку встановлених засобів. <code>Jupyter Notebook</code> буде запущено у браузері за замовчеванням Вашого ПК. Відкрити ноутбук можна обравши потрібний файл, а створити новий у меню справа <code>New</code> &gt; <code>Notebook</code> &gt; <code>R</code>:</p>
 <div id="fig-conda-6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/anaconda_6.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.19: Створення нового <code>Jupyter Notebook</code></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.19. Створення нового <code>Jupyter Notebook</code></figcaption><p></p>
 </figure>
 </div>
 </section><section id="огляд-додаткових-ide-та-сервісів-для-роботи-з-r" class="level2" data-number="3.7"><h2 data-number="3.7" class="anchored" data-anchor-id="огляд-додаткових-ide-та-сервісів-для-роботи-з-r">
@@ -778,21 +778,21 @@ Important
 <p><strong>Visual Studio Code</strong> - безкоштовний редактор коду від <code>Microsoft</code>, орієнтовний на велику кількість мов програмування та фреймворків <span class="citation" data-cites="vs-code">(<a href="references.html#ref-vs-code" role="doc-biblioref"><em>Visual Studio Code</em> 2021</a>)</span>. Серед інших іструментів у VS Code доступні також розширення для роботи з <code>R</code>:</p>
 <div id="fig-conda-6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/vs_code.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.20: Вікно середовища Visual Studio Code</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.20. Вікно середовища Visual Studio Code</figcaption><p></p>
 </figure>
 </div>
 <p><strong>Visual Studio Community Edition</strong> - безкоштовне середовище розробки від компаній Microsoft. VS створено з самого початку для розробки під платформу .NET та мови програмування C#, VB.NET, F# тощо, але з часом отримало багато розширень, що дозволяють у тому числі, працювати і з проектами в <code>R</code> <span class="citation" data-cites="visual-studio">(<a href="references.html#ref-visual-studio" role="doc-biblioref"><em>Visual Studio Community Edition</em> 2021</a>)</span>.</p>
 <p><strong>Google Collab</strong> - онлайн сервіс для роботи з ноутбуками для <code>Data Science</code> від компанії <code>Google</code> <span class="citation" data-cites="google-collab">(<a href="references.html#ref-google-collab" role="doc-biblioref"><em>Google Colaboratory</em> 2021</a>)</span>:</p>
 <div id="fig-collab" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/google_collab.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.21: Вікно середовища Google Collab</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.21. Вікно середовища Google Collab</figcaption><p></p>
 </figure>
 </div>
 <p><em>Примітка. Код у прикладі вище написаний на <code>Python</code>.</em></p>
 <p><a href="https://kaggle.com"><strong>kaggle.com</strong></a> - сервіс для змагань з <code>Data Science</code> та <code>Machine Learning</code>. Окрім переліку змагань, наборів даних сервіс має досить зручні ноутбуки.</p>
 <div id="fig-kaggle" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/kaggle.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Рис.&nbsp;3.22: kaggle.com</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Рис.&nbsp;3.22. kaggle.com</figcaption><p></p>
 </figure>
 </div>
 <p>Загалом сервісів та середовищ для розробки в <code>R</code> існує досить багато і їх кількість зростає, але це не впливає на принципи написання коду та роботу з даними.</p>
