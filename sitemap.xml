@@ -2,86 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kleban.github.io/r-intro/index.html</loc>
-    <lastmod>2022-11-12T09:24:05.074Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.038Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/00-intro.html</loc>
-    <lastmod>2022-11-11T12:11:45.340Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.039Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/01-what-is-r.html</loc>
-    <lastmod>2022-11-11T12:11:45.341Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.039Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/02-r-history.html</loc>
-    <lastmod>2022-11-12T09:24:26.035Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.040Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/03-r-environment.html</loc>
-    <lastmod>2022-11-12T09:24:29.041Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.043Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/04-r-help.html</loc>
-    <lastmod>2022-11-11T12:11:45.356Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.045Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/05-r-packages.html</loc>
-    <lastmod>2022-11-11T12:11:45.359Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.047Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/06-r-input-output.html</loc>
-    <lastmod>2022-11-11T12:11:45.363Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.049Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/07-r-variables.html</loc>
-    <lastmod>2022-11-11T12:11:45.366Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.051Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/08-r-basic-types.html</loc>
-    <lastmod>2022-11-11T12:11:45.370Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.056Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/09-r-operators.html</loc>
-    <lastmod>2022-11-11T12:11:45.375Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.061Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/10-r-conditions-if-else.html</loc>
-    <lastmod>2022-11-12T09:23:58.219Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.064Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/11-r-loops.html</loc>
-    <lastmod>2022-11-12T09:23:54.684Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.068Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/12-userful-math.html</loc>
-    <lastmod>2022-11-12T09:23:54.690Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.096Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/13-r-functions.html</loc>
-    <lastmod>2022-11-12T10:06:57.858Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.099Z</lastmod>
   </url>
   <url>
-    <loc>https://kleban.github.io/r-intro/11-r-vectors.html</loc>
-    <lastmod>2022-11-11T12:11:45.399Z</lastmod>
+    <loc>https://kleban.github.io/r-intro/14-r-vectors.html</loc>
+    <lastmod>2022-11-12T10:33:39.101Z</lastmod>
   </url>
   <url>
-    <loc>https://kleban.github.io/r-intro/12-r-data.frames.html</loc>
-    <lastmod>2022-11-11T12:11:45.400Z</lastmod>
+    <loc>https://kleban.github.io/r-intro/15-r-data.frames.html</loc>
+    <lastmod>2022-11-12T10:33:39.102Z</lastmod>
   </url>
   <url>
-    <loc>https://kleban.github.io/r-intro/13-r-lists.html</loc>
-    <lastmod>2022-11-11T12:11:45.402Z</lastmod>
+    <loc>https://kleban.github.io/r-intro/16-r-lists.html</loc>
+    <lastmod>2022-11-12T10:33:39.104Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/tasks.html</loc>
-    <lastmod>2022-11-11T12:11:45.403Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.106Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/solved-tasks.html</loc>
-    <lastmod>2022-11-11T12:11:45.404Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.108Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/references.html</loc>
-    <lastmod>2022-11-11T12:11:45.414Z</lastmod>
+    <lastmod>2022-11-12T10:33:39.109Z</lastmod>
   </url>
 </urlset>
