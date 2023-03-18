@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kleban.github.io/r-intro/index.html</loc>
-    <lastmod>2022-11-12T13:42:09.976Z</lastmod>
+    <lastmod>2023-03-18T12:13:43.568Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/00-intro.html</loc>
@@ -10,11 +10,11 @@
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/01-what-is-r.html</loc>
-    <lastmod>2022-11-14T16:39:59.561Z</lastmod>
+    <lastmod>2023-03-18T11:33:17.314Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/02-r-history.html</loc>
-    <lastmod>2022-11-14T16:46:57.501Z</lastmod>
+    <lastmod>2023-03-18T11:33:12.476Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/03-r-environment.html</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/05-r-packages.html</loc>
-    <lastmod>2022-11-12T13:42:09.992Z</lastmod>
+    <lastmod>2023-03-18T11:33:12.479Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/06-r-input-output.html</loc>
@@ -58,11 +58,11 @@
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/13-r-functions.html</loc>
-    <lastmod>2022-11-12T13:42:10.039Z</lastmod>
+    <lastmod>2023-03-18T11:34:22.511Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/14-r-vectors.html</loc>
-    <lastmod>2022-11-12T13:42:10.040Z</lastmod>
+    <lastmod>2023-03-18T12:14:02.510Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/15-r-data.frames.html</loc>
@@ -83,5 +83,13 @@
   <url>
     <loc>https://kleban.github.io/r-intro/references.html</loc>
     <lastmod>2022-11-12T13:42:10.063Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kleban.github.io/r-intro/18-r-lists.html</loc>
+    <lastmod>2023-03-18T12:14:06.943Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kleban.github.io/r-intro/19-r-apply-functions.html</loc>
+    <lastmod>2023-03-18T12:14:11.914Z</lastmod>
   </url>
 </urlset>

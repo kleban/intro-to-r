@@ -5,7 +5,6 @@
 <meta name="generator" content="quarto-1.1.251">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Юрій Клебан">
-<meta name="dcterms.date" content="2022-11-12">
 <title>Вступ до програмування в R - 2&nbsp; Коротка історія мови R</title>
 <style>
 code{white-space: pre-wrap;}
@@ -213,17 +212,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">[-] Вектори</span></a>
+  <a href="./14-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Вектори [EN]</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">[-] Дата-фрейми</span></a>
+  <a href="./15-r-matrices.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Матриці [EN]</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">[-] Списки</span></a>
+  <a href="./16-r-factors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Фактори [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-r-data-frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Дата-фрейми [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Списки [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-r-apply-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Функції <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code></span></a>
   </div>
 </li>
       </ul>
@@ -269,7 +283,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Опубліковано</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">11/12/22</p>
+      <p class="date">3/18/23</p>
     </div>
   </div>
     
@@ -277,9 +291,9 @@ ul.task-list li input[type="checkbox"] {
   
 
 </header><p>Мова програмування <code>R</code> виникла як продовження статистичної мови <code>S</code>. Назва мови <code>S</code> була обрана аналогічно до <code>C</code>. Створена <code>S</code> була у 1976 році компанією <code>Bell Labs</code>. Мова <code>S</code> мала кілька версій і широко використовувалася для комерційного програмування. Найпотужнішою була версія <code>S-Plus</code>, що мала реалізацію за досить немалу кількість функцій під <code>Windows</code> та <code>Unix</code>-платформи, що стримувало її розвиток. Саме в цей момент розпочинається історія <code>R</code>.</p>
-<p>Влітку 1993 року двоє молодих новозеландських вчених анонсували свлю нову розробку, яку вони назвали <code>R</code> (є інформація, що буква <code>"R"</code> була обрана тому, що вона стоїть перед <code>"S"</code> у латинському алфавіті, тут є аналогія з мовою <code>"C"</code>, якій передувала мова <code>"B"</code>). За задумом авторів (<code>Robert Gentelman</code> та <code>Ross Ihaka</code>) це повинна була бути нова реалізація мови <code>S</code>, що відрізнялася від <code>S-Plus</code> деякими деталями, наприклад, роботою з локальними та глобальними змінними, пам’яттю тощо. Фактично було створено нову мову, що відгалуджується від <code>S</code>.</p>
-<p>Проект з самого початку розвивався досить повільно, але коли у команди розробників <code>R</code> з’явлися ресурси, в тому числі зручна системи створення розширень (пакетів), все більше аналітиків, статистиків, вчених, програмістів почало переходити з <code>S-Plus</code> на <code>R</code>. Коли були усунуті проблеми роботи з пам’яттю перших версій <code>R</code>, на цю мову почали переходити користувачі інших статистичних пакетів (<code>SAS</code>, <code>Stata</code>, <code>SYSSTAT</code>).</p>
-<p>Кількість книг та публікацій у мережі Інтернет по роботі з <code>R</code> постійно зростає разом із зацікавленням молодих і вже досвідчених спеціалістів зі сфери ІТ темою науки про дані, машинним навчанням, аналітикою для бізнесу, охорони здоров’я тощо.</p>
+<p>Влітку 1993 року двоє молодих новозеландських вчених анонсували свою нову розробку, яку вони назвали <code>R</code> (є інформація, що буква <code>"R"</code> була обрана тому, що вона стоїть перед <code>"S"</code> у латинському алфавіті, тут є аналогія з мовою <code>"C"</code>, якій передувала мова <code>"B"</code>). За задумом авторів (<code>Robert Gentelman</code> та <code>Ross Ihaka</code>) це повинна була бути нова реалізація мови <code>S</code>, що відрізнялася від <code>S-Plus</code> деякими деталями, наприклад, роботою з локальними та глобальними змінними, пам’яттю тощо. Фактично було створено нову мову, що відгалуджується від <code>S</code>.</p>
+<p>Проєкт з самого початку розвивався досить повільно, але коли у команди розробників <code>R</code> з’явилися ресурси, зокрема, зручна системи створення розширень (пакетів), все більше аналітиків, статистиків, вчених, програмістів почало переходити з <code>S-Plus</code> на <code>R</code>. Коли були усунуті проблеми роботи з пам’яттю перших версій <code>R</code>, на цю мову почали переходити користувачі інших статистичних пакетів (<code>SAS</code>, <code>Stata</code>, <code>SYSSTAT</code>).</p>
+<p>Кількість книг та публікацій у мережі Інтернет по роботі з <code>R</code> постійно зростає разом із зацікавленням молодих і вже досвідчених спеціалістів з різних сфер діяльності, що активно застосовують у роботі науку про дані, машинне навчання, візуалізацію та аналітику тощо.</p>
 
 
 
@@ -393,7 +407,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-      <div class="nav-footer-center">Copyright 2022, Юрій Клебан</div>
+      <div class="nav-footer-center">Copyright 2023, Юрій Клебан</div>
   </div>
 </footer>
 

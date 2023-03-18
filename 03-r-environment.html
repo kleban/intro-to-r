@@ -5,7 +5,6 @@
 <meta name="generator" content="quarto-1.1.251">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Юрій Клебан">
-<meta name="dcterms.date" content="2022-11-12">
 <title>Вступ до програмування в R - 3&nbsp; Вcтановлення та налаштування R</title>
 <style>
 code{white-space: pre-wrap;}
@@ -295,17 +294,32 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">[-] Вектори</span></a>
+  <a href="./14-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Вектори [EN]</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">[-] Дата-фрейми</span></a>
+  <a href="./15-r-matrices.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Матриці [EN]</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">[-] Списки</span></a>
+  <a href="./16-r-factors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Фактори [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-r-data-frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Дата-фрейми [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Списки [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-r-apply-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Функції <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code></span></a>
   </div>
 </li>
       </ul>
@@ -367,7 +381,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Опубліковано</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">11/12/22</p>
+      <p class="date">3/18/23</p>
     </div>
   </div>
     
@@ -376,7 +390,7 @@ div.csl-indent {
 
 </header><section id="завантаження-та-інсталяція-r" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="завантаження-та-інсталяція-r">
 <span class="header-section-number">3.1</span> Завантаження та інсталяція R</h2>
-<p><code>R</code> є безкоштовним програмним забезпеченням, що розповсюджується за умовами <a href="https://www.r-project.org/COPYING">GNU General Public License</a>. Код, написаний на <code>R</code> компілюється та запускається на різних платформах: UNIX, Windows, MacOS <span class="citation" data-cites="r-base">(<a href="references.html#ref-r-base" role="doc-biblioref">R Core Team 2020</a>)</span>.</p>
+<p><code>R</code> є безкоштовним програмним забезпеченням, що розповсюджується за умовами <a href="https://www.r-project.org/COPYING">GNU General Public License</a>. Код, написаний на <code>R</code> компілюється та запускається на різних платформах: UNIX, Windows, MacOS <span class="citation" data-cites="r-base">(<a href="#ref-r-base" role="doc-biblioref">R Core Team 2020</a>)</span>.</p>
 <p>Для завантаження актуальної версії <code>R</code> варто перейти на сайт проекту <a href="https://cran.r-project.org/">https://cran.r-project.org/</a>.</p>
 <p>На сайті обираємо завантаження <code>R</code> для потрібної операційної системи. У межах курсу ми вокристовуємо <code>ОС Windows</code>, проте на синтаксис мови програмування та процес написання коду це не впливає:</p>
 <div id="fig-rgui-1" class="quarto-figure quarto-figure-center anchored">
@@ -505,7 +519,7 @@ Note
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "E:/Repos/OA_2023/intro-to-r-source"</code></pre>
+<pre><code>[1] "E:/Repositories/2023/intro-to-r-source"</code></pre>
 </div>
 </div>
 <p>Для того аби змінити поточний робочий каталог використовують команду <code>setwd(шлях)</code>. Після запуску цієї команди функцій <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code> буде вказутивати уже на нову адресу/шлях.</p>
@@ -546,18 +560,20 @@ Important
 [15] "07-r-variables.qmd"          "08-r-basic-types.qmd"       
 [17] "09-r-operators.qmd"          "10-r-conditions-if-else.qmd"
 [19] "11-r-loops.qmd"              "12-userful-math.qmd"        
-[21] "13-r-functions.qmd"          "14-r-vectors.qmd"           
-[23] "15-r-data.frames.qmd"        "16-r-lists.qmd"             
-[25] "commands"                    "css"                        
-[27] "demo.qmd"                    "docs"                       
-[29] "identity"                    "img"                        
-[31] "index.html"                  "index.log"                  
-[33] "index.qmd"                   "index.tex"                  
-[35] "index_files"                 "intro-to-r-source.Rproj"    
-[37] "references.bib"              "references.qmd"             
-[39] "site_libs"                   "solved-tasks.qmd"           
-[41] "summary.qmd"                 "tasks.qmd"                  
-[43] "tmp.RData"                  </code></pre>
+[21] "13-r-functions.qmd"          "14-r-vectors.ipynb"         
+[23] "15-r-matrices.ipynb"         "16-r-factors.ipynb"         
+[25] "17-r-data-frames.ipynb"      "18-r-lists.ipynb"           
+[27] "19-r-apply-functions.ipynb"  "commands"                   
+[29] "css"                         "demo.qmd"                   
+[31] "docs"                        "identity"                   
+[33] "img"                         "index.html"                 
+[35] "index.log"                   "index.qmd"                  
+[37] "index.tex"                   "index_files"                
+[39] "intro-to-r-source.Rproj"     "references.bib"             
+[41] "references.qmd"              "site_libs"                  
+[43] "solved-tasks.qmd"            "summary.qmd"                
+[45] "tasks.qmd"                   "tmp.RData"                  
+[47] "Untitled.ipynb"             </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">list.files</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -571,18 +587,20 @@ Important
 [15] "07-r-variables.qmd"          "08-r-basic-types.qmd"       
 [17] "09-r-operators.qmd"          "10-r-conditions-if-else.qmd"
 [19] "11-r-loops.qmd"              "12-userful-math.qmd"        
-[21] "13-r-functions.qmd"          "14-r-vectors.qmd"           
-[23] "15-r-data.frames.qmd"        "16-r-lists.qmd"             
-[25] "commands"                    "css"                        
-[27] "demo.qmd"                    "docs"                       
-[29] "identity"                    "img"                        
-[31] "index.html"                  "index.log"                  
-[33] "index.qmd"                   "index.tex"                  
-[35] "index_files"                 "intro-to-r-source.Rproj"    
-[37] "references.bib"              "references.qmd"             
-[39] "site_libs"                   "solved-tasks.qmd"           
-[41] "summary.qmd"                 "tasks.qmd"                  
-[43] "tmp.RData"                  </code></pre>
+[21] "13-r-functions.qmd"          "14-r-vectors.ipynb"         
+[23] "15-r-matrices.ipynb"         "16-r-factors.ipynb"         
+[25] "17-r-data-frames.ipynb"      "18-r-lists.ipynb"           
+[27] "19-r-apply-functions.ipynb"  "commands"                   
+[29] "css"                         "demo.qmd"                   
+[31] "docs"                        "identity"                   
+[33] "img"                         "index.html"                 
+[35] "index.log"                   "index.qmd"                  
+[37] "index.tex"                   "index_files"                
+[39] "intro-to-r-source.Rproj"     "references.bib"             
+[41] "references.qmd"              "site_libs"                  
+[43] "solved-tasks.qmd"            "summary.qmd"                
+[45] "tasks.qmd"                   "tmp.RData"                  
+[47] "Untitled.ipynb"             </code></pre>
 </div>
 </div>
 </section><section id="робота-з-rstudio" class="level2" data-number="3.5"><h2 data-number="3.5" class="anchored" data-anchor-id="робота-з-rstudio">
@@ -591,7 +609,7 @@ Important
 <section id="завантаження-та-інсталяція-rstudio-desktop" class="level3" data-number="3.5.1"><h3 data-number="3.5.1" class="anchored" data-anchor-id="завантаження-та-інсталяція-rstudio-desktop">
 <span class="header-section-number">3.5.1</span> Завантаження та інсталяція <code>RStudio Desktop</code>
 </h3>
-<p><strong>RStudio</strong> - це інтегроване середовище розробки для <code>R</code>. Воно включає у себе консоль, підсвічування синтаксису (підказки), прямий запуск коду, інструменти для візуалізації графіків, html-коду, історію виконаних команд, відлагоджування коду, управління робочими просторами, підтримка різних видів розмітки та багато іншого. RStudio має версію з відкритим кодом та комерційну версію для <code>Windows</code>, <code>Linux</code> та <code>Mac</code>, а також веб-версію для серверів на Linux <code>RStudio Server</code> та <code>RStudio Server Pro</code> <span class="citation" data-cites="r-studio-site">(<a href="references.html#ref-r-studio-site" role="doc-biblioref"><em>RStudio Official Website</em> 2021</a>)</span>.</p>
+<p><strong>RStudio</strong> - це інтегроване середовище розробки для <code>R</code>. Воно включає у себе консоль, підсвічування синтаксису (підказки), прямий запуск коду, інструменти для візуалізації графіків, html-коду, історію виконаних команд, відлагоджування коду, управління робочими просторами, підтримка різних видів розмітки та багато іншого. RStudio має версію з відкритим кодом та комерційну версію для <code>Windows</code>, <code>Linux</code> та <code>Mac</code>, а також веб-версію для серверів на Linux <code>RStudio Server</code> та <code>RStudio Server Pro</code> <span class="citation" data-cites="r-studio-site">(<a href="#ref-r-studio-site" role="doc-biblioref"><em>RStudio Official Website</em> 2021</a>)</span>.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -684,7 +702,7 @@ Note
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>vtr <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">20</span>, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
 <span id="cb21-2"><a href="#cb21-2"></a>vtr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 2 2 3 2 1 3 3 3 3 3 3 1 1 4 1 2 5 2 3 2</code></pre>
+<pre><code> [1] 1 2 1 4 3 1 4 3 5 5 2 3 2 1 1 5 2 4 5 3</code></pre>
 </div>
 </div>
 <div class="callout-important callout callout-style-default callout-captioned">
@@ -707,11 +725,11 @@ Important
 <span id="cb23-3"><a href="#cb23-3"></a></span>
 <span id="cb23-4"><a href="#cb23-4"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"Sum: "</span>, vtr_sum))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Sum: 49"</code></pre>
+<pre><code>[1] "Sum: 57"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"Mean: "</span>, vtr_mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Mean: 2.45"</code></pre>
+<pre><code>[1] "Mean: 2.85"</code></pre>
 </div>
 </div>
 <p>Виведемо гістограму:</p>
@@ -739,7 +757,7 @@ Important
 <p>Ноутбуки стали зручним та поширеним інструментом для аналізу даних, а також послідовного викладення матеріалів чи результатів дослідження. Перевагою такого інструменту є перемішування коду, результатів його виконання та іншого текстового наповнення, що дозволяє сформувати “на льоту” готові до читання документи.</p>
 <p>Використання ноутбуків у навчальному процесі дозволяє описати не лише теоретичний матеріал, але приклади коду, що будуть виконувати безпосередньо під час ознайомлення з лекцією. Також слухач курсу може відредагувати наявний код та перевірити результати його виконання.</p>
 <p>Розгялнемо процес інсталяції та запуску <code>Anaconda</code> (середовище з відкритим кодом для вирішення задач <code>Data Science</code>) та <code>Jupyter Notebook</code> на ПК.</p>
-<p>Для встановлення середовища <code>Anaconda</code> потрібно перейти на сайт проекту та завантажити індивідуальну версію продукту: https://www.anaconda.com/products/individual <span class="citation" data-cites="anaconda-site">(<a href="references.html#ref-anaconda-site" role="doc-biblioref"><em>Anaconda. The World’s Most Popular Data Science Platform</em> 2021</a>)</span>.</p>
+<p>Для встановлення середовища <code>Anaconda</code> потрібно перейти на сайт проекту та завантажити індивідуальну версію продукту: https://www.anaconda.com/products/individual <span class="citation" data-cites="anaconda-site">(<a href="#ref-anaconda-site" role="doc-biblioref"><em>Anaconda. The World’s Most Popular Data Science Platform</em> 2021</a>)</span>.</p>
 <p>_*Примітка. Усі операції у даному курсі виконуються під операційну систему <code>Windows 11 Education Edition</code>_.</p>
 <p>Процес інсталяції середовища Anaconda не відрізняється від стандарного покрокового вставнолення програм у <code>Windows</code>.</p>
 <p>Після запуску <code>Anaconda Navigator</code> для початку потрібно створити нове середовище та налаштувати роботу <code>R</code>:</p>
@@ -775,14 +793,14 @@ Important
 </section><section id="огляд-додаткових-ide-та-сервісів-для-роботи-з-r" class="level2" data-number="3.7"><h2 data-number="3.7" class="anchored" data-anchor-id="огляд-додаткових-ide-та-сервісів-для-роботи-з-r">
 <span class="header-section-number">3.7</span> Огляд додаткових IDE та сервісів для роботи з R</h2>
 <p>Окрім середовищ описаних вище існує ряд досить цікавих інструментів, що роблять досить зручною роботу з <code>R</code>-кодом. Розглянемо ці інструменти.</p>
-<p><strong>Visual Studio Code</strong> - безкоштовний редактор коду від <code>Microsoft</code>, орієнтовний на велику кількість мов програмування та фреймворків <span class="citation" data-cites="vs-code">(<a href="references.html#ref-vs-code" role="doc-biblioref"><em>Visual Studio Code</em> 2021</a>)</span>. Серед інших іструментів у VS Code доступні також розширення для роботи з <code>R</code>:</p>
+<p><strong>Visual Studio Code</strong> - безкоштовний редактор коду від <code>Microsoft</code>, орієнтовний на велику кількість мов програмування та фреймворків <span class="citation" data-cites="vs-code">(<a href="#ref-vs-code" role="doc-biblioref"><em>Visual Studio Code</em> 2021</a>)</span>. Серед інших іструментів у VS Code доступні також розширення для роботи з <code>R</code>:</p>
 <div id="fig-conda-6" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/vs_code.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Рис.&nbsp;3.21. Вікно середовища Visual Studio Code</figcaption><p></p>
 </figure>
 </div>
-<p><strong>Visual Studio Community Edition</strong> - безкоштовне середовище розробки від компаній Microsoft. VS створено з самого початку для розробки під платформу .NET та мови програмування C#, VB.NET, F# тощо, але з часом отримало багато розширень, що дозволяють у тому числі, працювати і з проектами в <code>R</code> <span class="citation" data-cites="visual-studio">(<a href="references.html#ref-visual-studio" role="doc-biblioref"><em>Visual Studio Community Edition</em> 2021</a>)</span>.</p>
-<p><strong>Google Collab</strong> - онлайн сервіс для роботи з ноутбуками для <code>Data Science</code> від компанії <code>Google</code> <span class="citation" data-cites="google-collab">(<a href="references.html#ref-google-collab" role="doc-biblioref"><em>Google Colaboratory</em> 2021</a>)</span>:</p>
+<p><strong>Visual Studio Community Edition</strong> - безкоштовне середовище розробки від компаній Microsoft. VS створено з самого початку для розробки під платформу .NET та мови програмування C#, VB.NET, F# тощо, але з часом отримало багато розширень, що дозволяють у тому числі, працювати і з проектами в <code>R</code> <span class="citation" data-cites="visual-studio">(<a href="#ref-visual-studio" role="doc-biblioref"><em>Visual Studio Community Edition</em> 2021</a>)</span>.</p>
+<p><strong>Google Collab</strong> - онлайн сервіс для роботи з ноутбуками для <code>Data Science</code> від компанії <code>Google</code> <span class="citation" data-cites="google-collab">(<a href="#ref-google-collab" role="doc-biblioref"><em>Google Colaboratory</em> 2021</a>)</span>:</p>
 <div id="fig-collab" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="img/01/google_collab.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Рис.&nbsp;3.22. Вікно середовища Google Collab</figcaption><p></p>
@@ -798,7 +816,7 @@ Important
 <p>Загалом сервісів та середовищ для розробки в <code>R</code> існує досить багато і їх кількість зростає, але це не впливає на принципи написання коду та роботу з даними.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-anaconda-site" class="csl-entry" role="doc-biblioentry">
 <em>Anaconda. The World’s Most Popular Data Science Platform</em>. 2021. 206 379 Broadway Ave., Suite 310 New York, NY 10013, USA: Anaconda Inc. <a href="https://www.anaconda.com/">https://www.anaconda.com/</a>.
 </div>
@@ -928,7 +946,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-      <div class="nav-footer-center">Copyright 2022, Юрій Клебан</div>
+      <div class="nav-footer-center">Copyright 2023, Юрій Клебан</div>
   </div>
 </footer>
 

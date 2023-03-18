@@ -5,7 +5,6 @@
 <meta name="generator" content="quarto-1.1.251">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Юрій Клебан">
-<meta name="dcterms.date" content="2022-11-12">
 <title>Вступ до програмування в R - 12&nbsp; Корисні математичні функції</title>
 <style>
 code{white-space: pre-wrap;}
@@ -276,17 +275,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">[-] Вектори</span></a>
+  <a href="./14-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Вектори [EN]</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">[-] Дата-фрейми</span></a>
+  <a href="./15-r-matrices.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Матриці [EN]</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">[-] Списки</span></a>
+  <a href="./16-r-factors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Фактори [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-r-data-frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Дата-фрейми [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Списки [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-r-apply-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Функції <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code></span></a>
   </div>
 </li>
       </ul>
@@ -366,7 +380,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Опубліковано</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">11/12/22</p>
+      <p class="date">3/18/23</p>
     </div>
   </div>
     
@@ -640,7 +654,7 @@ Warning
 <div class="cell">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">runif</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2957213 0.7791792 0.3870218 0.6465080 0.2381501</code></pre>
+<pre><code>[1] 0.8009979 0.3816051 0.9993743 0.4799962 0.7964063</code></pre>
 </div>
 </div>
 <p>Виведемо графік з <span class="math inline">\(1000\)</span> випадкових знань на відрізку <span class="math inline">\([0, 1]\)</span>:</p>
@@ -676,18 +690,18 @@ Warning
 <div class="cell">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="fu">sample</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 13 20 15 16 14 10 11 18 12 19 17</code></pre>
+<pre><code> [1] 20 17 11 16 10 12 14 19 13 18 15</code></pre>
 </div>
 </div>
 <p>Якщо ми хочемо вибрати декілька значень вектора <code>x</code> випадковим чином, то використаємо аргумент <code>size</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 12 16 15 17</code></pre>
+<pre><code>[1] 20 11 19 18</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 20 19 16 18</code></pre>
+<pre><code>[1] 10 18 12 19</code></pre>
 </div>
 </div>
 <p><em>Зверніть увагу, що у такому випадку усі значення завжди будуть різними у межах одного вибору.</em></p>
@@ -695,7 +709,7 @@ Warning
 <div class="cell">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 15 12 12 17 10 18 16 17 18 18 13 12 12 18 20</code></pre>
+<pre><code> [1] 14 11 14 17 10 15 17 15 17 11 12 12 17 19 13</code></pre>
 </div>
 </div>
 <p>Якщо потрібно вибрати значення з деякими ймовірностями, то використаємо аргумент <code>prob</code>:</p>
@@ -885,7 +899,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-      <div class="nav-footer-center">Copyright 2022, Юрій Клебан</div>
+      <div class="nav-footer-center">Copyright 2023, Юрій Клебан</div>
   </div>
 </footer>
 

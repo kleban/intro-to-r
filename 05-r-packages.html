@@ -5,7 +5,6 @@
 <meta name="generator" content="quarto-1.1.251">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Юрій Клебан">
-<meta name="dcterms.date" content="2022-11-12">
 <title>Вступ до програмування в R - 5&nbsp; Робота з пакетами</title>
 <style>
 code{white-space: pre-wrap;}
@@ -295,17 +294,32 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">[-] Вектори</span></a>
+  <a href="./14-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Вектори [EN]</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">[-] Дата-фрейми</span></a>
+  <a href="./15-r-matrices.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Матриці [EN]</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">[-] Списки</span></a>
+  <a href="./16-r-factors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Фактори [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-r-data-frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Дата-фрейми [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Списки [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-r-apply-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Функції <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code></span></a>
   </div>
 </li>
       </ul>
@@ -357,7 +371,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Опубліковано</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">11/12/22</p>
+      <p class="date">3/18/23</p>
     </div>
   </div>
     
@@ -368,7 +382,7 @@ div.csl-indent {
 <span class="header-section-number">5.1</span> Команди для роботи з пакетами</h2>
 <p>Своєю популярністю <code>R</code> завдячує, у тому числі, і можливості швидко реалізувати досить складні дослідження за допомогою наборів уже готових функції. Такі функції обєднуються у пакети та публікуються вченими, досліджниками та розробниками зі всього світу.</p>
 <p><strong>Пакети в R</strong> - організовані набори методів та класів для виконання вузького набору задач під час програмування на <code>R</code>. Вони містять як функції так і опис способів їх використання, а чтакож дані для відтворення прикладів коду.</p>
-<p>Пакети можуть бути завантажені з офіційного сайту проекту <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">cran.r-project.org</a> / <span class="citation" data-cites="r-base">(<a href="references.html#ref-r-base" role="doc-biblioref">R Core Team 2020</a>)</span> або інших джерел (dev-версії є доступні на <code>github</code>).</p>
+<p>Пакети можуть бути завантажені з офіційного сайту проекту <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">cran.r-project.org</a> / <span class="citation" data-cites="r-base">(<a href="#ref-r-base" role="doc-biblioref">R Core Team 2020</a>)</span> або інших джерел (dev-версії є доступні на <code>github</code>).</p>
 <p>Завантаження пакетів у <code>R</code> можна здійснювати як з локального диска, так і з серверів у мережі Інтернет.</p>
 <p>Для встановлення пакету використовується команда <strong><code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code></strong>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"fun"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -431,7 +445,7 @@ Note
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-r-base" class="csl-entry" role="doc-biblioentry">
 R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
@@ -546,7 +560,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-      <div class="nav-footer-center">Copyright 2022, Юрій Клебан</div>
+      <div class="nav-footer-center">Copyright 2023, Юрій Клебан</div>
   </div>
 </footer>
 

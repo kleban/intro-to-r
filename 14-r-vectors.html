@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.1.251">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
 <meta name="author" content="Юрій Клебан">
-<meta name="dcterms.date" content="2022-11-12">
-<title>Вступ до програмування в R - 14&nbsp; [-] Вектори</title>
+
+<title>Вступ до програмування в R - 14&nbsp; Вектори [EN]</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,7 +21,71 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -28,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./15-r-data.frames.html" rel="next">
+<link href="./15-r-matrices.html" rel="next">
 <link href="./13-r-functions.html" rel="prev">
 <link href="./img/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -39,7 +105,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -57,42 +124,54 @@ ul.task-list li input[type="checkbox"] {
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><link rel="stylesheet" href="css/style.css">
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">14</span>&nbsp; <span class="chapter-title">[-] Вектори</span>
-</h1>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Вектори [EN]</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Вступ до програмування в R</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/kleban/r-intro/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-<li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
             <i class="bi bi-bi-twitter pe-1"></i>
           Twitter
           </a>
         </li>
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
             <i class="bi bi-bi-facebook pe-1"></i>
           Facebook
           </a>
         </li>
         <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
             <i class="bi bi-bi-linkedin pe-1"></i>
           LinkedIn
           </a>
@@ -108,7 +187,7 @@ ul.task-list li input[type="checkbox"] {
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">Про посібник</a>
   </div>
@@ -125,8 +204,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-what-is-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Що таке R?</span></a>
   </div>
@@ -157,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Базовий синтаксис R</a>
@@ -165,8 +244,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-r-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Оголошення та ініціалізація змінних</span></a>
   </div>
@@ -202,7 +281,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Робота з даними у R</a>
@@ -210,24 +289,39 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-r-vectors.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">[-] Вектори</span></a>
+  <a href="./14-r-vectors.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Вектори [EN]</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15-r-data.frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">[-] Дата-фрейми</span></a>
+  <a href="./15-r-matrices.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Матриці [EN]</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./16-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">[-] Списки</span></a>
+  <a href="./16-r-factors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Фактори [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-r-data-frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Дата-фрейми [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Списки [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-r-apply-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Функції <code>apply()</code></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tasks.html" class="sidebar-item-text sidebar-link">[-] Задачі для самостійної підготовки</a>
@@ -244,15 +338,34 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
     </ul>
-</div>
-</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Зміст</h2>
+   
+  <ul>
+  <li><a href="#announcement-of-vectors" id="toc-announcement-of-vectors" class="nav-link active" data-scroll-target="#announcement-of-vectors"><span class="toc-section-number">14.1</span>  Announcement of vectors</a></li>
+  <li><a href="#operations-on-vectors" id="toc-operations-on-vectors" class="nav-link" data-scroll-target="#operations-on-vectors"><span class="toc-section-number">14.2</span>  Operations on vectors</a></li>
+  <li><a href="#naming-vector-elements" id="toc-naming-vector-elements" class="nav-link" data-scroll-target="#naming-vector-elements"><span class="toc-section-number">14.3</span>  Naming vector elements</a></li>
+  <li><a href="#access-to-vector-elements" id="toc-access-to-vector-elements" class="nav-link" data-scroll-target="#access-to-vector-elements"><span class="toc-section-number">14.4</span>  Access to vector elements</a></li>
+  <li><a href="#useful-functions" id="toc-useful-functions" class="nav-link" data-scroll-target="#useful-functions"><span class="toc-section-number">14.5</span>  Useful functions</a></li>
+  <li><a href="#correction-of-data-na-nan-inf" id="toc-correction-of-data-na-nan-inf" class="nav-link" data-scroll-target="#correction-of-data-na-nan-inf"><span class="toc-section-number">14.6</span>  Correction of data (NA, NaN, Inf)</a></li>
+  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks"><span class="toc-section-number">14.7</span>  Tasks</a>
+  <ul class="collapse">
+  <li><a href="#task-1" id="toc-task-1" class="nav-link" data-scroll-target="#task-1"><span class="toc-section-number">14.7.1</span>  Task 1</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">14.8</span>  References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title d-none d-lg-block">
-<span class="chapter-number">14</span>&nbsp; <span class="chapter-title">[-] Вектори</span>
-</h1>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Вектори [EN]</span></h1>
 </div>
 
 
@@ -266,20 +379,715 @@ ul.task-list li input[type="checkbox"] {
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Опубліковано</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">11/12/22</p>
-    </div>
-  </div>
     
   </div>
   
 
 </header>
 
+<p>This content is about variables, data types and basic operators in R.</p>
+<div class="cell" data-execution_count="330">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">invisible</span>(<span class="fu">Sys.setlocale</span>(<span class="st">"LC_ALL"</span>, <span class="st">"Ukrainian"</span>))</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">invisible</span>(<span class="fu">options</span>(<span class="at">warn=</span><span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<section id="announcement-of-vectors" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="announcement-of-vectors"><span class="header-section-number">14.1</span> Announcement of vectors</h2>
+<p>A vector is a base data type in <code>R</code> that allows you to write a collection of elements of the same type with or without <code>c()</code>if it is a sequence of values.</p>
+<p><em>Note. In essence, the function <code>c()</code> allows you to combine several vectors.</em></p>
+<p>Consider for example the usual variable <code>x</code>:</p>
+<div class="cell" data-execution_count="331">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In essence, <code>x</code> in this case is a vector consisting of one value of<code>10</code>. We can also write several elements to the variable <code>x</code>:</p>
+<div class="cell" data-execution_count="332">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="fl">2.5</span>, <span class="dv">3</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>1</li><li>2</li><li>2.5</li><li>3</li></ol>
+</div>
+</div>
+<p>Vector elements can be values of any type: <code>numeric</code>,<code>character</code>, <code>logical</code>, etc .:</p>
+<div class="cell" data-execution_count="333">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(T, F, F, T, F)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>v3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Hello"</span>, <span class="st">"my"</span>, <span class="st">"friend"</span>, <span class="st">"!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Vector elements are also sequences created using the functions <code>rep ()</code>, <code>seq ()</code> and the operator <code>:</code>:</p>
+<div class="cell" data-execution_count="334">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>vtr <span class="ot">&lt;-</span>  <span class="dv">2</span><span class="sc">:</span><span class="dv">7</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>vtr</span>
+<span id="cb5-3"><a href="#cb5-3"></a>vtr <span class="ot">&lt;-</span> <span class="dv">7</span><span class="sc">:</span><span class="dv">2</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>vtr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>7</li><li>6</li><li>5</li><li>4</li><li>3</li><li>2</li></ol>
+</div>
+</div>
+<p>If you need to combine several vectors, use the <code>c()</code> function:</p>
+<div class="cell" data-execution_count="335">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">9</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(x, y, <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>, <span class="dv">100</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>2</li><li>3</li><li>4</li><li>6</li><li>9</li><li>10</li><li>11</li><li>12</li><li>100</li></ol>
+</div>
+</div>
+<p>You can view brief descriptive statistics by vector using the ** <code>summary()</code> ** function:</p>
+<div class="cell" data-execution_count="336">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">summary</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   2.00    4.00    9.00   17.44   11.00  100.00 </code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="operations-on-vectors" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="operations-on-vectors"><span class="header-section-number">14.2</span> Operations on vectors</h2>
+<p>The advantage of using vectors over writing each value in a separate variable is the ability to perform 1 operation on all elements of the vector or on several vectors simultaneously, for example, arithmetic operations of addition or multiplication.</p>
+<div class="cell" data-execution_count="337">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>v1</span>
+<span id="cb9-3"><a href="#cb9-3"></a>v1 <span class="sc">*</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>1</li><li>3</li><li>5</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>10</li><li>30</li><li>50</li></ol>
+</div>
+</div>
+<p>From the example described above, it can be understood that the addition operation is essentially a superelement sum of vectors when the 1st element of the vector <code>v1</code> is added to the 1st element of the vector<code>v2</code>(<code>1 + 2</code>) and so on. Thus, the resulting vector will have the same length as the vectors <code>v1</code> and<code>v2</code>.</p>
+<p>However, there may be a situation when one of the vectors has a shorter length or even consists of 1 element:</p>
+<div class="cell" data-execution_count="338">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a>v1 <span class="sc">+</span> v2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>3</li><li>7</li><li>7</li><li>11</li></ol>
+</div>
+</div>
+<p>In this case, the number <code>2</code> will be added to each element of the vector<code>v1</code>. In fact, this means that the vector <code>v2</code> will look like <code>c 2, 2)</code>, ie there will be a duplication of values to the length of the vector<code>v1</code> and then perform the operation of adding elements. Thus, the resulting vector will have the length of the longest of the vectors.</p>
+<p>Consider a more complex case where there are vectors with different numbers of elements other than 1:</p>
+<div class="cell" data-execution_count="339">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
+<span id="cb11-3"><a href="#cb11-3"></a>v3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
+<span id="cb11-4"><a href="#cb11-4"></a>v1 <span class="sc">+</span> v2 <span class="sc">+</span> v3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>7</li><li>16</li><li>17</li><li>11</li></ol>
+</div>
+</div>
+<p>To begin with, it should be noted that the interpreter warns that the lengths of the vectors are not multiples (if they were vectors of length 2, 4, 8, then there would be no warning).</p>
+<p>If you extend each vector to the length of the maximum of them, repeating the elements cyclically, you get a set (<em>marked added elements</em>):</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>,<span class="sc">*</span><span class="dv">2</span>,<span class="sc">*</span><span class="dv">3</span>)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
+<span id="cb12-3"><a href="#cb12-3"></a>v3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">9</span>,<span class="sc">*</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Subtraction (<code>-</code>), division(<code>/</code>) and multiplication (<code>*</code>) operations are performed similarly.</p>
+<p>The relation operators and logical operators also act element by element with respect to the vector, but the result is a collection (vector) of values of the logical type <code>logical</code> with the values<code>TRUE/FALSE</code>.</p>
+<p>Consider an example of finding all elements of the array <code>v1</code> that are greater than the corresponding index elements of the array<code>v2</code>:</p>
+<div class="cell" data-execution_count="340">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">12</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">1</span>)</span>
+<span id="cb13-3"><a href="#cb13-3"></a>v1 <span class="sc">&gt;</span> v2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li></ol>
+</div>
+</div>
+<p>In essence, as a result of execution there is a comparison of each element of both vectors among themselves: <code>2&gt;6</code>,<code>4&gt;4</code>, <code>7&gt;6</code>,<code>9&gt;7</code>, <code>12&gt;1</code>.</p>
+<p>Therefore, the previously studied operators (arithmetic, logical, relations) can be used to work with vectors as well.</p>
+</section>
+<section id="naming-vector-elements" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="naming-vector-elements"><span class="header-section-number">14.3</span> Naming vector elements</h2>
+<p>In order to understand what vectors mean and what data is often described, analysts need to sign this data.</p>
+<p>We will write down information about daily visits to the site by users during the week in the following way:</p>
+<div class="cell" data-execution_count="341">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Count of unique bank branch visits from Monday to Sunday</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1245</span>, <span class="dv">2112</span>, <span class="dv">1321</span>, <span class="dv">1231</span>, <span class="dv">2342</span>, <span class="dv">1718</span>, <span class="dv">1980</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, assign values to the days of the week using the <code>names ()</code> function:</p>
+<div class="cell" data-execution_count="342">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">names</span>(data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span>, <span class="st">"Saturday"</span>, <span class="st">"Sunday"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Monday   Tuesday Wednesday  Thursday    Friday  Saturday    Sunday 
+     1245      2112      1321      1231      2342      1718      1980 </code></pre>
+</div>
+</div>
+<p>Otherwise, this code could be written as follows:</p>
+<div class="cell" data-execution_count="343">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1245</span>, <span class="dv">2112</span>, <span class="dv">1321</span>, <span class="dv">1231</span>, <span class="dv">2342</span>, <span class="dv">1718</span>, <span class="dv">1980</span>)</span>
+<span id="cb17-2"><a href="#cb17-2"></a>days <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span>, <span class="st">"Saturday"</span>, <span class="st">"Sunday"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="fu">names</span>(data) <span class="ot">&lt;-</span> days</span>
+<span id="cb17-4"><a href="#cb17-4"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class="dl-inline"><dt>Monday</dt><dd>1245</dd><dt>Tuesday</dt><dd>2112</dd><dt>Wednesday</dt><dd>1321</dd><dt>Thursday</dt><dd>1231</dd><dt>Friday</dt><dd>2342</dd><dt>Saturday</dt><dd>1718</dd><dt>Sunday</dt><dd>1980</dd></dl>
+</div>
+</div>
+<p>If we need to get information, for example, about the name of the 4th element of the vector, we can use the code:</p>
+<div class="cell" data-execution_count="344">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">names</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>'Monday'</li><li>'Tuesday'</li><li>'Wednesday'</li><li>'Thursday'</li><li>'Friday'</li><li>'Saturday'</li><li>'Sunday'</li></ol>
+</div>
+</div>
+<p>The <code>names ()</code> function allows not only to set the values of names for vector elements, but also to obtain information about them.</p>
+<hr>
+</section>
+<section id="access-to-vector-elements" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="access-to-vector-elements"><span class="header-section-number">14.4</span> Access to vector elements</h2>
+<p>Indexing of elements inside the wind occurs from <code>1</code> to<code>n</code>, where <code>n</code> is the number of elements of the vector.</p>
+<div class="alert alert-info alert-sm">
+&nbsp; Note. In <code>R</code>, the indexing of array, vector, and all other collection types begins with <b>1</b>, not with <b class="text-danger" style="text-decoration: line-through">0</b>.
+</div>
+<p>Consider the previous example:</p>
+<div class="cell" data-execution_count="345">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1245</span>, <span class="dv">2112</span>, <span class="dv">1321</span>, <span class="dv">1231</span>, <span class="dv">2342</span>, <span class="dv">1718</span>, <span class="dv">1980</span>)</span>
+<span id="cb19-2"><a href="#cb19-2"></a>days <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span>, <span class="st">"Saturday"</span>, <span class="st">"Sunday"</span>)</span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="fu">names</span>(data) <span class="ot">&lt;-</span> days</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In order to record information only about site visitors on <code>Wednesday</code>, you need to use the operator <code>[]</code> and specify the index of the element in the array:</p>
+<div class="cell" data-execution_count="346">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>data[<span class="dv">3</span>]</span>
+<span id="cb20-2"><a href="#cb20-2"></a>data[<span class="fu">names</span>(data) <span class="sc">==</span> <span class="st">'Wednesday'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<strong>Wednesday:</strong> 1321
+</div>
+<div class="cell-output cell-output-display">
+<strong>Wednesday:</strong> 1321
+</div>
+</div>
+<p>If there is a need to get several elements of the vector that are out of order, you can do it like this:</p>
+<div class="cell" data-execution_count="347">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>some_days <span class="ot">&lt;-</span> data[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>)]</span>
+<span id="cb21-2"><a href="#cb21-2"></a>some_days</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class="dl-inline"><dt>Monday</dt><dd>1245</dd><dt>Tuesday</dt><dd>2112</dd><dt>Friday</dt><dd>2342</dd></dl>
+</div>
+</div>
+<p>From the example above it is clear that the indices of the vector <code>data</code> are another vector <code>c(1, 2, 5)</code>, so it can be declared as a separate variable:</p>
+<div class="cell" data-execution_count="348">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>indexes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>)</span>
+<span id="cb22-2"><a href="#cb22-2"></a>some_days <span class="ot">&lt;-</span> data[indexes]</span>
+<span id="cb22-3"><a href="#cb22-3"></a>some_days</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class="dl-inline"><dt>Monday</dt><dd>1245</dd><dt>Tuesday</dt><dd>2112</dd><dt>Friday</dt><dd>2342</dd></dl>
+</div>
+</div>
+<p>If there is a need to obtain information about several elements that are placed in a row, then for convenience (and in the case when such an array consists, for example, of 1000+ elements) use the operator <code>:</code>, for example:</p>
+<div class="cell" data-execution_count="349">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>working_days <span class="ot">&lt;-</span> data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb23-2"><a href="#cb23-2"></a>working_days</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class="dl-inline"><dt>Monday</dt><dd>1245</dd><dt>Tuesday</dt><dd>2112</dd><dt>Wednesday</dt><dd>1321</dd><dt>Thursday</dt><dd>1231</dd><dt>Friday</dt><dd>2342</dd></dl>
+</div>
+</div>
+<p>Thus, all working days of the week are selected for the <code>working_days</code> vector.</p>
+<hr>
+</section>
+<section id="useful-functions" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="useful-functions"><span class="header-section-number">14.5</span> Useful functions</h2>
+<p>Let’s take a look at some useful features that will simplify working with vectors. For further calculations we will use two vectors <code>A</code> and<code>B</code>:</p>
+<div class="cell" data-execution_count="350">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>A <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">2</span>)</span>
+<span id="cb24-2"><a href="#cb24-2"></a>B <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb24-3"><a href="#cb24-3"></a>A</span>
+<span id="cb24-4"><a href="#cb24-4"></a>B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>3</li><li>5</li><li>8</li><li>2</li><li>5</li><li>4</li><li>2</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>3</li><li>&lt;NA&gt;</li><li>1</li><li>&lt;NA&gt;</li><li>6</li><li>4</li><li>5</li></ol>
+</div>
+</div>
+<p><i class="fa fa-sticky-note-o"> </i> <strong>Function <code>sum()</code></strong>. This function is used to find the sum of the elements of the collection:</p>
+<div class="cell" data-execution_count="351">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">sum</span>(A)</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">sum</span>(B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+29
+</div>
+<div class="cell-output cell-output-display">
+&lt;NA&gt;
+</div>
+</div>
+<p>An interesting point is that in the presence of gaps in the data (value <code>NA</code>) the calculation of the amount is impossible. In this case, the functions can take the additional parameter <code>na.rm = T</code>, where<code>T</code> is an abbreviation of <code>TRUE</code>, which indicates the need to remove gaps in the data before performing the operation.</p>
+<p><em>Note. You should check the documentation for such a parameter in the function. If it is not present, then it is necessary to carry out cleaning in other ways before work with the data.</em></p>
+<div class="cell" data-execution_count="352">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">sum</span>(B, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+19
+</div>
+</div>
+<p><i class="fa fa-sticky-note-o"> </i> <strong>The <code>mean ()</code></strong> function is used to find the arithmetic mean of numbers:</p>
+<div class="cell" data-execution_count="353">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">mean</span>(A)</span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="fu">mean</span>(B, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+4.14285714285714
+</div>
+<div class="cell-output cell-output-display">
+3.8
+</div>
+</div>
+<p><i class="fa fa-sticky-note-o"> </i> <strong><code>min ()</code> and <code>max ()</code></strong> functions allow you to find the minimum and maximum values, respectively:</p>
+<div class="cell" data-execution_count="354">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">min</span>(A)</span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">max</span>(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+2
+</div>
+<div class="cell-output cell-output-display">
+8
+</div>
+</div>
+<p>Also to work in <code>R</code> there is a large number of built-in implemented functions to perform statistical, econometric and other research in the field of economics and beyond. Try the <code>sd()</code>, <code>cov()</code>, <code>cor()</code> functions.</p>
+<p><i class="fa fa-sticky-note-o"> </i> <strong>The <code>length ()</code></strong> function helps to determine the “length” of a vector, ie the number of elements:</p>
+<div class="cell" data-execution_count="355">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">length</span>(A)</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">length</span>(B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+7
+</div>
+<div class="cell-output cell-output-display">
+7
+</div>
+</div>
+<p><i class="fa fa-sticky-note-o"> </i> <strong>The <code>unique ()</code></strong> function identifies unique elements in an array:</p>
+<div class="cell" data-execution_count="356">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>A</span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="fu">unique</span>(A)</span>
+<span id="cb30-3"><a href="#cb30-3"></a></span>
+<span id="cb30-4"><a href="#cb30-4"></a><span class="fu">print</span>(<span class="st">"---"</span>)</span>
+<span id="cb30-5"><a href="#cb30-5"></a></span>
+<span id="cb30-6"><a href="#cb30-6"></a>B</span>
+<span id="cb30-7"><a href="#cb30-7"></a><span class="fu">unique</span>(B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>3</li><li>5</li><li>8</li><li>2</li><li>5</li><li>4</li><li>2</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>3</li><li>5</li><li>8</li><li>2</li><li>4</li></ol>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "---"</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>3</li><li>&lt;NA&gt;</li><li>1</li><li>&lt;NA&gt;</li><li>6</li><li>4</li><li>5</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>3</li><li>&lt;NA&gt;</li><li>1</li><li>6</li><li>4</li><li>5</li></ol>
+</div>
+</div>
+<p><i class="fa fa-sticky-note-o"> </i> <strong>The <code>intersect()</code></strong> function allows you to find common elements of two vectors, so for vectors <code>A</code> and<code>B</code> common values are <code>3</code>, <code>4</code> and<code>5</code>:</p>
+<div class="cell" data-execution_count="357">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>A</span>
+<span id="cb32-2"><a href="#cb32-2"></a>B</span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="fu">intersect</span>(A, B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>3</li><li>5</li><li>8</li><li>2</li><li>5</li><li>4</li><li>2</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>3</li><li>&lt;NA&gt;</li><li>1</li><li>&lt;NA&gt;</li><li>6</li><li>4</li><li>5</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>3</li><li>5</li><li>4</li></ol>
+</div>
+</div>
+<p>Conversely, <i class="fa fa-sticky-note-o"> </i> <strong>The <code>union()</code></strong> function allows you to combine elements of both sets / vectors:</p>
+<div class="cell" data-execution_count="358">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>A</span>
+<span id="cb33-2"><a href="#cb33-2"></a>B</span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="fu">union</span>(A, B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>3</li><li>5</li><li>8</li><li>2</li><li>5</li><li>4</li><li>2</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>3</li><li>&lt;NA&gt;</li><li>1</li><li>&lt;NA&gt;</li><li>6</li><li>4</li><li>5</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>3</li><li>5</li><li>8</li><li>2</li><li>4</li><li>&lt;NA&gt;</li><li>1</li><li>6</li></ol>
+</div>
+</div>
+<p>Try to understand the operation of the functions <code>setdiff()</code>, <code>setequal()</code>, <code>is.element()</code>.</p>
+<p><em>I recommend reading the short materials here: https://stat.ethz.ch/R-manual/R-devel/library/base/html/sets.html</em>.</p>
+<hr>
+</section>
+<section id="correction-of-data-na-nan-inf" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="correction-of-data-na-nan-inf"><span class="header-section-number">14.6</span> Correction of data (NA, NaN, Inf)</h2>
+<p>In the process of working with data there are problems associated with the correctness of their reading, conversion and operations on them. For example, an incorrect entry in the field of integer type <code>" +10 "</code> instead of <code>10</code> may result in conversion to<code>NaN</code> or division by <code>0</code> to<code>Inf</code>.</p>
+<p>Before using numerical and other data, the stage of cleaning and replacement of values is usually performed depending on the tasks of programming / research. In <code>R</code> the following types of the missed values are possible:</p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" checked=""><code>NA</code> ** - Not Available.</li>
+<li><input type="checkbox" disabled="" checked=""><code>NaN</code> ** - Not a Number.</li>
+<li><input type="checkbox" disabled="" checked=""><code>Inf</code> ** - Infinity (infinity, can be with the sign<code>+</code>and<code>-</code>).</li>
+</ul>
+<p>Let’s start with vector:</p>
+<div class="cell" data-execution_count="359">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>vtr <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="cn">NA</span>, <span class="cn">NaN</span>, <span class="cn">Inf</span>, <span class="dv">1223</span>, <span class="sc">-</span><span class="cn">Inf</span>, <span class="cn">NA</span>, <span class="dv">21</span>) </span>
+<span id="cb34-2"><a href="#cb34-2"></a>vtr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>1</li><li>-2</li><li>&lt;NA&gt;</li><li>NaN</li><li>Inf</li><li>1223</li><li>-Inf</li><li>&lt;NA&gt;</li><li>21</li></ol>
+</div>
+</div>
+<p>You can check a single value for a space with the functions <code>is.na()</code>, <code>is.nan()</code>, <code>is.infinite()</code>, <code>is.finite()</code>.</p>
+<div class="cell" data-execution_count="360">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">is.na</span>(vtr)</span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="fu">is.nan</span>(vtr)</span>
+<span id="cb35-3"><a href="#cb35-3"></a><span class="fu">is.infinite</span>(vtr)</span>
+<span id="cb35-4"><a href="#cb35-4"></a><span class="fu">is.finite</span>(vtr) <span class="co"># if infinite == TRUE =&gt; finite == FALSE :)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>FALSE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>FALSE</li><li>FALSE</li><li>FALSE</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>FALSE</li><li>FALSE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>FALSE</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li></ol>
+</div>
+</div>
+<p>Then replacement of values can be executed as follows (we will replace all <code>NA</code> and <code>Nan</code> with <code>1000</code>):</p>
+<div class="cell" data-execution_count="361">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>vtr[<span class="fu">is.na</span>(vtr)] <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>vtr</span>
+<span id="cb36-3"><a href="#cb36-3"></a></span>
+<span id="cb36-4"><a href="#cb36-4"></a><span class="do">## Nan also replaced with is.na()!!!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>1</li><li>-2</li><li>1000</li><li>1000</li><li>Inf</li><li>1223</li><li>-Inf</li><li>1000</li><li>21</li></ol>
+</div>
+</div>
+<p>And then replace <code>Inf</code> with the <code>maximum</code> value in the vector, and <code>-Inf</code> with the <code>minimum</code>:</p>
+<div class="cell" data-execution_count="362">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>vtr[<span class="fu">is.nan</span>(vtr)] <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>vtr</span>
+<span id="cb37-3"><a href="#cb37-3"></a></span>
+<span id="cb37-4"><a href="#cb37-4"></a>vtr[<span class="fu">is.na</span>(vtr)] <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb37-5"><a href="#cb37-5"></a>vtr</span>
+<span id="cb37-6"><a href="#cb37-6"></a></span>
+<span id="cb37-7"><a href="#cb37-7"></a><span class="do">## Nan also replaced with is.na()!!!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>1</li><li>-2</li><li>1000</li><li>1000</li><li>Inf</li><li>1223</li><li>-Inf</li><li>1000</li><li>21</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>1</li><li>-2</li><li>1000</li><li>1000</li><li>Inf</li><li>1223</li><li>-Inf</li><li>1000</li><li>21</li></ol>
+</div>
+</div>
+<p>And then replace <code>Inf</code> with the <code>maximum</code> value in the vector, and <code>-Inf</code> with the <code>minimum</code>:</p>
+<div class="cell" data-execution_count="363">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>vtr <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="cn">NA</span>, <span class="cn">NaN</span>, <span class="cn">Inf</span>, <span class="dv">1223</span>, <span class="sc">-</span><span class="cn">Inf</span>, <span class="cn">NA</span>, <span class="dv">21</span>) </span>
+<span id="cb38-2"><a href="#cb38-2"></a>vtr</span>
+<span id="cb38-3"><a href="#cb38-3"></a></span>
+<span id="cb38-4"><a href="#cb38-4"></a><span class="fu">is.infinite</span>(vtr)</span>
+<span id="cb38-5"><a href="#cb38-5"></a><span class="sc">!</span><span class="fu">is.infinite</span>(vtr)</span>
+<span id="cb38-6"><a href="#cb38-6"></a>vtr[<span class="sc">!</span><span class="fu">is.infinite</span>(vtr)]</span>
+<span id="cb38-7"><a href="#cb38-7"></a><span class="fu">max</span>(vtr[<span class="sc">!</span><span class="fu">is.infinite</span>(vtr)], <span class="at">na.rm =</span> T)</span>
+<span id="cb38-8"><a href="#cb38-8"></a></span>
+<span id="cb38-9"><a href="#cb38-9"></a><span class="fu">max</span>(vtr, <span class="at">na.rm =</span> T)</span>
+<span id="cb38-10"><a href="#cb38-10"></a><span class="fu">min</span>(vtr, <span class="at">na.rm =</span> T)</span>
+<span id="cb38-11"><a href="#cb38-11"></a></span>
+<span id="cb38-12"><a href="#cb38-12"></a>vtr[vtr <span class="sc">==</span> <span class="cn">Inf</span>] <span class="ot">&lt;-</span> <span class="fu">max</span>(vtr)</span>
+<span id="cb38-13"><a href="#cb38-13"></a>vtr[vtr <span class="sc">==</span> <span class="sc">-</span><span class="cn">Inf</span>] <span class="ot">&lt;-</span> <span class="fu">min</span>(vtr)</span>
+<span id="cb38-14"><a href="#cb38-14"></a>vtr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>1</li><li>-2</li><li>&lt;NA&gt;</li><li>NaN</li><li>Inf</li><li>1223</li><li>-Inf</li><li>&lt;NA&gt;</li><li>21</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>FALSE</li><li>FALSE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>FALSE</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>1</li><li>-2</li><li>&lt;NA&gt;</li><li>NaN</li><li>1223</li><li>&lt;NA&gt;</li><li>21</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+1223
+</div>
+<div class="cell-output cell-output-display">
+Inf
+</div>
+<div class="cell-output cell-output-display">
+-Inf
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>1</li><li>-2</li><li>&lt;NA&gt;</li><li>NaN</li><li>&lt;NA&gt;</li><li>1223</li><li>&lt;NA&gt;</li><li>&lt;NA&gt;</li><li>21</li></ol>
+</div>
+</div>
+<p>If you want to replace the value in <code>Inf</code> regardless of the sign, you can use<code>is.infinite()</code>.</p>
+<hr>
+</section>
+<section id="tasks" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="tasks"><span class="header-section-number">14.7</span> Tasks</h2>
+<section id="task-1" class="level3" data-number="14.7.1">
+<h3 data-number="14.7.1" class="anchored" data-anchor-id="task-1"><span class="header-section-number">14.7.1</span> Task 1</h3>
+<ol type="1">
+<li>Create vector of 10 random number in range <span class="math inline">\([10;100]\)</span></li>
+<li>Replace all odd (непарні) numbers with NA</li>
+<li>Replace all NA with average value</li>
+</ol>
+<p><strong>Solution</strong></p>
+<div class="cell" data-execution_count="364">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb39-2"><a href="#cb39-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>74</li><li>42</li><li>38</li><li>20</li><li>28</li><li>97</li><li>44</li><li>87</li><li>70</li><li>40</li></ol>
+</div>
+</div>
+<div class="cell" data-execution_count="365">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>x[x <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">!=</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>74</li><li>42</li><li>38</li><li>20</li><li>28</li><li>&lt;NA&gt;</li><li>44</li><li>&lt;NA&gt;</li><li>70</li><li>40</li></ol>
+</div>
+</div>
+<div class="cell" data-execution_count="366">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>x[<span class="fu">is.na</span>(x)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> T)</span>
+<span id="cb41-2"><a href="#cb41-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>74</li><li>42</li><li>38</li><li>20</li><li>28</li><li>44.5</li><li>44</li><li>44.5</li><li>70</li><li>40</li></ol>
+</div>
+</div>
+</section>
+</section>
+<section id="references" class="level2" data-number="14.8">
+<h2 data-number="14.8" class="anchored" data-anchor-id="references"><span class="header-section-number">14.8</span> References</h2>
+<ol type="1">
+<li>The Comprehensive R Archive NetworkRcran: Url: https://cran.r-project.org/</li>
+<li>RStudio official website. Url: https://rstudio.com/</li>
+<li>Anaconda official website. Url: https://www.anaconda.com/</li>
+<li>Introduction to R. Datacamp interactive course. Url: https://www.datacamp.com/courses/free-introduction-to-r</li>
+<li>Quanargo. Introduction to R. Url: https://www.quantargo.com/courses/course-r-introduction</li>
+<li>R Coder Project. Begin your data science career with R language! Url: https://r-coder.com/</li>
+<li>R Core Team (2019). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria.URL https://www.R-project.org/.</li>
+<li>A.B. Shipunov, EM Baldin, P.A. Volkova, VG Sufiyanov. Visual statistics. We use R! - M .: DMK Press, 2012. - 298 p .: ill.</li>
+<li>An Introduction to R. URL: https://cran.r-project.org/doc/manuals/r-release/R-intro.html</li>
+<li>R programming. https://www.datamentor.io/r-programming</li>
+<li>Learn R. R Functions. https://www.w3schools.com/r/r_functions.asp</li>
+<li>UC Business Analytics R Programming Guide. Managing Data Frames. http://uc-r.github.io/dataframes</li>
+<li>Learn R programming. R - Lists. https://www.tutorialspoint.com/r/r_lists.htm</li>
+<li>Tutorial on the R Apply Family by Carlo Fanara. https://www.datacamp.com/community/tutorials/r-tutorial-apply-family</li>
+</ol>
 
-</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -376,22 +1184,26 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="./13-r-functions.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Створення функцій</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./15-r-data.frames.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">[-] Дата-фрейми</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./15-r-matrices.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Матриці [EN]</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
-      <div class="nav-footer-center">Copyright 2022, Юрій Клебан</div>
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">Copyright 2023, Юрій Клебан</div>
   </div>
 </footer>
+
 
 
 </body></html>
