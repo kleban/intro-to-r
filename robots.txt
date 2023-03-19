@@ -1,1 +1,1 @@
-Sitemap: https://kleban.github.io/r-intro/sitemap.xml
+Sitemap: https://kleban.github.io/intro-to-r/sitemap.xml
