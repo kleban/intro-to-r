@@ -129,7 +129,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -322,6 +321,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Основи статистики в R</span>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tasks.html" class="sidebar-item-text sidebar-link">[-] Задачі для самостійної підготовки</a>
@@ -346,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#creating-matrices" id="toc-creating-matrices" class="nav-link active" data-scroll-target="#creating-matrices"><span class="toc-section-number">15.1</span>  Creating matrices</a></li>
+  <li><a href="#what-is-matrices" id="toc-what-is-matrices" class="nav-link active" data-scroll-target="#what-is-matrices"><span class="toc-section-number">15.1</span>  What is matrices?</a></li>
   <li><a href="#naming-matrices" id="toc-naming-matrices" class="nav-link" data-scroll-target="#naming-matrices"><span class="toc-section-number">15.2</span>  Naming matrices</a></li>
   <li><a href="#add-rows-and-columns" id="toc-add-rows-and-columns" class="nav-link" data-scroll-target="#add-rows-and-columns"><span class="toc-section-number">15.3</span>  Add rows and columns</a></li>
   <li><a href="#access-to-matrix-elements" id="toc-access-to-matrix-elements" class="nav-link" data-scroll-target="#access-to-matrix-elements"><span class="toc-section-number">15.4</span>  Access to matrix elements</a></li>
@@ -383,55 +385,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<ol type="1">
-<li>Create vector of 10 random number in range <span class="math inline">\([10;100]\)</span></li>
-<li>Replace all odd (непарні) numbers with NA</li>
-<li>Replace all NA with average value</li>
-</ol>
-<p><strong>Solution</strong></p>
-<div class="cell" data-execution_count="364">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">size =</span> <span class="dv">10</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class="list-inline"><li>74</li><li>42</li><li>38</li><li>20</li><li>28</li><li>97</li><li>44</li><li>87</li><li>70</li><li>40</li></ol>
-</div>
-</div>
-<div class="cell" data-execution_count="365">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>x[x <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">!=</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class="list-inline"><li>74</li><li>42</li><li>38</li><li>20</li><li>28</li><li>&lt;NA&gt;</li><li>44</li><li>&lt;NA&gt;</li><li>70</li><li>40</li></ol>
-</div>
-</div>
-<div class="cell" data-execution_count="366">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>x[<span class="fu">is.na</span>(x)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> T)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<style>
-.list-inline {list-style: none; margin:0; padding: 0}
-.list-inline>li {display: inline-block}
-.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
-</style>
-<ol class="list-inline"><li>74</li><li>42</li><li>38</li><li>20</li><li>28</li><li>44.5</li><li>44</li><li>44.5</li><li>70</li><li>40</li></ol>
-</div>
-</div>
-<hr>
-<section id="creating-matrices" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="creating-matrices"><span class="header-section-number">15.1</span> Creating matrices</h2>
+<section id="what-is-matrices" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="what-is-matrices"><span class="header-section-number">15.1</span> What is matrices?</h2>
 <p><strong>Matrix</strong> - a collection of elements of the same type (<code>numeric</code>,<code>character</code>, <code>logical</code>) with a fixed set of rows and columns. In the case where the matrix has only rows and columns, it is a two-dimensional data array.</p>
 <p>The matrix is created using the <code>matrix()</code> function:</p>
 <div class="cell" data-execution_count="367">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <table class="dataframe table table-sm table-striped">
@@ -445,11 +404,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>where <code>1:10</code> - a set of elements of the matrix, it can also be a pre-formed vector (entered, by calculation, from a file, etc.),<code>byrow = TRUE</code> - means that the elements in the matrix will be written in rows, so in the pedestrian line contains the value <code>1:5</code>, and the second<code>6:10</code> (if we need to write information on the lines then we should use <code>byrow = FASLE</code>),<code>nrow</code> - the number of rows of the matrix.</p>
 <div class="cell" data-execution_count="368">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>sales1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">15</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a>sales2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">15</span>, <span class="dv">21</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a>sales <span class="ot">&lt;-</span> <span class="fu">c</span>(sales1, sales2)</span>
-<span id="cb5-4"><a href="#cb5-4"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(sales, <span class="at">byrow=</span> T, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
-<span id="cb5-5"><a href="#cb5-5"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>sales1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">15</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>sales2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">15</span>, <span class="dv">21</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>sales <span class="ot">&lt;-</span> <span class="fu">c</span>(sales1, sales2)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(sales, <span class="at">byrow=</span> T, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <table class="dataframe table table-sm table-striped">
@@ -467,10 +426,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="15.2" class="anchored" data-anchor-id="naming-matrices"><span class="header-section-number">15.2</span> Naming matrices</h2>
 <p>To specify the names of rows and columns of the matrix, use the functions <code>rownames()</code> and <code>colnames()</code>:</p>
 <div class="cell" data-execution_count="369">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">rownames</span>(m) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"row1"</span>, <span class="st">"row2"</span>, <span class="st">"row3"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="fu">colnames</span>(m) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"c1"</span>, <span class="st">"c2"</span>, <span class="st">"c3"</span>)</span>
-<span id="cb6-4"><a href="#cb6-4"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">rownames</span>(m) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"row1"</span>, <span class="st">"row2"</span>, <span class="st">"row3"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">colnames</span>(m) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"c1"</span>, <span class="st">"c2"</span>, <span class="st">"c3"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <table class="dataframe table table-sm table-striped">
@@ -493,17 +452,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Special methods <code>cbind/rbind</code> are used to change the number of elements in rows and columns of matrices, as well as to quickly combine them.</p>
 <p><i class="fa fa-sticky-note-o"></i> ** The <code>cbind</code> ** function allows you to add one or more matrices and/or vectors behind one of the columns. That is, there is not a simple connection, but a comparison by key field. Consider an example:</p>
 <div class="cell" data-execution_count="370">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">101</span><span class="sc">:</span><span class="dv">103</span>), <span class="at">nrow =</span> <span class="dv">3</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">colnames</span>(m1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a>m2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">201</span><span class="sc">:</span><span class="dv">203</span>, <span class="dv">1001</span><span class="sc">:</span><span class="dv">1003</span>), <span class="at">nrow =</span> <span class="dv">3</span>)</span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">colnames</span>(m2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"C"</span>, <span class="st">"D"</span>)</span>
-<span id="cb7-6"><a href="#cb7-6"></a></span>
-<span id="cb7-7"><a href="#cb7-7"></a>m_bind <span class="ot">&lt;-</span> <span class="fu">cbind</span>(m1, m2)</span>
-<span id="cb7-8"><a href="#cb7-8"></a></span>
-<span id="cb7-9"><a href="#cb7-9"></a>m1</span>
-<span id="cb7-10"><a href="#cb7-10"></a>m2</span>
-<span id="cb7-11"><a href="#cb7-11"></a>m_bind</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">101</span><span class="sc">:</span><span class="dv">103</span>), <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">colnames</span>(m1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a>m2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">201</span><span class="sc">:</span><span class="dv">203</span>, <span class="dv">1001</span><span class="sc">:</span><span class="dv">1003</span>), <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">colnames</span>(m2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"C"</span>, <span class="st">"D"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a>m_bind <span class="ot">&lt;-</span> <span class="fu">cbind</span>(m1, m2)</span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a>m1</span>
+<span id="cb4-10"><a href="#cb4-10"></a>m2</span>
+<span id="cb4-11"><a href="#cb4-11"></a>m_bind</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <table class="dataframe table table-sm table-striped">
@@ -554,8 +513,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The elements of the matrix are accessed by the index of rows and columns. You can select ranges in a similar way to vectors.</p>
 <p>Let’s look at an example:</p>
 <div class="cell" data-execution_count="371">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
-<span id="cb8-2"><a href="#cb8-2"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">11</span><span class="sc">:</span><span class="dv">25</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <table class="dataframe table table-sm table-striped">
@@ -570,8 +529,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>To display the 10th element of the matrix, you can use the entries <em>(note that the account is from the right left corner of the columns)</em>:</p>
 <div class="cell" data-execution_count="372">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>m[<span class="dv">10</span>]    </span>
-<span id="cb9-2"><a href="#cb9-2"></a>m[[<span class="dv">10</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>m[<span class="dv">10</span>]    </span>
+<span id="cb6-2"><a href="#cb6-2"></a>m[[<span class="dv">10</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 20
 </div>
@@ -581,9 +540,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>To display the same element using row and column indexes, write as follows:</p>
 <div class="cell" data-execution_count="373">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Row #1</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="co"># Column #4</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a>m[<span class="dv">1</span>,<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Row #1</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co"># Column #4</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>m[<span class="dv">1</span>,<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 20
 </div>
@@ -591,15 +550,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Question</strong>: What record should you use ti get <strong>18</strong>?</p>
 <p><strong>Answer</strong>: <code>m[2,3]</code></p>
 <div class="cell" data-execution_count="374">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>m[<span class="dv">2</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>m[<span class="dv">2</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 18
 </div>
 </div>
 <p>If you want to output / use an entire row or a whole column, then the block with the index of unnecessary dimensionality can be left blank:</p>
 <div class="cell" data-execution_count="375">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>m[<span class="dv">1</span>, ] <span class="co"># first row only</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>m[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), ] <span class="co"># first and third row only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>m[<span class="dv">1</span>, ] <span class="co"># first row only</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>m[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), ] <span class="co"># first and third row only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <style>
 .list-inline {list-style: none; margin:0; padding: 0}
@@ -620,8 +579,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="cell" data-execution_count="376">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>m[, <span class="dv">1</span>] <span class="co"># first column only</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>m[, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)] <span class="co"># first and third column only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>m[, <span class="dv">1</span>] <span class="co"># first column only</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>m[, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)] <span class="co"># first and third column only</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <style>
 .list-inline {list-style: none; margin:0; padding: 0}
@@ -644,7 +603,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>You can also specify a list of rows and columns to be output / received simultaneously:</p>
 <div class="cell" data-execution_count="377">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>m[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>m[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <table class="dataframe table table-sm table-striped">
@@ -658,7 +617,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>You can exclude individual columns or rows by using indexes with minus signs (<code>-</code>):</p>
 <div class="cell" data-execution_count="378">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>m[<span class="sc">-</span><span class="dv">1</span>, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">:-</span><span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>m[<span class="sc">-</span><span class="dv">1</span>, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">:-</span><span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <table class="dataframe table table-sm table-striped">
@@ -678,14 +637,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 data-number="15.5.1" class="anchored" data-anchor-id="matrix-dimmentions"><span class="header-section-number">15.5.1</span> Matrix dimmentions</h3>
 <p>To obtain information about the dimensions of the table, there are special functions: <code>nrow()</code>, <code>ncol()</code>, <code>dim()</code>:</p>
 <div class="cell" data-execution_count="379">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Decalre matrix</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb16-3"><a href="#cb16-3"></a>m</span>
-<span id="cb16-4"><a href="#cb16-4"></a></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Rows:"</span>, <span class="fu">nrow</span>(m)))</span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Cols:"</span>, <span class="fu">ncol</span>(m)))</span>
-<span id="cb16-7"><a href="#cb16-7"></a></span>
-<span id="cb16-8"><a href="#cb16-8"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Dim:"</span>, <span class="fu">paste0</span>(<span class="fu">dim</span>(m), <span class="at">collapse =</span> <span class="st">" x "</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Decalre matrix</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb13-3"><a href="#cb13-3"></a>m</span>
+<span id="cb13-4"><a href="#cb13-4"></a></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Rows:"</span>, <span class="fu">nrow</span>(m)))</span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Cols:"</span>, <span class="fu">ncol</span>(m)))</span>
+<span id="cb13-7"><a href="#cb13-7"></a></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Dim:"</span>, <span class="fu">paste0</span>(<span class="fu">dim</span>(m), <span class="at">collapse =</span> <span class="st">" x "</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <table class="dataframe table table-sm table-striped">
@@ -707,8 +666,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Using <code>nrow()</code> and<code>ncol()</code> allows you to access the last row and column of the matrix, respectively:</p>
 <div class="cell" data-execution_count="380">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>m[<span class="fu">nrow</span>(m), ] <span class="co"># last row</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>m[, <span class="fu">ncol</span>(m)] <span class="co"># last colum</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>m[<span class="fu">nrow</span>(m), ] <span class="co"># last row</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>m[, <span class="fu">ncol</span>(m)] <span class="co"># last colum</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <style>
 .list-inline {list-style: none; margin:0; padding: 0}

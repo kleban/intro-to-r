@@ -321,6 +321,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">Основи статистики в R</span>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tasks.html" class="sidebar-item-text sidebar-link">[-] Задачі для самостійної підготовки</a>
@@ -345,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Зміст</h2>
    
   <ul>
-  <li><a href="#what-is-factor-in-r" id="toc-what-is-factor-in-r" class="nav-link active" data-scroll-target="#what-is-factor-in-r"><span class="toc-section-number">16.1</span>  What is factor in R</a></li>
+  <li><a href="#what-is-factor-in-r" id="toc-what-is-factor-in-r" class="nav-link active" data-scroll-target="#what-is-factor-in-r"><span class="toc-section-number">16.1</span>  What is factor in R?</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">16.2</span>  References</a></li>
   </ul>
 </nav>
@@ -376,7 +379,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <section id="what-is-factor-in-r" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="what-is-factor-in-r"><span class="header-section-number">16.1</span> What is factor in R</h2>
+<h2 data-number="16.1" class="anchored" data-anchor-id="what-is-factor-in-r"><span class="header-section-number">16.1</span> What is factor in R?</h2>
 <p>Factors in <code>R</code> programming allow you to represent a vector of values as categorical values, rather than just a set of text data or numbers. The advantage of the categorical data type is that the element can take only a limited number of values, and not any value that allows the data type.</p>
 <p>For example, a numeric vector may contain an infinitely large variation of the values <code>c(1, 0.021, 192.1444, ..., etc.)</code>, the character sets may also be different <code>c ("sdf &amp; Tg6","sdf * Y &amp; 65")</code>. The number of combinations of such vectors is very large.</p>
 <p>In the case of categories, we are talking about certain fixed values. A good example is forms that are filled out on sites with drop-down lists, where the user cannot enter a value, but only select from an existing list. So in the gender field there is usually a limited set of possible options: <code>Male</code>,<code>Female</code>, <code>Other</code>. The user can select only one of these values ​​and does not have the ability to enter something else <em>(this is an example, each resource can make different forms for users)</em>.</p>

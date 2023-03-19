@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/14-r-vectors.html</loc>
-    <lastmod>2023-03-18T12:14:02.510Z</lastmod>
+    <lastmod>2023-03-19T16:42:25.394Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/15-r-data.frames.html</loc>
@@ -86,10 +86,22 @@
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/18-r-lists.html</loc>
-    <lastmod>2023-03-18T12:14:06.943Z</lastmod>
+    <lastmod>2023-03-19T16:47:15.599Z</lastmod>
   </url>
   <url>
     <loc>https://kleban.github.io/r-intro/19-r-apply-functions.html</loc>
-    <lastmod>2023-03-18T12:14:11.914Z</lastmod>
+    <lastmod>2023-03-19T16:48:09.022Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kleban.github.io/r-intro/15-r-matrices.html</loc>
+    <lastmod>2023-03-19T16:43:07.759Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kleban.github.io/r-intro/16-r-factors.html</loc>
+    <lastmod>2023-03-19T16:45:53.533Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kleban.github.io/r-intro/17-r-data-frames.html</loc>
+    <lastmod>2023-03-19T16:46:36.936Z</lastmod>
   </url>
 </urlset>
