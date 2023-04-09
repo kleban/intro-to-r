@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Юрій Клебан">
+
+<title>Вступ до програмування в R - 21&nbsp; Статистичні функції</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./tasks.html" rel="next">
+<link href="./20-r-statistics-summary.html" rel="prev">
+<link href="./img/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Статистичні функції</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Вступ до програмування в R</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/kleban/intro-to-r/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Про посібник</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-intro.html" class="sidebar-item-text sidebar-link">Вступ</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Основи роботи в R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-what-is-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Що таке R?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-r-history.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Коротка історія мови R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-r-environment.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Вcтановлення та налаштування R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-r-help.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Документація та допомога</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-r-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Робота з пакетами</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-r-input-output.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Введення-виведення даних</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Базовий синтаксис R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-r-variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Оголошення та ініціалізація змінних</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-r-basic-types.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Базові типи даних <code>R</code></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-r-operators.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Арифметичні та логічні оператори</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-r-conditions-if-else.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Розгалуження</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-r-loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Цикли у R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-userful-math.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Корисні математичні функції</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-r-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Створення функцій</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Робота з даними у R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-r-vectors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Вектори [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-r-matrices.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Матриці [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-r-factors.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Фактори [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-r-data-frames.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Дата-фрейми [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-r-lists.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Списки [EN]</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-r-apply-functions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Функції <code>apply()</code> [EN]</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Основи статистики в R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-r-statistics-summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Огляд набору даних</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-r-statistics-functions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Статистичні функції</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tasks.html" class="sidebar-item-text sidebar-link">[-] Задачі для самостійної підготовки</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solved-tasks.html" class="sidebar-item-text sidebar-link">[-] Приклади розв’язання задач</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Список використаних джерел</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Зміст</h2>
+   
+  <ul>
+  <li><a href="#завантаження-даних" id="toc-завантаження-даних" class="nav-link active" data-scroll-target="#завантаження-даних"><span class="toc-section-number">21.1</span>  Завантаження даних</a></li>
+  <li><a href="#перелік-функцій" id="toc-перелік-функцій" class="nav-link" data-scroll-target="#перелік-функцій"><span class="toc-section-number">21.2</span>  Перелік функцій</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Статистичні функції</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Автор</div>
+    <div class="quarto-title-meta-contents">
+             <p>Юрій Клебан </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="завантаження-даних" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="завантаження-даних"><span class="header-section-number">21.1</span> Завантаження даних</h2>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>?msleep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+
+<table width="100%" summary="page for msleep {ggplot2}"><tbody><tr><td>msleep {ggplot2}</td><td style="text-align: right;">R Documentation</td></tr></tbody></table>
+
+<h2 class="anchored">An updated and expanded version of the mammals sleep dataset</h2>
+
+<h3 class="anchored">Description</h3>
+
+<p>This is an updated and expanded version of the mammals sleep dataset.
+Updated sleep times and weights were taken from V. M. Savage and G. B.
+West. A quantitative, theoretical framework for understanding mammalian
+sleep. Proceedings of the National Academy of Sciences, 104 (3):1051-1056,
+2007.
+</p>
+
+
+<h3 class="anchored">Usage</h3>
+
+<pre>msleep
+</pre>
+
+
+<h3 class="anchored">Format</h3>
+
+<p>A data frame with 83 rows and 11 variables:
+</p>
+
+<dl>
+<dt>name</dt><dd><p>common name</p>
+</dd>
+<dt>genus</dt><dd></dd>
+<dt>vore</dt><dd><p>carnivore, omnivore or herbivore?</p>
+</dd>
+<dt>order</dt><dd></dd>
+<dt>conservation</dt><dd><p>the conservation status of the animal</p>
+</dd>
+<dt>sleep_total</dt><dd><p>total amount of sleep, in hours</p>
+</dd>
+<dt>sleep_rem</dt><dd><p>rem sleep, in hours</p>
+</dd>
+<dt>sleep_cycle</dt><dd><p>length of sleep cycle, in hours</p>
+</dd>
+<dt>awake</dt><dd><p>amount of time spent awake, in hours</p>
+</dd>
+<dt>brainwt</dt><dd><p>brain weight in kilograms</p>
+</dd>
+<dt>bodywt</dt><dd><p>body weight in kilograms</p>
+</dd>
+</dl>
+
+
+
+<h3 class="anchored">Details</h3>
+
+<p>Additional variables order, conservation status and vore were added from
+wikipedia.
+</p>
+
+<hr><div style="text-align: center;">[Package <em>ggplot2</em> version 3.3.6 ]</div>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">head</span>(msleep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<table class="dataframe table table-sm table-striped">
+<caption>A tibble: 6 × 11</caption>
+<thead>
+    <tr><th scope="col">name</th><th scope="col">genus</th><th scope="col">vore</th><th scope="col">order</th><th scope="col">conservation</th><th scope="col">sleep_total</th><th scope="col">sleep_rem</th><th scope="col">sleep_cycle</th><th scope="col">awake</th><th scope="col">brainwt</th><th scope="col">bodywt</th></tr>
+    <tr><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><td>Cheetah                   </td><td>Acinonyx  </td><td>carni</td><td>Carnivora   </td><td>lc          </td><td>12.1</td><td> NA</td><td>       NA</td><td>11.9</td><td>     NA</td><td> 50.000</td></tr>
+    <tr><td>Owl monkey                </td><td>Aotus     </td><td>omni </td><td>Primates    </td><td>NA          </td><td>17.0</td><td>1.8</td><td>       NA</td><td> 7.0</td><td>0.01550</td><td>  0.480</td></tr>
+    <tr><td>Mountain beaver           </td><td>Aplodontia</td><td>herbi</td><td>Rodentia    </td><td>nt          </td><td>14.4</td><td>2.4</td><td>       NA</td><td> 9.6</td><td>     NA</td><td>  1.350</td></tr>
+    <tr><td>Greater short-tailed shrew</td><td>Blarina   </td><td>omni </td><td>Soricomorpha</td><td>lc          </td><td>14.9</td><td>2.3</td><td>0.1333333</td><td> 9.1</td><td>0.00029</td><td>  0.019</td></tr>
+    <tr><td>Cow                       </td><td>Bos       </td><td>herbi</td><td>Artiodactyla</td><td>domesticated</td><td> 4.0</td><td>0.7</td><td>0.6666667</td><td>20.0</td><td>0.42300</td><td>600.000</td></tr>
+    <tr><td>Three-toed sloth          </td><td>Bradypus  </td><td>herbi</td><td>Pilosa      </td><td>NA          </td><td>14.4</td><td>2.2</td><td>0.7666667</td><td> 9.6</td><td>     NA</td><td>  3.850</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+</section>
+<section id="перелік-функцій" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="перелік-функцій"><span class="header-section-number">21.2</span> Перелік функцій</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Функція</th>
+<th>Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>range()</code></td>
+<td>Range (minimum and maximum) of vector</td>
+</tr>
+<tr class="even">
+<td><code>min()</code>, <code>max()</code></td>
+<td>Minimum or maximum of vector</td>
+</tr>
+<tr class="odd">
+<td><code>mean()</code>, <code>median()</code></td>
+<td>Mean or median of vector</td>
+</tr>
+<tr class="even">
+<td><code>sd()</code></td>
+<td>Standard deviation of vector</td>
+</tr>
+<tr class="odd">
+<td><code>table()</code></td>
+<td>Number of observations per level for a factor vector</td>
+</tr>
+<tr class="even">
+<td><code>cor()</code></td>
+<td>Determine correlation(s) between two or more vectors</td>
+</tr>
+<tr class="odd">
+<td><code>summary()</code></td>
+<td>Summary statistics, depends on class</td>
+</tr>
+</tbody>
+</table>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">summary</span>(msleep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>     name              genus               vore              order          
+ Length:83          Length:83          Length:83          Length:83         
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+ conservation        sleep_total      sleep_rem      sleep_cycle    
+ Length:83          Min.   : 1.90   Min.   :0.100   Min.   :0.1167  
+ Class :character   1st Qu.: 7.85   1st Qu.:0.900   1st Qu.:0.1833  
+ Mode  :character   Median :10.10   Median :1.500   Median :0.3333  
+                    Mean   :10.43   Mean   :1.875   Mean   :0.4396  
+                    3rd Qu.:13.75   3rd Qu.:2.400   3rd Qu.:0.5792  
+                    Max.   :19.90   Max.   :6.600   Max.   :1.5000  
+                                    NA's   :22      NA's   :51      
+     awake          brainwt            bodywt        
+ Min.   : 4.10   Min.   :0.00014   Min.   :   0.005  
+ 1st Qu.:10.25   1st Qu.:0.00290   1st Qu.:   0.174  
+ Median :13.90   Median :0.01240   Median :   1.670  
+ Mean   :13.57   Mean   :0.28158   Mean   : 166.136  
+ 3rd Qu.:16.15   3rd Qu.:0.12550   3rd Qu.:  41.750  
+ Max.   :22.10   Max.   :5.71200   Max.   :6654.000  
+                 NA's   :27                          </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>msleep <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(bodywt)) <span class="sc">|&gt;</span> <span class="fu">tail</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<table class="dataframe table table-sm table-striped">
+<caption>A tibble: 6 × 11</caption>
+<thead>
+    <tr><th scope="col">name</th><th scope="col">genus</th><th scope="col">vore</th><th scope="col">order</th><th scope="col">conservation</th><th scope="col">sleep_total</th><th scope="col">sleep_rem</th><th scope="col">sleep_cycle</th><th scope="col">awake</th><th scope="col">brainwt</th><th scope="col">bodywt</th></tr>
+    <tr><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><td>Big brown bat             </td><td>Eptesicus </td><td>insecti</td><td>Chiroptera  </td><td>lc</td><td>19.7</td><td>3.9</td><td>0.1166667</td><td> 4.3</td><td>0.00030</td><td>0.023</td></tr>
+    <tr><td>House mouse               </td><td>Mus       </td><td>herbi  </td><td>Rodentia    </td><td>nt</td><td>12.5</td><td>1.4</td><td>0.1833333</td><td>11.5</td><td>0.00040</td><td>0.022</td></tr>
+    <tr><td>Deer mouse                </td><td>Peromyscus</td><td>NA     </td><td>Rodentia    </td><td>NA</td><td>11.5</td><td> NA</td><td>       NA</td><td>12.5</td><td>     NA</td><td>0.021</td></tr>
+    <tr><td>Greater short-tailed shrew</td><td>Blarina   </td><td>omni   </td><td>Soricomorpha</td><td>lc</td><td>14.9</td><td>2.3</td><td>0.1333333</td><td> 9.1</td><td>0.00029</td><td>0.019</td></tr>
+    <tr><td>Little brown bat          </td><td>Myotis    </td><td>insecti</td><td>Chiroptera  </td><td>NA</td><td>19.9</td><td>2.0</td><td>0.2000000</td><td> 4.1</td><td>0.00025</td><td>0.010</td></tr>
+    <tr><td>Lesser short-tailed shrew </td><td>Cryptotis </td><td>omni   </td><td>Soricomorpha</td><td>lc</td><td> 9.1</td><td>1.4</td><td>0.1500000</td><td>14.9</td><td>0.00014</td><td>0.005</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">mean</span>(msleep<span class="sc">$</span>sleep_total)      <span class="co"># Mean</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">median</span>(msleep<span class="sc">$</span>sleep_total)    <span class="co"># Median</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="fu">max</span>(msleep<span class="sc">$</span>sleep_total)       <span class="co"># Max</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="fu">min</span>(msleep<span class="sc">$</span>sleep_total)       <span class="co"># Min</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">sd</span>(msleep<span class="sc">$</span>sleep_total)        <span class="co"># Standard deviation</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="fu">var</span>(msleep<span class="sc">$</span>sleep_total)       <span class="co"># Variance</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="fu">quantile</span>(msleep<span class="sc">$</span>sleep_total)  <span class="co"># Various quantiles</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+10.433734939759
+</div>
+<div class="cell-output cell-output-display">
+10.1
+</div>
+<div class="cell-output cell-output-display">
+19.9
+</div>
+<div class="cell-output cell-output-display">
+1.9
+</div>
+<div class="cell-output cell-output-display">
+4.45035699057058
+</div>
+<div class="cell-output cell-output-display">
+19.8056773435204
+</div>
+<div class="cell-output cell-output-display">
+<style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class="dl-inline"><dt>0%</dt><dd>1.9</dd><dt>25%</dt><dd>7.85</dd><dt>50%</dt><dd>10.1</dd><dt>75%</dt><dd>13.75</dd><dt>100%</dt><dd>19.9</dd></dl>
+</div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>msleep[msleep<span class="sc">$</span>sleep_total <span class="sc">&gt;</span> <span class="dv">8</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<table class="dataframe table table-sm table-striped">
+<caption>A tibble: 61 × 11</caption>
+<thead>
+    <tr><th scope="col">name</th><th scope="col">genus</th><th scope="col">vore</th><th scope="col">order</th><th scope="col">conservation</th><th scope="col">sleep_total</th><th scope="col">sleep_rem</th><th scope="col">sleep_cycle</th><th scope="col">awake</th><th scope="col">brainwt</th><th scope="col">bodywt</th></tr>
+    <tr><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><td>Cheetah                   </td><td>Acinonyx     </td><td>carni  </td><td>Carnivora      </td><td>lc          </td><td>12.1</td><td> NA</td><td>       NA</td><td>11.9</td><td>     NA</td><td>50.000</td></tr>
+    <tr><td>Owl monkey                </td><td>Aotus        </td><td>omni   </td><td>Primates       </td><td>NA          </td><td>17.0</td><td>1.8</td><td>       NA</td><td> 7.0</td><td>0.01550</td><td> 0.480</td></tr>
+    <tr><td>Mountain beaver           </td><td>Aplodontia   </td><td>herbi  </td><td>Rodentia       </td><td>nt          </td><td>14.4</td><td>2.4</td><td>       NA</td><td> 9.6</td><td>     NA</td><td> 1.350</td></tr>
+    <tr><td>Greater short-tailed shrew</td><td>Blarina      </td><td>omni   </td><td>Soricomorpha   </td><td>lc          </td><td>14.9</td><td>2.3</td><td>0.1333333</td><td> 9.1</td><td>0.00029</td><td> 0.019</td></tr>
+    <tr><td>Three-toed sloth          </td><td>Bradypus     </td><td>herbi  </td><td>Pilosa         </td><td>NA          </td><td>14.4</td><td>2.2</td><td>0.7666667</td><td> 9.6</td><td>     NA</td><td> 3.850</td></tr>
+    <tr><td>Northern fur seal         </td><td>Callorhinus  </td><td>carni  </td><td>Carnivora      </td><td>vu          </td><td> 8.7</td><td>1.4</td><td>0.3833333</td><td>15.3</td><td>     NA</td><td>20.490</td></tr>
+    <tr><td>Dog                       </td><td>Canis        </td><td>carni  </td><td>Carnivora      </td><td>domesticated</td><td>10.1</td><td>2.9</td><td>0.3333333</td><td>13.9</td><td>0.07000</td><td>14.000</td></tr>
+    <tr><td>Guinea pig                </td><td>Cavis        </td><td>herbi  </td><td>Rodentia       </td><td>domesticated</td><td> 9.4</td><td>0.8</td><td>0.2166667</td><td>14.6</td><td>0.00550</td><td> 0.728</td></tr>
+    <tr><td>Grivet                    </td><td>Cercopithecus</td><td>omni   </td><td>Primates       </td><td>lc          </td><td>10.0</td><td>0.7</td><td>       NA</td><td>14.0</td><td>     NA</td><td> 4.750</td></tr>
+    <tr><td>Chinchilla                </td><td>Chinchilla   </td><td>herbi  </td><td>Rodentia       </td><td>domesticated</td><td>12.5</td><td>1.5</td><td>0.1166667</td><td>11.5</td><td>0.00640</td><td> 0.420</td></tr>
+    <tr><td>Star-nosed mole           </td><td>Condylura    </td><td>omni   </td><td>Soricomorpha   </td><td>lc          </td><td>10.3</td><td>2.2</td><td>       NA</td><td>13.7</td><td>0.00100</td><td> 0.060</td></tr>
+    <tr><td>African giant pouched rat </td><td>Cricetomys   </td><td>omni   </td><td>Rodentia       </td><td>NA          </td><td> 8.3</td><td>2.0</td><td>       NA</td><td>15.7</td><td>0.00660</td><td> 1.000</td></tr>
+    <tr><td>Lesser short-tailed shrew </td><td>Cryptotis    </td><td>omni   </td><td>Soricomorpha   </td><td>lc          </td><td> 9.1</td><td>1.4</td><td>0.1500000</td><td>14.9</td><td>0.00014</td><td> 0.005</td></tr>
+    <tr><td>Long-nosed armadillo      </td><td>Dasypus      </td><td>carni  </td><td>Cingulata      </td><td>lc          </td><td>17.4</td><td>3.1</td><td>0.3833333</td><td> 6.6</td><td>0.01080</td><td> 3.500</td></tr>
+    <tr><td>North American Opossum    </td><td>Didelphis    </td><td>omni   </td><td>Didelphimorphia</td><td>lc          </td><td>18.0</td><td>4.9</td><td>0.3333333</td><td> 6.0</td><td>0.00630</td><td> 1.700</td></tr>
+    <tr><td>Big brown bat             </td><td>Eptesicus    </td><td>insecti</td><td>Chiroptera     </td><td>lc          </td><td>19.7</td><td>3.9</td><td>0.1166667</td><td> 4.3</td><td>0.00030</td><td> 0.023</td></tr>
+    <tr><td>European hedgehog         </td><td>Erinaceus    </td><td>omni   </td><td>Erinaceomorpha </td><td>lc          </td><td>10.1</td><td>3.5</td><td>0.2833333</td><td>13.9</td><td>0.00350</td><td> 0.770</td></tr>
+    <tr><td>Patas monkey              </td><td>Erythrocebus </td><td>omni   </td><td>Primates       </td><td>lc          </td><td>10.9</td><td>1.1</td><td>       NA</td><td>13.1</td><td>0.11500</td><td>10.000</td></tr>
+    <tr><td>Western american chipmunk </td><td>Eutamias     </td><td>herbi  </td><td>Rodentia       </td><td>NA          </td><td>14.9</td><td> NA</td><td>       NA</td><td> 9.1</td><td>     NA</td><td> 0.071</td></tr>
+    <tr><td>Domestic cat              </td><td>Felis        </td><td>carni  </td><td>Carnivora      </td><td>domesticated</td><td>12.5</td><td>3.2</td><td>0.4166667</td><td>11.5</td><td>0.02560</td><td> 3.300</td></tr>
+    <tr><td>Galago                    </td><td>Galago       </td><td>omni   </td><td>Primates       </td><td>NA          </td><td> 9.8</td><td>1.1</td><td>0.5500000</td><td>14.2</td><td>0.00500</td><td> 0.200</td></tr>
+    <tr><td>Mongoose lemur            </td><td>Lemur        </td><td>herbi  </td><td>Primates       </td><td>vu          </td><td> 9.5</td><td>0.9</td><td>       NA</td><td>14.5</td><td>     NA</td><td> 1.670</td></tr>
+    <tr><td>Thick-tailed opposum      </td><td>Lutreolina   </td><td>carni  </td><td>Didelphimorphia</td><td>lc          </td><td>19.4</td><td>6.6</td><td>       NA</td><td> 4.6</td><td>     NA</td><td> 0.370</td></tr>
+    <tr><td>Macaque                   </td><td>Macaca       </td><td>omni   </td><td>Primates       </td><td>NA          </td><td>10.1</td><td>1.2</td><td>0.7500000</td><td>13.9</td><td>0.17900</td><td> 6.800</td></tr>
+    <tr><td>Mongolian gerbil          </td><td>Meriones     </td><td>herbi  </td><td>Rodentia       </td><td>lc          </td><td>14.2</td><td>1.9</td><td>       NA</td><td> 9.8</td><td>     NA</td><td> 0.053</td></tr>
+    <tr><td>Golden hamster            </td><td>Mesocricetus </td><td>herbi  </td><td>Rodentia       </td><td>en          </td><td>14.3</td><td>3.1</td><td>0.2000000</td><td> 9.7</td><td>0.00100</td><td> 0.120</td></tr>
+    <tr><td>Vole                      </td><td>Microtus     </td><td>herbi  </td><td>Rodentia       </td><td>NA          </td><td>12.8</td><td> NA</td><td>       NA</td><td>11.2</td><td>     NA</td><td> 0.035</td></tr>
+    <tr><td>House mouse               </td><td>Mus          </td><td>herbi  </td><td>Rodentia       </td><td>nt          </td><td>12.5</td><td>1.4</td><td>0.1833333</td><td>11.5</td><td>0.00040</td><td> 0.022</td></tr>
+    <tr><td>Little brown bat          </td><td>Myotis       </td><td>insecti</td><td>Chiroptera     </td><td>NA          </td><td>19.9</td><td>2.0</td><td>0.2000000</td><td> 4.1</td><td>0.00025</td><td> 0.010</td></tr>
+    <tr><td>Round-tailed muskrat      </td><td>Neofiber     </td><td>herbi  </td><td>Rodentia       </td><td>nt          </td><td>14.6</td><td> NA</td><td>       NA</td><td> 9.4</td><td>     NA</td><td> 0.266</td></tr>
+    <tr><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+    <tr><td>Northern grasshopper mouse    </td><td>Onychomys   </td><td>carni  </td><td>Rodentia      </td><td>lc          </td><td>14.5</td><td> NA</td><td>       NA</td><td> 9.5</td><td>     NA</td><td>  0.028</td></tr>
+    <tr><td>Rabbit                        </td><td>Oryctolagus </td><td>herbi  </td><td>Lagomorpha    </td><td>domesticated</td><td> 8.4</td><td>0.9</td><td>0.4166667</td><td>15.6</td><td>0.01210</td><td>  2.500</td></tr>
+    <tr><td>Chimpanzee                    </td><td>Pan         </td><td>omni   </td><td>Primates      </td><td>NA          </td><td> 9.7</td><td>1.4</td><td>1.4166667</td><td>14.3</td><td>0.44000</td><td> 52.200</td></tr>
+    <tr><td>Tiger                         </td><td>Panthera    </td><td>carni  </td><td>Carnivora     </td><td>en          </td><td>15.8</td><td> NA</td><td>       NA</td><td> 8.2</td><td>     NA</td><td>162.564</td></tr>
+    <tr><td>Jaguar                        </td><td>Panthera    </td><td>carni  </td><td>Carnivora     </td><td>nt          </td><td>10.4</td><td> NA</td><td>       NA</td><td>13.6</td><td>0.15700</td><td>100.000</td></tr>
+    <tr><td>Lion                          </td><td>Panthera    </td><td>carni  </td><td>Carnivora     </td><td>vu          </td><td>13.5</td><td> NA</td><td>       NA</td><td>10.5</td><td>     NA</td><td>161.499</td></tr>
+    <tr><td>Baboon                        </td><td>Papio       </td><td>omni   </td><td>Primates      </td><td>NA          </td><td> 9.4</td><td>1.0</td><td>0.6666667</td><td>14.6</td><td>0.18000</td><td> 25.235</td></tr>
+    <tr><td>Desert hedgehog               </td><td>Paraechinus </td><td>NA     </td><td>Erinaceomorpha</td><td>lc          </td><td>10.3</td><td>2.7</td><td>       NA</td><td>13.7</td><td>0.00240</td><td>  0.550</td></tr>
+    <tr><td>Potto                         </td><td>Perodicticus</td><td>omni   </td><td>Primates      </td><td>lc          </td><td>11.0</td><td> NA</td><td>       NA</td><td>13.0</td><td>     NA</td><td>  1.100</td></tr>
+    <tr><td>Deer mouse                    </td><td>Peromyscus  </td><td>NA     </td><td>Rodentia      </td><td>NA          </td><td>11.5</td><td> NA</td><td>       NA</td><td>12.5</td><td>     NA</td><td>  0.021</td></tr>
+    <tr><td>Phalanger                     </td><td>Phalanger   </td><td>NA     </td><td>Diprotodontia </td><td>NA          </td><td>13.7</td><td>1.8</td><td>       NA</td><td>10.3</td><td>0.01140</td><td>  1.620</td></tr>
+    <tr><td>Potoroo                       </td><td>Potorous    </td><td>herbi  </td><td>Diprotodontia </td><td>NA          </td><td>11.1</td><td>1.5</td><td>       NA</td><td>12.9</td><td>     NA</td><td>  1.100</td></tr>
+    <tr><td>Giant armadillo               </td><td>Priodontes  </td><td>insecti</td><td>Cingulata     </td><td>en          </td><td>18.1</td><td>6.1</td><td>       NA</td><td> 5.9</td><td>0.08100</td><td> 60.000</td></tr>
+    <tr><td>Laboratory rat                </td><td>Rattus      </td><td>herbi  </td><td>Rodentia      </td><td>lc          </td><td>13.0</td><td>2.4</td><td>0.1833333</td><td>11.0</td><td>0.00190</td><td>  0.320</td></tr>
+    <tr><td>African striped mouse         </td><td>Rhabdomys   </td><td>omni   </td><td>Rodentia      </td><td>NA          </td><td> 8.7</td><td> NA</td><td>       NA</td><td>15.3</td><td>     NA</td><td>  0.044</td></tr>
+    <tr><td>Squirrel monkey               </td><td>Saimiri     </td><td>omni   </td><td>Primates      </td><td>NA          </td><td> 9.6</td><td>1.4</td><td>       NA</td><td>14.4</td><td>0.02000</td><td>  0.743</td></tr>
+    <tr><td>Eastern american mole         </td><td>Scalopus    </td><td>insecti</td><td>Soricomorpha  </td><td>lc          </td><td> 8.4</td><td>2.1</td><td>0.1666667</td><td>15.6</td><td>0.00120</td><td>  0.075</td></tr>
+    <tr><td>Cotton rat                    </td><td>Sigmodon    </td><td>herbi  </td><td>Rodentia      </td><td>NA          </td><td>11.3</td><td>1.1</td><td>0.1500000</td><td>12.7</td><td>0.00118</td><td>  0.148</td></tr>
+    <tr><td>Mole rat                      </td><td>Spalax      </td><td>NA     </td><td>Rodentia      </td><td>NA          </td><td>10.6</td><td>2.4</td><td>       NA</td><td>13.4</td><td>0.00300</td><td>  0.122</td></tr>
+    <tr><td>Arctic ground squirrel        </td><td>Spermophilus</td><td>herbi  </td><td>Rodentia      </td><td>lc          </td><td>16.6</td><td> NA</td><td>       NA</td><td> 7.4</td><td>0.00570</td><td>  0.920</td></tr>
+    <tr><td>Thirteen-lined ground squirrel</td><td>Spermophilus</td><td>herbi  </td><td>Rodentia      </td><td>lc          </td><td>13.8</td><td>3.4</td><td>0.2166667</td><td>10.2</td><td>0.00400</td><td>  0.101</td></tr>
+    <tr><td>Golden-mantled ground squirrel</td><td>Spermophilus</td><td>herbi  </td><td>Rodentia      </td><td>lc          </td><td>15.9</td><td>3.0</td><td>       NA</td><td> 8.1</td><td>     NA</td><td>  0.205</td></tr>
+    <tr><td>Musk shrew                    </td><td>Suncus      </td><td>NA     </td><td>Soricomorpha  </td><td>NA          </td><td>12.8</td><td>2.0</td><td>0.1833333</td><td>11.2</td><td>0.00033</td><td>  0.048</td></tr>
+    <tr><td>Pig                           </td><td>Sus         </td><td>omni   </td><td>Artiodactyla  </td><td>domesticated</td><td> 9.1</td><td>2.4</td><td>0.5000000</td><td>14.9</td><td>0.18000</td><td> 86.250</td></tr>
+    <tr><td>Short-nosed echidna           </td><td>Tachyglossus</td><td>insecti</td><td>Monotremata   </td><td>NA          </td><td> 8.6</td><td> NA</td><td>       NA</td><td>15.4</td><td>0.02500</td><td>  4.500</td></tr>
+    <tr><td>Eastern american chipmunk     </td><td>Tamias      </td><td>herbi  </td><td>Rodentia      </td><td>NA          </td><td>15.8</td><td> NA</td><td>       NA</td><td> 8.2</td><td>     NA</td><td>  0.112</td></tr>
+    <tr><td>Tenrec                        </td><td>Tenrec      </td><td>omni   </td><td>Afrosoricida  </td><td>NA          </td><td>15.6</td><td>2.3</td><td>       NA</td><td> 8.4</td><td>0.00260</td><td>  0.900</td></tr>
+    <tr><td>Tree shrew                    </td><td>Tupaia      </td><td>omni   </td><td>Scandentia    </td><td>NA          </td><td> 8.9</td><td>2.6</td><td>0.2333333</td><td>15.1</td><td>0.00250</td><td>  0.104</td></tr>
+    <tr><td>Arctic fox                    </td><td>Vulpes      </td><td>carni  </td><td>Carnivora     </td><td>NA          </td><td>12.5</td><td> NA</td><td>       NA</td><td>11.5</td><td>0.04450</td><td>  3.380</td></tr>
+    <tr><td>Red fox                       </td><td>Vulpes      </td><td>carni  </td><td>Carnivora     </td><td>NA          </td><td> 9.8</td><td>2.4</td><td>0.3500000</td><td>14.2</td><td>0.05040</td><td>  4.230</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">sum</span>(msleep<span class="sc">$</span>sleep_total <span class="sc">&gt;</span> <span class="dv">8</span>)   <span class="co"># Frequency (count)</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">mean</span>(msleep<span class="sc">$</span>sleep_total <span class="sc">&gt;</span> <span class="dv">8</span>)  <span class="co"># Relative frequency (proportion)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+61
+</div>
+<div class="cell-output cell-output-display">
+0.734939759036145
+</div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">mean</span>(msleep<span class="sc">$</span>sleep_rem)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+&lt;NA&gt;
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">mean</span>(msleep<span class="sc">$</span>sleep_rem, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+1.87540983606557
+</div>
+</div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">cor</span>(msleep<span class="sc">$</span>sleep_total, msleep<span class="sc">$</span>sleep_rem)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+&lt;NA&gt;
+</div>
+</div>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">cor</span>(msleep<span class="sc">$</span>sleep_total, msleep<span class="sc">$</span>sleep_rem, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+0.751754999228714
+</div>
+</div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">table</span>(msleep<span class="sc">$</span>vore)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>
+  carni   herbi insecti    omni 
+     19      32       5      20 </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">proportions</span>(<span class="fu">table</span>(msleep<span class="sc">$</span>vore))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>
+     carni      herbi    insecti       omni 
+0.25000000 0.42105263 0.06578947 0.26315789 </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Counts:</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">table</span>(msleep<span class="sc">$</span>vore, msleep<span class="sc">$</span>conservation)</span>
+<span id="cb18-3"><a href="#cb18-3"></a></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co"># Proportions, per row:</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="fu">proportions</span>(<span class="fu">table</span>(msleep<span class="sc">$</span>vore, msleep<span class="sc">$</span>conservation),</span>
+<span id="cb18-6"><a href="#cb18-6"></a>            <span class="at">margin =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>         
+          cd domesticated en lc nt vu
+  carni    1            2  1  5  1  4
+  herbi    1            7  2 10  3  3
+  insecti  0            0  1  2  0  0
+  omni     0            1  0  8  0  0</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>         
+                  cd domesticated         en         lc         nt         vu
+  carni   0.07142857   0.14285714 0.07142857 0.35714286 0.07142857 0.28571429
+  herbi   0.03846154   0.26923077 0.07692308 0.38461538 0.11538462 0.11538462
+  insecti 0.00000000   0.00000000 0.33333333 0.66666667 0.00000000 0.00000000
+  omni    0.00000000   0.11111111 0.00000000 0.88888889 0.00000000 0.00000000</code></pre>
+</div>
+</div>
+<p>TASK</p>
+<p>Load ggplot2 using library(ggplot2) if you have not already done so. Then do the following:</p>
+<p>View the documentation for the diamonds data and read about different the variables.</p>
+<p>Check the data structures: how many observations and variables are there and what type of variables (numeric, categorical, etc.) are there?</p>
+<p>Compute summary statistics (means, median, min, max, counts for categorical variables). Are there any missing values?</p>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total, msleep<span class="sc">$</span>sleep_rem)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="21-r-statistics-functions_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">ggplot</span>(msleep, <span class="fu">aes</span>(<span class="at">x =</span> sleep_total, <span class="at">y =</span> sleep_rem)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning message:
+"Removed 22 rows containing missing values (geom_point)."</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="21-r-statistics-functions_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total, msleep<span class="sc">$</span>sleep_rem, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">grid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="21-r-statistics-functions_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">ggplot</span>(msleep, <span class="fu">aes</span>(sleep_total, sleep_rem, <span class="at">colour =</span> vore)) <span class="sc">+</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>      <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>      <span class="fu">xlab</span>(<span class="st">"Total sleep time (h)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning message:
+"Removed 22 rows containing missing values (geom_point)."</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="21-r-statistics-functions_files/figure-html/cell-20-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./20-r-statistics-summary.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Огляд набору даних</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./tasks.html" class="pagination-link">
+        <span class="nav-page-text">[-] Задачі для самостійної підготовки</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">Copyright 2023, Юрій Клебан</div>
+  </div>
+</footer>
+
+
+
+</body></html>
