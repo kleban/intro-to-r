@@ -94,7 +94,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./tasks.html" rel="next">
+<link href="./22-r-correlation.html" rel="next">
 <link href="./20-r-statistics-summary.html" rel="prev">
 <link href="./img/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -339,6 +339,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./21-r-statistics-functions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Статистичні функції</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-r-correlation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Кореляційний аналіз</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -367,6 +372,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#завантаження-даних" id="toc-завантаження-даних" class="nav-link active" data-scroll-target="#завантаження-даних"><span class="toc-section-number">21.1</span>  Завантаження даних</a></li>
   <li><a href="#перелік-функцій" id="toc-перелік-функцій" class="nav-link" data-scroll-target="#перелік-функцій"><span class="toc-section-number">21.2</span>  Перелік функцій</a></li>
+  <li><a href="#інші-методи" id="toc-інші-методи" class="nav-link" data-scroll-target="#інші-методи"><span class="toc-section-number">21.3</span>  Інші методи</a>
+  <ul class="collapse">
+  <li><a href="#описова-статистика-для-групи" id="toc-описова-статистика-для-групи" class="nav-link" data-scroll-target="#описова-статистика-для-групи"><span class="toc-section-number">21.3.1</span>  Описова статистика для групи</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -791,7 +800,7 @@ wikipedia.
 <p><img src="21-r-statistics-functions_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="51">
+<div class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">ggplot</span>(msleep, <span class="fu">aes</span>(sleep_total, sleep_rem, <span class="at">colour =</span> vore)) <span class="sc">+</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>      <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb25-3"><a href="#cb25-3"></a>      <span class="fu">xlab</span>(<span class="st">"Total sleep time (h)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -803,8 +812,143 @@ wikipedia.
 <p><img src="21-r-statistics-functions_files/figure-html/cell-20-output-2.png" class="img-fluid"></p>
 </div>
 </div>
+<hr>
+</section>
+<section id="інші-методи" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="інші-методи"><span class="header-section-number">21.3</span> Інші методи</h2>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="fu">describe</span>(msleep)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<table class="dataframe table table-sm table-striped">
+<caption>A psych: 11 × 13</caption>
+<thead>
+    <tr><th></th><th scope="col">vars</th><th scope="col">n</th><th scope="col">mean</th><th scope="col">sd</th><th scope="col">median</th><th scope="col">trimmed</th><th scope="col">mad</th><th scope="col">min</th><th scope="col">max</th><th scope="col">range</th><th scope="col">skew</th><th scope="col">kurtosis</th><th scope="col">se</th></tr>
+    <tr><th></th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><th scope="row">name*</th><td> 1</td><td>83</td><td> 42.0000000</td><td> 24.1039416</td><td>42.0000000</td><td>42.00000000</td><td>31.13460000</td><td>1.0000000</td><td>  83.000</td><td>  82.000000</td><td> 0.00000000</td><td>-1.2434523</td><td> 2.64575131</td></tr>
+    <tr><th scope="row">genus*</th><td> 2</td><td>83</td><td> 40.2530120</td><td> 22.5176589</td><td>41.0000000</td><td>40.44776119</td><td>28.16940000</td><td>1.0000000</td><td>  77.000</td><td>  76.000000</td><td>-0.05639775</td><td>-1.2520857</td><td> 2.47163416</td></tr>
+    <tr><th scope="row">vore*</th><td> 3</td><td>76</td><td>  2.3421053</td><td>  1.1260862</td><td> 2.0000000</td><td> 2.30645161</td><td> 1.48260000</td><td>1.0000000</td><td>   4.000</td><td>   3.000000</td><td> 0.41786835</td><td>-1.2479239</td><td> 0.12917095</td></tr>
+    <tr><th scope="row">order*</th><td> 4</td><td>83</td><td> 11.2771084</td><td>  6.1511713</td><td>15.0000000</td><td>11.53731343</td><td> 4.44780000</td><td>1.0000000</td><td>  19.000</td><td>  18.000000</td><td>-0.37717341</td><td>-1.5460760</td><td> 0.67517877</td></tr>
+    <tr><th scope="row">conservation*</th><td> 5</td><td>54</td><td>  3.7777778</td><td>  1.3127340</td><td> 4.0000000</td><td> 3.77272727</td><td> 0.74130000</td><td>1.0000000</td><td>   6.000</td><td>   5.000000</td><td>-0.13522194</td><td>-0.5048689</td><td> 0.17864046</td></tr>
+    <tr><th scope="row">sleep_total</th><td> 6</td><td>83</td><td> 10.4337349</td><td>  4.4503570</td><td>10.1000000</td><td>10.38358209</td><td> 5.04084000</td><td>1.9000000</td><td>  19.900</td><td>  18.000000</td><td> 0.05230964</td><td>-0.7074466</td><td> 0.48849014</td></tr>
+    <tr><th scope="row">sleep_rem</th><td> 7</td><td>61</td><td>  1.8754098</td><td>  1.2982881</td><td> 1.5000000</td><td> 1.70816327</td><td> 1.18608000</td><td>0.1000000</td><td>   6.600</td><td>   6.500000</td><td> 1.46161590</td><td> 2.7342493</td><td> 0.16622875</td></tr>
+    <tr><th scope="row">sleep_cycle</th><td> 8</td><td>32</td><td>  0.4395833</td><td>  0.3586801</td><td> 0.3333333</td><td> 0.37628205</td><td> 0.23474500</td><td>0.1166667</td><td>   1.500</td><td>   1.383333</td><td> 1.49498905</td><td> 1.5749153</td><td> 0.06340629</td></tr>
+    <tr><th scope="row">awake</th><td> 9</td><td>83</td><td> 13.5674699</td><td>  4.4520852</td><td>13.9000000</td><td>13.61716418</td><td> 5.04084000</td><td>4.1000000</td><td>  22.100</td><td>  18.000000</td><td>-0.05133450</td><td>-0.7073810</td><td> 0.48867984</td></tr>
+    <tr><th scope="row">brainwt</th><td>10</td><td>56</td><td>  0.2815814</td><td>  0.9764137</td><td> 0.0124000</td><td> 0.06602717</td><td> 0.01784309</td><td>0.0001400</td><td>   5.712</td><td>   5.711860</td><td> 4.62750025</td><td>20.9636487</td><td> 0.13047877</td></tr>
+    <tr><th scope="row">bodywt</th><td>11</td><td>83</td><td>166.1363494</td><td>786.8397316</td><td> 1.6700000</td><td>20.48743284</td><td> 2.43442920</td><td>0.0050000</td><td>6654.000</td><td>6653.995000</td><td> 7.10016261</td><td>53.7180357</td><td>86.36688086</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">describe</span>(</span>
+<span id="cb28-2"><a href="#cb28-2"></a>          msleep, </span>
+<span id="cb28-3"><a href="#cb28-3"></a>          <span class="at">fast =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb28-4"><a href="#cb28-4"></a>          <span class="at">quant =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.75</span>), </span>
+<span id="cb28-5"><a href="#cb28-5"></a>          <span class="at">ranges =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb28-6"><a href="#cb28-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<table class="dataframe table table-sm table-striped">
+<caption>A psych: 11 × 8</caption>
+<thead>
+    <tr><th></th><th scope="col">vars</th><th scope="col">n</th><th scope="col">mean</th><th scope="col">sd</th><th scope="col">se</th><th scope="col">Q0.25</th><th scope="col">Q0.5</th><th scope="col">Q0.75</th></tr>
+    <tr><th></th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><th scope="row">name</th><td> 1</td><td>83</td><td>        NaN</td><td>         NA</td><td>         NA</td><td>        NA</td><td>        NA</td><td>        NA</td></tr>
+    <tr><th scope="row">genus</th><td> 2</td><td>83</td><td>        NaN</td><td>         NA</td><td>         NA</td><td>        NA</td><td>        NA</td><td>        NA</td></tr>
+    <tr><th scope="row">vore</th><td> 3</td><td>76</td><td>        NaN</td><td>         NA</td><td>         NA</td><td>        NA</td><td>        NA</td><td>        NA</td></tr>
+    <tr><th scope="row">order</th><td> 4</td><td>83</td><td>        NaN</td><td>         NA</td><td>         NA</td><td>        NA</td><td>        NA</td><td>        NA</td></tr>
+    <tr><th scope="row">conservation</th><td> 5</td><td>54</td><td>        NaN</td><td>         NA</td><td>         NA</td><td>        NA</td><td>        NA</td><td>        NA</td></tr>
+    <tr><th scope="row">sleep_total</th><td> 6</td><td>83</td><td> 10.4337349</td><td>  4.4503570</td><td> 0.48849014</td><td> 7.8500000</td><td>10.1000000</td><td>13.7500000</td></tr>
+    <tr><th scope="row">sleep_rem</th><td> 7</td><td>61</td><td>  1.8754098</td><td>  1.2982881</td><td> 0.16622875</td><td> 0.9000000</td><td> 1.5000000</td><td> 2.4000000</td></tr>
+    <tr><th scope="row">sleep_cycle</th><td> 8</td><td>32</td><td>  0.4395833</td><td>  0.3586801</td><td> 0.06340629</td><td> 0.1833333</td><td> 0.3333333</td><td> 0.5791667</td></tr>
+    <tr><th scope="row">awake</th><td> 9</td><td>83</td><td> 13.5674699</td><td>  4.4520852</td><td> 0.48867984</td><td>10.2500000</td><td>13.9000000</td><td>16.1500000</td></tr>
+    <tr><th scope="row">brainwt</th><td>10</td><td>56</td><td>  0.2815814</td><td>  0.9764137</td><td> 0.13047877</td><td> 0.0029000</td><td> 0.0124000</td><td> 0.1255000</td></tr>
+    <tr><th scope="row">bodywt</th><td>11</td><td>83</td><td>166.1363494</td><td>786.8397316</td><td>86.36688086</td><td> 0.1740000</td><td> 1.6700000</td><td>41.7500000</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="описова-статистика-для-групи" class="level3" data-number="21.3.1">
+<h3 data-number="21.3.1" class="anchored" data-anchor-id="описова-статистика-для-групи"><span class="header-section-number">21.3.1</span> Описова статистика для групи</h3>
+<div class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">describe</span>(</span>
+<span id="cb29-2"><a href="#cb29-2"></a>          msleep <span class="sc">~</span> vore,</span>
+<span id="cb29-3"><a href="#cb29-3"></a>          <span class="at">fast =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb29-4"><a href="#cb29-4"></a>          <span class="at">quant =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.75</span>), </span>
+<span id="cb29-5"><a href="#cb29-5"></a>          <span class="at">ranges =</span> <span class="cn">FALSE</span>, <span class="at">omit =</span> <span class="cn">TRUE</span></span>
+<span id="cb29-6"><a href="#cb29-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>
+ Descriptive statistics by group 
+vore: carni
+             vars  n  mean     sd    se Q0.25  Q0.5 Q0.75
+name            1 19   NaN     NA    NA    NA    NA    NA
+genus           2 19   NaN     NA    NA    NA    NA    NA
+vore            3 19   NaN     NA    NA    NA    NA    NA
+order           4 19   NaN     NA    NA    NA    NA    NA
+conservation    5 14   NaN     NA    NA    NA    NA    NA
+sleep_total     6 19 10.38   4.67  1.07  6.25 10.40 13.00
+sleep_rem       7 10  2.29   1.86  0.59  1.33  1.95  3.05
+sleep_cycle     8  5  0.37   0.03  0.01  0.35  0.38  0.38
+awake           9 19 13.63   4.68  1.07 11.00 13.60 17.75
+brainwt        10  9  0.08   0.10  0.03  0.02  0.04  0.07
+bodywt         11 19 90.75 182.07 41.77  3.34 20.49 93.00
+------------------------------------------------------------ 
+vore: herbi
+             vars  n   mean      sd     se Q0.25  Q0.5 Q0.75
+name            1 32    NaN      NA     NA    NA    NA    NA
+genus           2 32    NaN      NA     NA    NA    NA    NA
+vore            3 32    NaN      NA     NA    NA    NA    NA
+order           4 32    NaN      NA     NA    NA    NA    NA
+conservation    5 26    NaN      NA     NA    NA    NA    NA
+sleep_total     6 32   9.51    4.88   0.86  4.30 10.30 14.22
+sleep_rem       7 24   1.37    0.92   0.19  0.60  0.95  1.97
+sleep_cycle     8 12   0.42    0.32   0.09  0.18  0.22  0.69
+awake           9 32  14.49    4.88   0.86  9.78 13.70 19.70
+brainwt        10 20   0.62    1.57   0.35  0.01  0.01  0.24
+bodywt         11 32 366.88 1244.08 219.92  0.19  1.23 39.00
+------------------------------------------------------------ 
+vore: insecti
+             vars n  mean    sd    se Q0.25  Q0.5 Q0.75
+name            1 5   NaN    NA    NA    NA    NA    NA
+genus           2 5   NaN    NA    NA    NA    NA    NA
+vore            3 5   NaN    NA    NA    NA    NA    NA
+order           4 5   NaN    NA    NA    NA    NA    NA
+conservation    5 3   NaN    NA    NA    NA    NA    NA
+sleep_total     6 5 14.94  5.92  2.65  8.60 18.10 19.70
+sleep_rem       7 4  3.52  1.93  0.96  2.08  3.00  4.45
+sleep_cycle     8 3  0.16  0.04  0.02  0.14  0.17  0.18
+awake           9 5  9.06  5.92  2.65  4.30  5.90 15.40
+brainwt        10 5  0.02  0.03  0.02  0.00  0.00  0.03
+bodywt         11 5 12.92 26.39 11.80  0.02  0.07  4.50
+------------------------------------------------------------ 
+vore: omni
+             vars  n  mean    sd   se Q0.25  Q0.5 Q0.75
+name            1 20   NaN    NA   NA    NA    NA    NA
+genus           2 20   NaN    NA   NA    NA    NA    NA
+vore            3 20   NaN    NA   NA    NA    NA    NA
+order           4 20   NaN    NA   NA    NA    NA    NA
+conservation    5  9   NaN    NA   NA    NA    NA    NA
+sleep_total     6 20 10.93  2.95 0.66  9.10  9.90 10.93
+sleep_rem       7 18  1.96  1.01 0.24  1.25  1.85  2.30
+sleep_cycle     8 11  0.59  0.47 0.14  0.26  0.50  0.71
+awake           9 20 13.07  2.95 0.66 13.07 14.10 14.90
+brainwt        10 17  0.15  0.32 0.08  0.00  0.01  0.18
+bodywt         11 20 12.72 24.69 5.52  0.18  0.95  7.60</code></pre>
+</div>
+</div>
+<hr>
+<p>** Refs **</p>
+<p>https://www.agroninfo.com/computing-summary-statistics-in-r/</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -913,8 +1057,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./tasks.html" class="pagination-link">
-        <span class="nav-page-text">[-] Задачі для самостійної підготовки</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./22-r-correlation.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Кореляційний аналіз</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
